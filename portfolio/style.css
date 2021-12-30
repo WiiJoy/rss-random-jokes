@@ -1,5 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Merriweather:wght@700&display=swap');
+
+* {
+    font-family: 'Inter', sans-serif;
+    /* font-family: 'Merriweather', serif; */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #fff;
+}
+
 .container {
-    max-width: 1440px;
+    width: 1440px;
     margin: 0 auto;
     padding: 0 20px;
+}
+
+.container_header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: url('./assets/img/bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center 0;
+}
+
+.header {
+    height: 90px;
+    font-size: 20px;
+}
+
+.header__nav {
+    margin-left: auto;
+}
+
+.menu {
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-left: auto;
+}
+
+.menu__item {
+    padding: 0 30px;
+}
+
+.menu__link {
+    text-decoration: none;
+    color: #fff;
+    transition: .3s;
+}
+
+.menu__link:hover {
+    color: #bdae82;
+}
+
+.lang__hover {
+    color: #bdae82;
 }
