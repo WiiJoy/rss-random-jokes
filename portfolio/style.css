@@ -177,3 +177,19 @@ body {
 .portfolio__item {
     margin-top: 25px;
 }
+
+.video__wrap {
+    background: url(./assets/img/video-player.jpg);
+    background-repeat: no-repeat;
+    background-position: center 0;
+    height: 705px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.video__button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
