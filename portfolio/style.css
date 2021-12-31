@@ -290,12 +290,17 @@ body {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    width: 182px;
 }
 
 .footer__year {
     margin: 0 20px;
 }
 
-.footer__social {
-    margin-left: 20px;
+.footer__socials {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+    width: 188px;
 }
