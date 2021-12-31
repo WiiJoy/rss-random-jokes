@@ -112,6 +112,13 @@ body {
     cursor: pointer;
 }
 
+.button_inactive {
+    margin-top: 0;
+    background-color: black;
+    color: #bdae82;
+    border: #bdae82 1px solid;
+}
+
 .divider {
     height: 2px;
     width: 274px;
@@ -152,4 +159,21 @@ body {
     text-align: center;
     font-size: 18px;
     line-height: 36px;
+}
+
+.portfolio__buttons {
+    margin: 0 auto;
+    width: 897px;
+}
+
+.portfolio__wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 35px;
+}
+
+.portfolio__item {
+    margin-top: 25px;
 }
