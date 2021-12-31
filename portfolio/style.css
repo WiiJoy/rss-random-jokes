@@ -179,7 +179,7 @@ body {
 }
 
 .video__wrap {
-    background: url(./assets/img/video-player.jpg);
+    background: url('./assets/img/video-player.jpg');
     background-repeat: no-repeat;
     background-position: center 0;
     height: 705px;
