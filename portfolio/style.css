@@ -92,9 +92,25 @@ body {
     color: #bdae82;
 }
 
+.title_contacts {
+    margin-bottom: 40px;
+}
+
 .section {
     box-sizing: border-box;
     padding: 100px 20px 0 20px;
+}
+
+.section_contacts {
+    background: url('./assets/img/contacts.jpg');
+    background-repeat: no-repeat;
+    background-position: center 0;
+    margin-top: 100px;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    height: 700px;
 }
 
 .section_hero {
@@ -132,6 +148,10 @@ body {
 
 .button_price {
     margin-top: 20px;
+}
+
+.button_contacts {
+    margin-top: 30px;
 }
 
 .divider {
@@ -231,4 +251,26 @@ body {
     font-size: 18px;
     line-height: 36px;
     text-align: center;
+}
+
+.contacts__input {
+    display: block;
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid #BDAE82;
+    box-sizing: border-box;
+    height: 50px;
+    width: 450px;
+    margin-top: 20px;
+    padding: 5px 20px;
+}
+
+.contacts__input::placeholder {
+    font-size: 20px;
+    line-height: 40px;
+    color: #BDAE82;
+}
+
+.contacts__text {
+    height: 100px;
+    resize: none;
 }
