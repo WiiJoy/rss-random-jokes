@@ -81,6 +81,17 @@ body {
     color: #bdae82;
 }
 
+.title_price {
+    font-size: 28px;
+    line-height: 56px;
+}
+
+.title_cost {
+    font-size: 24px;
+    line-height: 48px;
+    color: #bdae82;
+}
+
 .section {
     box-sizing: border-box;
     padding: 100px 20px 0 20px;
@@ -117,6 +128,10 @@ body {
     background-color: black;
     color: #bdae82;
     border: #bdae82 1px solid;
+}
+
+.button_price {
+    margin-top: 20px;
 }
 
 .divider {
@@ -192,4 +207,28 @@ body {
     background: none;
     border: none;
     cursor: pointer;
+}
+
+.price__wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price__item {
+    box-sizing: border-box;
+    padding: 43px;
+    width: 450px;
+    height: 505px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border: #bdae82 3px solid;
+}
+
+.price__descr_par {
+    font-size: 18px;
+    line-height: 36px;
+    text-align: center;
 }
