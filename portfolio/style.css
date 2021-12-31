@@ -33,6 +33,13 @@ body {
     background-position: center 0;
 }
 
+.container_footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 20px;
+}
+
 .header {
     height: 90px;
 }
@@ -53,13 +60,13 @@ body {
     padding: 0 30px;
 }
 
-.menu__link {
+.menu__link, .footer__link {
     text-decoration: none;
     color: #fff;
     transition: .3s;
 }
 
-.menu__link:hover {
+.menu__link:hover, .footer__link:hover {
     color: #bdae82;
 }
 
@@ -273,4 +280,22 @@ body {
 .contacts__text {
     height: 100px;
     resize: none;
+}
+
+.footer {
+    height: 150px;
+}
+
+.footer__github {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.footer__year {
+    margin: 0 20px;
+}
+
+.footer__social {
+    margin-left: 20px;
 }
