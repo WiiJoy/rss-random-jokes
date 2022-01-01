@@ -198,6 +198,10 @@ body {
     border: var(--color-gold) 1px solid;
 }
 
+.button_active {
+    cursor: default;
+}
+
 .button_price {
     margin-top: 20px;
 }
@@ -208,6 +212,10 @@ body {
 
 .button:hover {
     color: var(--color-white);
+}
+
+.button_active:hover {
+    color: var(--color-black);
 }
 
 .divider {
