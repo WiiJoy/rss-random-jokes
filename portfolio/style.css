@@ -45,6 +45,7 @@ body {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    box-sizing: border-box;
     padding: 20px;
     background: url('./assets/img/bg.jpg');
     background-repeat: no-repeat;
@@ -55,6 +56,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-sizing: border-box;
     padding: 50px 20px;
 }
 
@@ -84,13 +86,12 @@ body {
 .menu {
     list-style-type: none;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-around;
     align-items: center;
+    box-sizing: border-box;
+    padding: 0 15px;
+    width: 500px;
     margin-left: auto;
-}
-
-.menu__item {
-    padding: 0 30px;
 }
 
 .menu__link, .footer__link {
@@ -104,6 +105,11 @@ body {
     color: var(--color-gold);
 }
 
+.header__lang {
+    width: 70px;
+    text-align: justify;
+}
+
 .lang__hover {
     color: var(--color-gold);
     cursor: default;
@@ -112,6 +118,14 @@ body {
 .lang__hover_inactive {
     transition: .5s;
     cursor: pointer;
+}
+
+.lang_en {
+    margin-right: 11px;
+}
+
+.lang_ru {
+    margin-left: 10px;
 }
 
 .lang__hover_inactive:hover {
@@ -144,6 +158,7 @@ body {
 }
 
 .title_contacts {
+    margin: 0;
     margin-bottom: 40px;
 }
 
@@ -199,6 +214,7 @@ body {
 }
 
 .button_active {
+    margin-top: 0;
     cursor: default;
 }
 
@@ -258,6 +274,7 @@ body {
     text-align: center;
     font-size: var(--font-descr);
     line-height: var(--lh-font-descr);
+    margin-bottom: 10px;
 }
 
 .portfolio__buttons {
@@ -307,7 +324,7 @@ body {
 
 .price__item {
     box-sizing: border-box;
-    padding: 43px;
+    padding: 40px;
     width: 450px;
     height: 505px;
     display: flex;
@@ -331,7 +348,7 @@ body {
     height: 50px;
     width: 450px;
     margin-top: 20px;
-    padding: 5px 20px;
+    padding: 3px 18px;
     cursor: text;
     transition: .5s;
     color: var(--color-gold);
@@ -369,6 +386,7 @@ body {
 
 .footer {
     height: 150px;
+    line-height: 50px;
 }
 
 .footer__github {
@@ -376,6 +394,7 @@ body {
     justify-content: flex-start;
     align-items: center;
     width: 182px;
+    height: 50px;
 }
 
 .footer__year {
@@ -388,6 +407,7 @@ body {
     align-items: center;
     list-style-type: none;
     width: 188px;
+    height: 50px;
 }
 
 .footer__social {
