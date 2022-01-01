@@ -1,11 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Merriweather:wght@700&display=swap');
 
+:root {
+    --color-gold: #bdae82;
+    --color-black: #000;
+    --color-white: #fff;
+    --h1-title: 60px;
+    --h2-title: 40px;
+    --font-default: 20px;
+    --font-descr: 18px;
+    --lh-h2-title: 80px;
+    --lh-font-default: 40px;
+    --lh-font-descr: 36px;
+  }
+
 * {
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
-    font-size: 20px;
-    line-height: 40px;
+    font-size: var(--font-default);
+    line-height: var(--lh-font-default);
     cursor: default;
 }
 
@@ -14,11 +27,11 @@ html {
 }
 
 body {
-    background-color: black;
+    background-color: var(--color-black);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    color: #fff;
+    color: var(--color-white);
 }
 
 .container {
@@ -82,17 +95,17 @@ body {
 
 .menu__link, .footer__link {
     text-decoration: none;
-    color: #fff;
+    color: var(--color-white);
     cursor: pointer;
     transition: .5s;
 }
 
 .menu__link:hover, .footer__link:hover {
-    color: #bdae82;
+    color: var(--color-gold);
 }
 
 .lang__hover {
-    color: #bdae82;
+    color: var(--color-gold);
     cursor: default;
 }
 
@@ -102,11 +115,11 @@ body {
 }
 
 .lang__hover_inactive:hover {
-    color: #bdae82;
+    color: var(--color-gold);
 }
 
 .title {
-    font-size: 60px;
+    font-size: var(--h1-title);
     font-weight: 700;
     font-family: 'Merriweather', serif;
     line-height: 120px;
@@ -114,9 +127,9 @@ body {
 
 .title_h2 {
     margin: 0 20px;
-    font-size: 40px;
+    font-size: var(--h2-title);
     line-height: 80px;
-    color: #bdae82;
+    color: var(--color-gold);
 }
 
 .title_price {
@@ -127,7 +140,7 @@ body {
 .title_cost {
     font-size: 24px;
     line-height: 48px;
-    color: #bdae82;
+    color: var(--color-gold);
 }
 
 .title_contacts {
@@ -172,7 +185,7 @@ body {
     margin-top: 25px;
     width: 220px;
     height: 55px;
-    background-color: #bdae82;
+    background-color: var(--color-gold);
     border: none;
     cursor: pointer;
     transition: .5s;
@@ -180,9 +193,9 @@ body {
 
 .button_inactive {
     margin-top: 0;
-    background-color: black;
-    color: #bdae82;
-    border: #bdae82 1px solid;
+    background-color: var(--color-black);
+    color: var(--color-gold);
+    border: var(--color-gold) 1px solid;
 }
 
 .button_price {
@@ -194,13 +207,13 @@ body {
 }
 
 .button:hover {
-    color: #fff;
+    color: var(--color-white);
 }
 
 .divider {
     height: 2px;
     width: 274px;
-    background-color: #bdae82;
+    background-color: var(--color-gold);
 }
 
 .section-title {
@@ -235,8 +248,8 @@ body {
 
 .skills__descr {
     text-align: center;
-    font-size: 18px;
-    line-height: 36px;
+    font-size: var(--font-descr);
+    line-height: var(--lh-font-descr);
 }
 
 .portfolio__buttons {
@@ -293,19 +306,19 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    border: #bdae82 3px solid;
+    border: var(--color-gold) 3px solid;
 }
 
 .price__descr_par {
-    font-size: 18px;
-    line-height: 36px;
+    font-size: var(--font-descr);
+    line-height: var(--lh-font-descr);
     text-align: center;
 }
 
 .contacts__input {
     display: block;
     background: rgba(0, 0, 0, 0.5);
-    border: 2px solid #BDAE82;
+    border: 2px solid var(--color-gold);
     box-sizing: border-box;
     height: 50px;
     width: 450px;
@@ -313,13 +326,13 @@ body {
     padding: 5px 20px;
     cursor: text;
     transition: .5s;
-    color: #bdae82;
+    color: var(--color-gold);
 }
 
 .contacts__input::placeholder {
-    font-size: 20px;
-    line-height: 40px;
-    color: #BDAE82;
+    font-size: var(--font-default);
+    line-height: var(--lh-font-default);
+    color: var(--color-gold);
     transition: .5s;
 }
 
@@ -329,21 +342,21 @@ body {
 }
 
 .contacts__input:hover {
-    color: #fff;
+    color: var(--color-white);
 }
 
 .contacts__input:hover::placeholder {
-    color: #fff;
+    color: var(--color-white);
 }
 
 .contacts__input:focus-visible {
-    color: #fff;
+    color: var(--color-white);
     outline: none;
-    border-color: #fff;
+    border-color: var(--color-white);
 }
 
 .contacts__input:focus-visible::placeholder {
-    color: #fff;
+    color: var(--color-white);
 }
 
 .footer {
