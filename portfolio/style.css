@@ -8,6 +8,10 @@
     line-height: 40px;
 }
 
+html {
+    scroll-behavior: smooth; 
+}
+
 body {
     background-color: black;
     display: flex;
