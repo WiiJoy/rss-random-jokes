@@ -6,6 +6,7 @@
     padding: 0;
     font-size: 20px;
     line-height: 40px;
+    cursor: default;
 }
 
 html {
@@ -52,6 +53,15 @@ body {
     margin-left: auto;
 }
 
+.header__logo {
+    cursor: pointer;
+    transition: .5s;
+}
+
+.header__logo:hover, .social__img:hover, .video__button:hover, .video__button_img:hover {
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+}
+
 .menu {
     list-style-type: none;
     display: flex;
@@ -67,7 +77,8 @@ body {
 .menu__link, .footer__link {
     text-decoration: none;
     color: #fff;
-    transition: .3s;
+    cursor: pointer;
+    transition: .5s;
 }
 
 .menu__link:hover, .footer__link:hover {
@@ -75,6 +86,16 @@ body {
 }
 
 .lang__hover {
+    color: #bdae82;
+    cursor: default;
+}
+
+.lang__hover_inactive {
+    transition: .5s;
+    cursor: pointer;
+}
+
+.lang__hover_inactive:hover {
     color: #bdae82;
 }
 
@@ -148,6 +169,7 @@ body {
     background-color: #bdae82;
     border: none;
     cursor: pointer;
+    transition: .5s;
 }
 
 .button_inactive {
@@ -163,6 +185,10 @@ body {
 
 .button_contacts {
     margin-top: 30px;
+}
+
+.button:hover {
+    color: #fff;
 }
 
 .divider {
@@ -237,7 +263,15 @@ body {
 .video__button {
     background: none;
     border: none;
+    width: 130px;
+    height: 130px;
     cursor: pointer;
+    transition: .5s;
+}
+
+.video__button_img {
+    cursor: pointer;
+    transition: .5s;
 }
 
 .price__wrap {
@@ -273,17 +307,39 @@ body {
     width: 450px;
     margin-top: 20px;
     padding: 5px 20px;
+    cursor: text;
+    transition: .5s;
+    color: #bdae82;
 }
 
 .contacts__input::placeholder {
     font-size: 20px;
     line-height: 40px;
     color: #BDAE82;
+    transition: .5s;
 }
 
 .contacts__text {
     height: 100px;
     resize: none;
+}
+
+.contacts__input:hover {
+    color: #fff;
+}
+
+.contacts__input:hover::placeholder {
+    color: #fff;
+}
+
+.contacts__input:focus-visible {
+    color: #fff;
+    outline: none;
+    border-color: #fff;
+}
+
+.contacts__input:focus-visible::placeholder {
+    color: #fff;
 }
 
 .footer {
@@ -307,4 +363,9 @@ body {
     align-items: center;
     list-style-type: none;
     width: 188px;
+}
+
+.footer__social, .social__img {
+    cursor: pointer;
+    transition: .5s;
 }
