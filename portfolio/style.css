@@ -240,6 +240,18 @@ body {
     background-color: var(--color-gold);
 }
 
+.divider_portfolio {
+    width: 240px;
+}
+
+.divider_video {
+    width: 273px;
+}
+
+.divider_price {
+    width: 279px;
+}
+
 .section-title {
     display: flex;
     justify-content: center;
