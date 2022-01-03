@@ -37,7 +37,6 @@ body {
 .container {
     width: 1440px;
     margin: 0 auto;
-    padding: 0 20px;
 }
 
 .container_header {
@@ -405,7 +404,7 @@ body {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    width: 182px;
+    width: 186px;
     height: 50px;
 }
 
