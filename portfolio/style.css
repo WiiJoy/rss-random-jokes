@@ -35,7 +35,7 @@ body {
 }
 
 .container {
-    width: 1440px;
+    max-width: 1440px;
     margin: 0 auto;
 }
 
@@ -450,5 +450,22 @@ body {
 @media (max-width: 1440px) {
     .container {
         min-width: 769px;
+    }
+
+    .portfolio__wrap {
+        justify-content: space-evenly;
+    }
+
+    .section__body_price {
+        margin-top: 40px;
+    }
+
+    .price__wrap {
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+
+    .price__item {
+        margin-top: 20px;
     }
 }
