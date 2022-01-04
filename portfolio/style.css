@@ -449,7 +449,7 @@ body {
 
 @media (max-width: 1440px) {
     .container {
-        min-width: 769px;
+        min-width: 1025px;
     }
 
     .portfolio__wrap {
@@ -467,5 +467,78 @@ body {
 
     .price__item {
         margin-top: 20px;
+    }
+}
+
+@media (max-width: 1024px) {
+    :root {
+        --h1-title: 32px;
+        --h2-title: 32px;
+        --lh-h2-title: 40px;
+    }
+
+    .container {
+        min-width: 769px;
+    }
+
+    .container_header {
+        background-size: auto 680px;
+    }
+
+    .section {
+        box-sizing: border-box;
+        padding: 80px 0 0 0;
+    }
+
+    .section_hero {
+        height: 590px;
+        background-size: auto 680px;
+        padding-left: 60px;
+        padding-top: 78px;
+    }
+
+    .hero__descr {
+        line-height: 24px;
+    }
+
+    .section__body_skills {
+        margin-top: 20px;
+    }
+
+    .skills__wrap {
+        flex-wrap: wrap;
+        padding: 0 70px;
+        justify-content: space-evenly;
+    }
+
+    .skills__item {
+        width: 300px;
+        padding: 0 10px;
+        margin-top: 40px;
+    }
+
+    .section__body_portfolio {
+        margin-top: 55px;
+    }
+
+    .portfolio__buttons {
+        width: 447px;
+    }
+
+    .button_inactive {
+        margin-top: 5px;
+    }
+
+    .button_active {
+        margin-top: 5px;
+    }
+
+    .video__wrap {
+        height: calc(100vw / 1.986);
+        background-size: auto 100%
+    }
+
+    .contacts__wrap {
+        padding-right: 20px;
     }
 }
