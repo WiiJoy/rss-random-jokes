@@ -446,3 +446,9 @@ body {
 .pinterest {
     background-image: url('./assets/svg/socials/pinterest.svg');
 }
+
+@media (max-width: 1440px) {
+    .container {
+        min-width: 769px;
+    }
+}
