@@ -5,7 +5,15 @@ window.addEventListener('DOMContentLoaded', () => {
 
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('hamburger_active');
+        navMenu.classList.toggle('header__nav_active');
     });
+
+    menuItem.forEach(item => {
+        item.addEventListener('click', () => {
+            hamburger.classList.toggle('hamburger_active');
+            navMenu.classList.toggle('header__nav_active');
+        })
+    })
 
 
     console.log('Общий балл: 100/100\n',

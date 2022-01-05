@@ -40,6 +40,7 @@ body {
 }
 
 .container_header {
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -554,10 +555,13 @@ body {
 
     .container_header {
         padding: 20px 60px;
-        background-size: auto 590px;
+        background-size: auto 620px;
+        background-position: -5px -30px;
     }
 
     .hamburger {
+        margin-right: 4px;
+        z-index: 3;
         display: block;
         height: 28px;
         width: 50px;
@@ -565,10 +569,10 @@ body {
 
     .hamburger span {
         display: block;
-        height: 3px;
+        height: 2px;
         width: 100%;
         background-color: var(--color-white);
-        margin-bottom: 9px;
+        margin-bottom: 11px;
         transition: .5s;
     }
 
@@ -578,6 +582,7 @@ body {
 
     .hamburger_active span:nth-child(1) {
         transform: translateY(10px) rotate(-45deg);
+        width: 60px;
     }
 
     .hamburger_active span:nth-child(2) {
@@ -586,19 +591,70 @@ body {
 
     .hamburger_active span:nth-child(3) {
         transform: translateY(10px) rotate(45deg);
+        width: 60px;
     }
 
     .header__nav {
         position: fixed;
+        z-index: 2;
         right: -100%;
+        top: 0;
         height: 100vh;
-        width: 100%;
+        width: 100vw;
         max-width: 620px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        background-color: var(--color-black);
+        transition: 0.5s all;        
+    }
+
+    .menu {
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        margin-left: 127px;
+        margin-top: 118px;
+        padding: 0;
+    }
+
+    .menu__item {
+        margin-top: 16px;
+    }
+
+    .menu__link {
+        font-size: 35px;
+        line-height: 73px;
+    }
+
+    .header__nav_active {
+        right: 0;
+        transition: 0.5s all;
+    }
+
+    .header__nav_active::before {
+        content: '';
+        position: absolute;
+        display: block;
+        z-index: 1;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        right: 620px;
     }
 
     .header__lang {
         margin-left: auto;
         margin-right: 20px;
+        width: 82px;
+    }
+
+    .lang_en {
+        margin-right: 16px;
+    }
+
+    .lang_ru {
+        margin-left: 15px;
     }
 
     .title {
@@ -608,7 +664,8 @@ body {
 
     .section_hero {
         height: 500px;
-        background-size: auto 590px;
+        background-size: auto 620px;
+        background-position: -5px -120px;
     }
 
     .hero__descr {
