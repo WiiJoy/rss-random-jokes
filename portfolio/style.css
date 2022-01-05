@@ -549,6 +549,12 @@ body {
 }
 
 @media (max-width: 768px) {
+    :root {
+        --h1-title: 32px;
+        --h2-title: 32px;
+        --lh-h2-title: 40px;
+    }
+
     .container {
         min-width: 100vw;
     }
@@ -660,6 +666,68 @@ body {
     .title {
         font-weight: 400;
         line-height: 64px;
+    }
+
+    .title_h2 {
+        font-weight: 700;
+    }
+
+    .section-title {
+        margin: 0 auto;
+        width: 364px;
+        overflow: hidden;
+    }
+
+    .section-title_skills {
+        margin-top: 8px;
+    }
+
+    .divider {
+        margin-top: 13px;
+    }
+
+    .title_skills {
+        display: block;
+        position: relative;
+        width: 131px;
+        height: 50px;
+        text-align: center;
+        background-color: var(--color-black);
+    }
+
+    .section__body_skills {
+        margin-top: 58px;
+    }
+
+    .skills__wrap {
+        padding: 0 20px 0 16px;
+    }
+
+    .skills__item {
+        display: block;
+        margin: 0;
+        padding-top: 9px;
+        height: 224px;
+        width: 300px;
+        margin-bottom: 36px;
+    }
+
+    .skills__icon {
+        display: block;
+        margin: 0 auto;
+    }
+
+    .skills__title {
+        display: block;
+        margin: 30px auto 20px auto;
+        text-align: center;
+    }
+
+    .skills__descr {
+        display: block;
+        margin: 0 auto;
+        font-size: 18px;
+        line-height: 22px;
     }
 
     .section_hero {
