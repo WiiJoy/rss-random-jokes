@@ -840,5 +840,38 @@ body {
         margin: 0 auto;
         margin-top: 30px;
     }
+
+    .footer {
+        height: 190px;
+    }
+
+    .container_footer {
+        display: block;
+        padding: 14px 0;
+    }
+
+    .footer__github {
+        margin: 0 auto;
+        justify-content: center;
+        width: 210px;
+    }
+
+    .footer__copy {
+        margin-left: -3px;
+    }
+
+    .footer__year {
+        margin: 0 23px 0 20px;
+    }
+
+    .footer__rsschool {
+        text-align: center;
+        margin-top: -5px;
+    }
+
+    .footer__socials {
+        margin: 0 auto;
+        margin-top: 11px;
+    }
         
 }
