@@ -741,6 +741,18 @@ body {
         width: 390px;
     }
 
+    .section-title_portfolio {
+        margin-top: 10px;
+    }
+
+    .title_portfolio {
+        margin-top: 11px;
+    }
+
+    .section__body_portfolio {
+        margin-top: 53px;
+    }
+
     .button {
         margin-top: 60px;
     }
@@ -751,6 +763,28 @@ body {
 
     .button_active {
         margin-top: 5px;
+    }
+
+    .title_video {
+        margin-top: 8px;
+    }
+
+    .divider_video {
+        margin-top: 10px;
+    }
+
+    .section__body_video {
+        margin-top: 58px;
+    }
+
+    .video__wrap {
+        height: 418px;
+        background: url('./assets/img/video-player-small.jpeg');
+    }
+
+    .video__button {
+        height: 64.5px;
+        width: 65.5px;
     }
         
 }
