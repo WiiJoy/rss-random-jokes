@@ -606,6 +606,7 @@ body {
         right: -100%;
         top: 0;
         height: 100vh;
+        min-height: 695px;
         width: 100vw;
         max-width: 620px;
         display: flex;
@@ -893,6 +894,14 @@ body {
 
     .container_header {
         padding: 20px 40px;
+    }
+
+    .header__nav {
+        min-height: 608px;
+    }
+
+    .header__nav_active::before {
+        right: 100vw;
     }
 
     .menu__link {
