@@ -762,7 +762,6 @@ body {
     .portfolio__buttons {
         width: 80%;
         max-width: 447px;
-        /* margin: 0 auto; */
     }
 
     .button {
@@ -825,7 +824,6 @@ body {
 
     .title_cost {
         line-height: 48px;
-        /* margin: 21px 0; */
     }
 
     .button_price {
