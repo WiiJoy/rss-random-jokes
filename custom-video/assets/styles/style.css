@@ -1,0 +1,95 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    background-color: #000;
+}
+
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header {
+    height: 120px;
+}
+
+.footer {
+    height: 90px;
+}
+
+.main {
+    flex: 1;
+}
+
+.video {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    max-width: 1400px;
+    border: 1px solid rgb(189, 174, 130);
+}
+
+.video__video {
+    width: 100%;
+}
+
+.video__controls {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 60px;
+}
+
+.button {
+    background: none;
+    border: none;
+    height: 36px;
+    width: 40px;
+    background: center / contain no-repeat;
+    cursor: pointer;
+}
+
+.line {
+    height: 10px;
+    background-color: rgb(200, 200, 200);
+}
+
+.line_active {
+    height: 10px;
+    background-color: rgb(189, 174, 130);
+}
+
+.video__timeline {
+    width: calc(80% - 160px);
+}
+
+.timeline {
+    width: 0;
+}
+
+.video__volume__level {
+    width: calc(20% - 40px);
+}
+
+.volume__line {
+    width: 0;
+}
+
+.button__play {
+    background-image: url('../svg/play.svg');
+}
+
+.button__volume {
+    background-image: url('../svg/volume.svg');
+}
