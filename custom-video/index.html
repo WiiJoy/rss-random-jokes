@@ -8,28 +8,40 @@
     <link rel="stylesheet" href="assets/styles/style.css">
 </head>
 <body>
-    <div class="video">
-        <video src="./assets/video/video.mp4" class="video__video"></video>
-        <div class="video__controls">
-
-            <div class="video__play">
-                <button class="button__play">Play</button>
+    <header class="header">
+        <div class="container">
+            <div class="title__wrapper">
+                <div class="divider"></div>
+                <h1 class="title">Video</h1>
+                <div class="divider"></div>
             </div>
-
-            <div class="video__timeline">
-                <div class="timeline"></div>
-            </div>
-
-            <div class="video__volume">
-                <button class="button__volume"></button>
-            </div>
-
-            <div class="video__volume__level">
-                <div class="volume__line"></div>
-            </div>
-
-
         </div>
-    </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="video">
+                <video src="./assets/video/video.mp4" class="video__video"></video>
+                <div class="video__controls">
+        
+                    <button class="button button__play"></button>
+        
+                    <div class="line video__timeline">
+                        <div class="line_active timeline"></div>
+                    </div>
+        
+                    <button class="button button__volume"></button>
+        
+                    <div class="line video__volume__level">
+                        <div class="line_active volume__line"></div>
+                    </div>
+        
+        
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">Footer</footer>
 </body>
 </html>
