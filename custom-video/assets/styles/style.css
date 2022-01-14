@@ -99,13 +99,11 @@ body {
 
 .video__play {
     display: block;
-    margin: 0 auto;
     position: absolute;
     height: 150px;
     width: 150px;
     z-index: 2;
-    background: center / contain no-repeat;
-    background-image: url('../svg/play-btn.svg');
+    background: center / contain no-repeat url('../svg/play-btn.svg');
     cursor: pointer;
     transition: .5s;
 }
@@ -113,4 +111,14 @@ body {
 .video__play:hover {
     filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
     contrast(87%);
+}
+
+.video__poster {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    background: center / cover no-repeat url('../img/video-bg.jpeg');
 }
