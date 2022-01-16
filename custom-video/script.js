@@ -1,14 +1,16 @@
 let video = document.querySelector('.video__video'),
-      fullTimeline = document.querySelector('.video__timeline'),
-      currTimeline = document.querySelector('.timeline'),
-      volume = document.querySelector('.video__volume__level'),
-      currVolume = document.querySelector('.volume__line'),
-      btnPlay = document.querySelector('.button__play'),
-      btnPause = document.querySelector('.button__pause'),
-      btnPlayBig = document.querySelector('.video__play'),
-      btnVolume = document.querySelector('.button__volume');
+    fullTimeline = document.querySelector('.video__timeline'),
+    currTimeline = document.querySelector('.timeline'),
+    volume = document.querySelector('.video__volume__level'),
+    currVolume = document.querySelector('.volume__line'),
+    btnPlay = document.querySelector('.button__play'),
+    btnPause = document.querySelector('.button__pause'),
+    btnPlayBig = document.querySelector('.video__play'),
+    btnVolume = document.querySelector('.button__volume'),
+    poster = document.querySelector('.video__poster');
 
 const playVideo = function() {
+    poster.classList.add('btn__hide')
     video.play();
 
     btnPlay.classList.add('btn__hide')
@@ -29,6 +31,7 @@ btnPlayBig.addEventListener('click', playVideo)
 
 btnPause.addEventListener('click', function() {
     video.pause();
+    clearInterval(videoPlay);
 
     btnPlay.classList.remove('btn__hide')
     btnPlayBig.classList.remove('btn__hide')

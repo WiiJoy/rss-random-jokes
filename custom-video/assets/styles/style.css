@@ -61,7 +61,6 @@ body {
     width: 40px;
     background: center / contain no-repeat;
     cursor: pointer;
-    transition: .5s all;
 }
 
 .line {
@@ -92,14 +91,17 @@ body {
 
 .button__play {
     background-image: url('../svg/play.svg');
+    transition: 1s all;
 }
 
 .button__pause {
     background-image: url('../svg/pause.svg');
+    transition: 1s all;
 }
 
 .button__volume {
     background-image: url('../svg/volume.svg');
+    transition: 1s all;
 }
 
 .video__play {
