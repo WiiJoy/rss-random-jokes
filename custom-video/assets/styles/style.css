@@ -93,6 +93,10 @@ body {
     background-image: url('../svg/play.svg');
 }
 
+.button__pause {
+    background-image: url('../svg/pause.svg');
+}
+
 .button__volume {
     background-image: url('../svg/volume.svg');
 }
