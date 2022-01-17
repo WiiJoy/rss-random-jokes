@@ -36,7 +36,8 @@ function timeline () {
 }
 
 function setVideoTime (ev) {
-    let progressValue = Math.floor(ev.pageX - fullTimeline.offsetLeft);
+    console.log(ev, ev.pageX, fullTimeline.offsetLeft)
+    let progressValue = Math.floor(ev.offsetX);
     let progress = progressValue / (fullTimeline.offsetWidth / 100);
     video.currentTime = video.duration * (progress / 100);
 }
