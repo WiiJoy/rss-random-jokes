@@ -31,11 +31,18 @@ btnPause.addEventListener('click', function() {
 })
 
 function timeline () {
-    let currTime = (Math.round(video.currentTime) / (Math.round(video.duration) / 100));
+    let currTime = (Math.floor(video.currentTime) / (Math.floor(video.duration) / 100));
     fullTimeline.value = currTime;
 }
 
+function setVideoTime (ev) {
+    let progressValue = Math.floor(ev.pageX - fullTimeline.offsetLeft);
+    let progress = progressValue / (fullTimeline.offsetWidth / 100);
+    video.currentTime = video.duration * (progress / 100);
+}
+
 video.addEventListener('timeupdate', timeline);
+fullTimeline.addEventListener('click', setVideoTime);
 
 
 

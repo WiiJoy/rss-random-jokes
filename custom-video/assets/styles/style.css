@@ -79,7 +79,7 @@ body {
 
 .video__timeline::-webkit-progress-value {
     background-color: rgb(189, 174, 130);
-    transition: 1.6s all;
+    /* transition: 1.6s all; */
 }
 
 .timeline {
