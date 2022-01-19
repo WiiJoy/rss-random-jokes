@@ -1,7 +1,7 @@
 let video = document.querySelector('.video__video'),
     fullTimeline = document.querySelector('.video__timeline'),
     volume = document.querySelector('.video__volume__level'),
-    currVolume = document.querySelector('.volume__line'),
+    // currVolume = document.querySelector('.volume__line'),
     btnPlay = document.querySelector('.button__play'),
     btnPause = document.querySelector('.button__pause'),
     btnPlayBig = document.querySelector('.video__play'),
@@ -44,6 +44,21 @@ function setVideoTime (ev) {
 
 video.addEventListener('timeupdate', timeline);
 fullTimeline.addEventListener('click', setVideoTime);
+
+function videoVolume () {
+    let currVolume = volume.value / 100;
+    video.volume = currVolume;
+
+    if (video.volume === 0) {
+        btnVolume.classList.remove('volume__on');
+        btnVolume.classList.add('volume__off');
+    } else {
+        btnVolume.classList.add('volume__on');
+        btnVolume.classList.remove('volume__off');
+    }
+}
+
+volume.addEventListener('change', videoVolume);
 
 
 

@@ -82,10 +82,31 @@ body {
 }
 
 .video__volume__level {
+    -webkit-appearance: none;
     appearance: none;
     width: calc(20% - 40px);
     height: 10px;
     background-color: rgb(200, 200, 200);
+}
+
+.video__volume__level::-webkit-slider-runnable-track {
+    background-color: rgb(189, 174, 130);
+    height: 10px;
+}
+
+.video__volume__level::-webkit-slider-thumb {
+    display: none;
+}
+
+.video__volume__level:hover.video__volume__level::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    display: inherit;
+    width: 15px;
+    height: 15px;
+    background-color: rgb(189, 174, 130);
+    border-radius: 50%;
+    margin-top: -2px;
 }
 
 .volume__line {
@@ -102,8 +123,13 @@ body {
     transition: 1s all;
 }
 
-.button__volume {
+.volume__on {
     background-image: url('../svg/volume.svg');
+    transition: 1s all;
+}
+
+.volume__off {
+    background-image: url('../svg/mute.svg');
     transition: 1s all;
 }
 
