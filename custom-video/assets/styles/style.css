@@ -14,7 +14,7 @@ body {
     background-color: #000;
     font-family: 'Inter', sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 20px;
 }
 
 .container {
@@ -33,6 +33,9 @@ body {
 
 .footer {
     height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .main {
@@ -196,4 +199,33 @@ body {
 
 .btn__hide {
     display: none;
+}
+
+.footer__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    color: #fff;
+}
+
+.footer__left {
+    width: 170px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer__right {
+    width: 250px;
+    text-align: center;
+}
+
+.footer__link {
+    color: #fff;
+    text-decoration: none;
+    transition: .5s;
+}
+
+.footer__link:hover {
+    color: rgb(189, 174, 130);
 }
