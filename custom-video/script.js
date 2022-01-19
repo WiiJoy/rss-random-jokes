@@ -18,6 +18,8 @@ const playVideo = function() {
 
 }
 
+videoVolume ();
+
 btnPlay.addEventListener('click', playVideo)
 
 btnPlayBig.addEventListener('click', playVideo)
@@ -49,6 +51,8 @@ function videoVolume () {
     let currVolume = volume.value / 100;
     video.volume = currVolume;
 
+    volume.style.background = `linear-gradient(to right, rgb(189, 174, 130) 0%, rgb(189, 174, 130) ${volume.value}%, rgb(200, 200, 200) ${volume.value}%, rgb(200, 200, 200) 100%)`;
+
     if (video.volume === 0) {
         btnVolume.classList.remove('volume__on');
         btnVolume.classList.add('volume__off');
@@ -58,7 +62,7 @@ function videoVolume () {
     }
 }
 
-volume.addEventListener('change', videoVolume);
+volume.addEventListener('input', videoVolume);
 
 
 
