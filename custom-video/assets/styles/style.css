@@ -68,13 +68,9 @@ body {
     background-color: rgb(200, 200, 200);
 }
 
-.line_active {
-    height: 10px;
-    background-color: rgb(189, 174, 130);
-}
-
 .video__timeline {
     width: calc(80% - 160px);
+    
 }
 
 .video__timeline::-webkit-progress-value {
@@ -86,7 +82,10 @@ body {
 }
 
 .video__volume__level {
+    appearance: none;
     width: calc(20% - 40px);
+    height: 10px;
+    background-color: rgb(200, 200, 200);
 }
 
 .volume__line {
