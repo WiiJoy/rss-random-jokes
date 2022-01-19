@@ -57,7 +57,21 @@ function videoVolume () {
     }
 }
 
+function videoMute () {
+    if (btnVolume.classList.contains('volume__off')) {
+        video.volume = volume.value / 100;
+        btnVolume.classList.add('volume__on');
+        btnVolume.classList.remove('volume__off');
+    } else {
+        video.volume = 0;
+        btnVolume.classList.remove('volume__on');
+        btnVolume.classList.add('volume__off');
+    }
+}
+
 volume.addEventListener('input', videoVolume);
+btnVolume.addEventListener('click', videoMute);
+
 
 
 
