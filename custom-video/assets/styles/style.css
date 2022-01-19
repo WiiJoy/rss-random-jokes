@@ -153,22 +153,22 @@ body {
 
 .button__play {
     background-image: url('../svg/play.svg');
-    transition: 1s all;
+    transition: .5s all;
 }
 
 .button__pause {
     background-image: url('../svg/pause.svg');
-    transition: 1s all;
+    transition: .5s all;
 }
 
 .volume__on {
     background-image: url('../svg/volume.svg');
-    transition: 1s all;
+    transition: .5s all;
 }
 
 .volume__off {
     background-image: url('../svg/mute.svg');
-    transition: 1s all;
+    transition: .5s all;
 }
 
 .video__play {
@@ -182,7 +182,7 @@ body {
     transition: .5s all;
 }
 
-.video__play:hover {
+.video__play:hover, .volume__on:hover, .volume__off:hover, .button__play:hover, .button__pause:hover {
     filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
     contrast(87%);
 }
