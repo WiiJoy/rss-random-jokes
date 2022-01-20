@@ -193,7 +193,7 @@ body {
 
 .btn__hide {
     display: none;
-    transition: .5s;
+    transition: .3s;
 }
 
 .footer__wrapper {

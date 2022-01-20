@@ -23,7 +23,9 @@ const playVideo = function() {
         btnPlay.classList.add('button__pause')
         btnPlayBig.classList.add('btn__hide')
 
-        poster.classList.add('btn__hide')
+        setTimeout(function() {
+            poster.classList.add('btn__hide')
+        }, 300)        
     }
 }
 
