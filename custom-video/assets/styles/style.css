@@ -99,7 +99,7 @@ body {
     cursor: pointer;
 }
 
-.video__timeline {
+/* .video__timeline {
     height: 10px;
     background-color: rgb(200, 200, 200);
     width: calc(80% - 160px);
@@ -112,9 +112,9 @@ body {
 
 .timeline {
     width: 0;
-}
+} */
 
-.video__volume__level {
+.video__volume__level, .video__timeline {
     background: linear-gradient(
         to right,
         rgb(189, 174, 130) 0%,
@@ -130,12 +130,18 @@ body {
     -webkit-appearance: none;
 }
 
-.video__volume__level::-webkit-slider-thumb {
+.video__timeline {
+    width: calc(80% - 160px);
+}
+
+.video__volume__level::-webkit-slider-thumb, .video__timeline::-webkit-slider-thumb {
     display: none;
     transition: .5s;
 }
 
-.video__volume__level:hover.video__volume__level::-webkit-slider-thumb {
+.video__volume__level:hover.video__volume__level::-webkit-slider-thumb,
+.video__timeline:hover.video__timeline::-webkit-slider-thumb
+ {
     -webkit-appearance: none;
     appearance: none;
     display: inherit;
