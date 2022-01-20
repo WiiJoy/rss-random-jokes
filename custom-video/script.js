@@ -16,22 +16,34 @@ const playVideo = function() {
         btnPlay.classList.remove('button__pause')
         btnPlayBig.classList.remove('btn__hide')
     } else {
-        poster.classList.add('btn__hide')
+        
+        poster.style.opacity = 0;
         video.play();
 
         btnPlay.classList.add('button__pause')
         btnPlayBig.classList.add('btn__hide')
+
+        poster.classList.add('btn__hide')
     }
 }
 
 btnPlay.addEventListener('click', playVideo)
 btnPlayBig.addEventListener('click', playVideo)
+video.addEventListener('click', playVideo)
+poster.addEventListener('click', playVideo)
 
 function timeline () {
     let currTime = (Math.floor(video.currentTime) / (Math.floor(video.duration) / 100));
     fullTimeline.value = currTime;
 
     fullTimeline.style.background = `linear-gradient(to right, rgb(189, 174, 130) 0%, rgb(189, 174, 130) ${fullTimeline.value}%, rgb(200, 200, 200) ${fullTimeline.value}%, rgb(200, 200, 200) 100%)`;
+
+    if (video.currentTime === video.duration) {
+        video.currentTime = 0;
+        video.pause()
+        btnPlay.classList.remove('button__pause')
+        btnPlayBig.classList.remove('btn__hide')
+    }
 }
 
 function setVideoTime () {

@@ -187,10 +187,13 @@ body {
     bottom: 0;
     z-index: 1;
     background: center / cover no-repeat url('../img/video-bg.jpeg');
+    cursor: pointer;
+    transition: .5s;
 }
 
 .btn__hide {
     display: none;
+    transition: .5s;
 }
 
 .footer__wrapper {
