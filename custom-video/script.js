@@ -34,13 +34,6 @@ function timeline () {
     fullTimeline.style.background = `linear-gradient(to right, rgb(189, 174, 130) 0%, rgb(189, 174, 130) ${fullTimeline.value}%, rgb(200, 200, 200) ${fullTimeline.value}%, rgb(200, 200, 200) 100%)`;
 }
 
-// function setVideoTime (ev) {
-//     console.log(ev, ev.pageX, fullTimeline.offsetLeft)
-//     let progressValue = Math.floor(ev.offsetX);
-//     let progress = progressValue / (fullTimeline.offsetWidth / 100);
-//     video.currentTime = video.duration * (progress / 100);
-// }
-
 function setVideoTime () {
     let currTime = fullTimeline.value * (Math.floor(video.duration) / 100);
     video.currentTime = currTime;
@@ -78,8 +71,4 @@ function videoMute () {
 
 volume.addEventListener('input', videoVolume);
 btnVolume.addEventListener('click', videoMute);
-
-
-
-
 
