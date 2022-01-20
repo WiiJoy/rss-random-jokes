@@ -120,13 +120,8 @@ body {
     width: calc(80% - 160px);
 }
 
-.video__volume__level::-webkit-slider-thumb, .video__timeline::-webkit-slider-thumb {
-    display: none;
-    transition: .5s;
-}
-
-.video__volume__level:hover.video__volume__level::-webkit-slider-thumb,
-.video__timeline:hover.video__timeline::-webkit-slider-thumb
+.video__volume__level::-webkit-slider-thumb,
+.video__timeline::-webkit-slider-thumb
  {
     -webkit-appearance: none;
     appearance: none;
