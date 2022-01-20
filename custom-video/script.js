@@ -30,6 +30,8 @@ btnPlayBig.addEventListener('click', playVideo)
 function timeline () {
     let currTime = (Math.floor(video.currentTime) / (Math.floor(video.duration) / 100));
     fullTimeline.value = currTime;
+
+    fullTimeline.style.background = `linear-gradient(to right, rgb(189, 174, 130) 0%, rgb(189, 174, 130) ${fullTimeline.value}%, rgb(200, 200, 200) ${fullTimeline.value}%, rgb(200, 200, 200) 100%)`;
 }
 
 function setVideoTime (ev) {
