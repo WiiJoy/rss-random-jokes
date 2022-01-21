@@ -110,14 +110,14 @@ body {
     text-align: justify;
 }
 
-.lang__hover {
-    color: var(--color-gold);
-    cursor: default;
-}
-
 .lang__hover_inactive {
     transition: .5s;
     cursor: pointer;
+}
+
+.lang__hover {
+    color: var(--color-gold);
+    cursor: default;
 }
 
 .lang_en {

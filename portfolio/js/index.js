@@ -1,3 +1,5 @@
+import i18Obj from './translate.js';
+
 window.addEventListener('DOMContentLoaded', () => {
     const navMenu = document.querySelector('.header__nav'),
           menuItem = document.querySelectorAll('.menu__item'),
