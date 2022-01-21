@@ -218,6 +218,9 @@ body {
 }
 
 .button_active {
+    background-color: var(--color-gold);
+    color: var(--color-black);
+    border: none;
     margin-top: 0;
     cursor: default;
 }
