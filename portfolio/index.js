@@ -19,6 +19,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
     portfolioBtns.addEventListener('click', (ev) => {
         if (ev.target.classList.contains('button_inactive')) {
+            Array.from(portfolioBtns.children).forEach(child => child.classList.remove('button_active'));
+            ev.target.classList.add('button_active')
             portfolioItems.forEach((item, i) => {
                 item.src = `./assets/img/${ev.target.dataset.season}/${i + 1}.jpg`;
             })
