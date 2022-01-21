@@ -1,7 +1,9 @@
 window.addEventListener('DOMContentLoaded', () => {
     const navMenu = document.querySelector('.header__nav'),
           menuItem = document.querySelectorAll('.menu__item'),
-          hamburger = document.querySelector('.hamburger');
+          hamburger = document.querySelector('.hamburger'),
+          portfolioBtns = document.querySelector('.portfolio__buttons'),
+          portfolioItems = document.querySelectorAll('.portfolio__item');
 
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('hamburger_active');
@@ -13,6 +15,14 @@ window.addEventListener('DOMContentLoaded', () => {
             hamburger.classList.toggle('hamburger_active');
             navMenu.classList.toggle('header__nav_active');
         })
+    });
+
+    portfolioBtns.addEventListener('click', (ev) => {
+        if (ev.target.classList.contains('button_inactive')) {
+            portfolioItems.forEach((item, i) => {
+                item.src = `./assets/img/${ev.target.dataset.season}/${i + 1}.jpg`;
+            })
+        }
     })
 
     console.log('Общий балл: 75/75\n',
