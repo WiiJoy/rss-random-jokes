@@ -278,7 +278,7 @@ body {
     width: 320px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     box-sizing: border-box;
     padding: 0 20px;
