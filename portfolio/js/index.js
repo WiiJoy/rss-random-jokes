@@ -5,7 +5,9 @@ window.addEventListener('DOMContentLoaded', () => {
           menuItem = document.querySelectorAll('.menu__item'),
           hamburger = document.querySelector('.hamburger'),
           portfolioBtns = document.querySelector('.portfolio__buttons'),
-          portfolioItems = document.querySelectorAll('.portfolio__item');
+          portfolioItems = document.querySelectorAll('.portfolio__item'),
+          langs = document.querySelector('.header__lang'),
+          textContents = document.querySelectorAll('[data-i18n]');
 
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('hamburger_active');
@@ -26,6 +28,17 @@ window.addEventListener('DOMContentLoaded', () => {
             portfolioItems.forEach((item, i) => {
                 item.src = `./assets/img/${ev.target.dataset.season}/${i + 1}.jpg`;
             })
+        }
+    });
+
+    langs.addEventListener('click', (ev) => {
+        if (ev.target.classList.contains('lang__hover_inactive')) {
+            Array.from(langs.children).forEach(child => child.classList.remove('lang__hover'));
+            ev.target.classList.add('lang__hover');
+
+            let lang = ev.target.dataset.i18n;
+
+            textContents.forEach(text => text.textContent = i18Obj[lang][text.dataset.i18n])
         }
     })
 
