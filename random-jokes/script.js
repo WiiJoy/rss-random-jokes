@@ -8,19 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', function() {
         getQuote(quoteText, quoteAuthor);
     });
-
-    // let quote = {
-    //     text: res.text,
-    //     author: res.author
-    // };
-
-    // console.log(quote);
-
-    // quoteText.innerHTML = quote.text;
-    // quoteAuthor.innerHTML = quote.author;
-
-
-
 });
 
 async function getQuote(text, author) {
@@ -32,7 +19,5 @@ async function getQuote(text, author) {
 
     text.innerHTML = data.quote.body;
     author.innerHTML = data.quote.author;
-
-    // return { text: data.quote.body, author: data.quote.author };
 }
 
