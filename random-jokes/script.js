@@ -5,12 +5,15 @@ document.addEventListener('DOMContentLoaded', () => {
           main = document.querySelector('.main'),
           img = document.querySelector('.quote__image');
     
+    let color = randomColor();
+
     getQuote(quoteText, quoteAuthor, img);
-    main.style.background = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
+    main.style.background = color;
 
     btn.addEventListener('click', function() {
+        color = randomColor();
         getQuote(quoteText, quoteAuthor, img);
-        main.style.background = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
+        main.style.background = color;
     });
 });
 
@@ -36,4 +39,6 @@ async function getImage(author, img) {
     img.src = data.urls.regular;
 }
 
-
+function randomColor() {
+    return `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
+}
