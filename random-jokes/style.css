@@ -13,6 +13,7 @@ body {
     width: 100%;
     position: relative;
     display: flex;
+    transition: 1s;
 }
 
 .container {
@@ -23,6 +24,7 @@ body {
     background: no-repeat center / cover;
     display: flex;
     flex-direction: column;
+    transition: 1s;
 }
 
 .header {
@@ -86,8 +88,27 @@ body {
     box-shadow: 0 0 40px 40px #fff inset, 0 0 0 0 #fff;
     transition: all 150ms ease-in-out;
 }
+
 .button:hover {
     color: #fff;
     outline: 0;
     box-shadow: 0 0 10px 0 #fff inset, 0 0 10px 4px #fff;
+}
+
+.footer {
+    background: rgba(0, 0, 0, .5);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.link {
+    text-decoration: none;
+    transition: .5s;
+}
+
+.link:hover {
+    color: #bebebe;
+    text-shadow: #000;
 }
