@@ -20,13 +20,7 @@ body {
     position: fixed;
     height: 100vh;
     width: 100vw;
-    /* background-position: center;
-    background-repeat: no-repeat; */
     background: no-repeat center / cover;
-    /* display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center; */
     display: flex;
     flex-direction: column;
 }
@@ -48,25 +42,7 @@ body {
     margin: 0 auto;
 }
 
-/* .quote__image {
-    display: block;
-    margin: 0 auto;
-    width: 825px;
-    height: 550px;
-    object-fit: cover;
-    border-radius: 5px;
-} */
-
 .quote__wrap {
-    /* box-sizing: border-box;
-    margin: 0 auto;
-    margin-top: 20px;
-    padding: 10px;
-    width: 825px;
-    height: 150px;
-    background-color: #fff;
-    border-radius: 5px;
-    border: 1px solid black; */
     height: 100%;
     display: flex;
     flex-direction: column;
