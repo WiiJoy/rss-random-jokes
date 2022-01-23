@@ -2,18 +2,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const quoteText = document.querySelector('.quote__text'),
           quoteAuthor = document.querySelector('.quote__author'),
           btn = document.querySelector('.button'),
-          main = document.querySelector('.main'),
-          img = document.querySelector('.quote__image');
+        //   main = document.querySelector('.main'),
+        //   img = document.querySelector('.quote__image'),
+          body = document.querySelector('body'),
+          container = document.querySelector('.container');
     
     let color = randomColor();
 
-    getQuote(quoteText, quoteAuthor, img);
-    main.style.background = color;
+    getQuote(quoteText, quoteAuthor, container);
+    body.style.background = color;
 
     btn.addEventListener('click', function() {
         color = randomColor();
-        getQuote(quoteText, quoteAuthor, img);
-        main.style.background = color;
+        getQuote(quoteText, quoteAuthor, container);
+        body.style.background = color;
     });
 });
 
@@ -36,7 +38,9 @@ async function getImage(author, img) {
     const data = await res.json();
     console.log(data);
 
-    img.src = data.urls.regular;
+    // img.src = data.urls.regular;
+
+    img.style.backgroundImage = `url(${data.urls.regular})`;
 }
 
 function randomColor() {
