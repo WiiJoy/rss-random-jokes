@@ -25,6 +25,16 @@ body {
     flex-direction: column;
 }
 
+.header {
+    background: rgba(0, 0, 0, .5);
+    padding: 20px;
+}
+
+.title {
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
 .main {
     background: rgba(0, 0, 0, .5);
     padding: 20px;
