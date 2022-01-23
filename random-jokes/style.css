@@ -1,6 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Satisfy&display=swap');
+
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    color: #fff;
 }
 
 body {
@@ -43,14 +48,14 @@ body {
     margin: 0 auto;
 }
 
-.quote__image {
+/* .quote__image {
     display: block;
     margin: 0 auto;
     width: 825px;
     height: 550px;
     object-fit: cover;
     border-radius: 5px;
-}
+} */
 
 .quote__wrap {
     /* box-sizing: border-box;
@@ -67,13 +72,36 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-family: 'Satisfy', cursive;
+}
+
+.quote__text, .quote__author {
+    font-family: 'Satisfy', cursive;
+    font-size: 64px;
+    text-align: center;
+}
+
+.quote__author {
+    font-size: 48px;
 }
 
 .button {
-    margin-top: 20px;
-    border: none;
-    width: 220px;
-    height: 55px;
-    border: 1px solid black;
-
+    box-sizing: border-box;
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    color: #000;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 20px 40px;
+    text-transform: uppercase;
+    font-weight: 700;
+    box-shadow: 0 0 40px 40px #fff inset, 0 0 0 0 #fff;
+    transition: all 150ms ease-in-out;
+}
+.button:hover {
+    color: #fff;
+    outline: 0;
+    box-shadow: 0 0 10px 0 #fff inset, 0 0 10px 4px #fff;
 }
