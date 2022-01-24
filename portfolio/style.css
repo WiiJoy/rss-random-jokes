@@ -241,6 +241,27 @@ body {
     color: var(--color-black);
 }
 
+.button__theme {
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    width: 35px;
+    height: 35px;
+    background: none;
+    border: none;
+    background: url('./assets/svg/theme/dark.svg') no-repeat center / contain;
+    transition: .5s;
+    cursor: pointer;
+}
+
+.button__theme.light__theme {
+    background-image: url('./assets/svg/theme/light.svg');
+}
+
+.button__theme:hover, .button__theme.light__theme:hover {
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+}
+
 .divider {
     height: 2px;
     width: 274px;
@@ -946,4 +967,9 @@ body {
         margin-top: 20px;
     }
 
+}
+
+.light {
+    background-color: var(--color-white);
+    color: var(--color-black);
 }

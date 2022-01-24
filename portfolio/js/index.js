@@ -7,7 +7,8 @@ window.addEventListener('DOMContentLoaded', () => {
           portfolioBtns = document.querySelector('.portfolio__buttons'),
           portfolioItems = document.querySelectorAll('.portfolio__item'),
           langs = document.querySelector('.header__lang'),
-          textContents = document.querySelectorAll('[data-i18n]');
+          textContents = document.querySelectorAll('[data-i18n]'),
+          btnTheme = document.querySelector('.button__theme');
 
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('hamburger_active');
@@ -40,6 +41,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
             textContents.forEach(text => text.textContent = i18Obj[lang][text.dataset.i18n])
         }
+    });
+
+    btnTheme.addEventListener('click', () => {
+        btnTheme.classList.toggle('light__theme')
     })
 
     console.log('Общий балл: 75/75\n',
