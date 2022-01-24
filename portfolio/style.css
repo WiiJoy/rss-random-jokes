@@ -34,6 +34,11 @@ body {
     color: var(--color-white);
 }
 
+body.light {
+    background-color: var(--color-white);
+    color: var(--color-black);
+}
+
 .container {
     max-width: 1440px;
     margin: 0 auto;
@@ -79,6 +84,10 @@ body {
     transition: .5s;
 }
 
+.header__logo.light, .footer__social.light {
+    filter: invert(100%);
+}
+
 .header__logo:hover, .footer__social:hover, .video__button:hover {
     filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
 }
@@ -99,6 +108,10 @@ body {
     color: var(--color-white);
     cursor: pointer;
     transition: .5s;
+}
+
+.menu__link.light, .footer__link.light {
+    color: var(--color-black);
 }
 
 .menu__link:hover, .footer__link:hover {
@@ -191,11 +204,11 @@ body {
     padding: 160px 80px;
 }
 
-.light_bg {
+.section_hero.light, .container_header.light {
     background-image: url('./assets/img/bg_light.jpeg');
 }
 
-.light_contacts {
+.section_contacts.light {
     background-image: url('./assets/img/contacts_light.jpeg');
 }
 
@@ -218,11 +231,30 @@ body {
     transition: .5s;
 }
 
+.button:hover {
+    color: var(--color-white);
+}
+
+.button.light {
+    background-color: var(--color-white);
+    color: var(--color-black);
+}
+
+.button.light:hover {
+    color: var(--color-gold);
+    background-color: var(--color-black);
+}
+
 .button_inactive {
     margin-top: 0;
     background-color: var(--color-black);
     color: var(--color-gold);
     border: var(--color-gold) 1px solid;
+}
+
+.button_inactive.light {
+    background-color: var(--color-gold);
+    color: var(--color-black);
 }
 
 .button_active {
@@ -233,16 +265,27 @@ body {
     cursor: default;
 }
 
-.button_price {
-    margin-top: 20px;
+.button_active.light {
+    color: var(--color-gold);
+    background-color: var(--color-black);
 }
 
 .button_contacts {
     margin-top: 30px;
 }
 
-.button:hover {
-    color: var(--color-white);
+.button_price {
+    margin-top: 20px;
+}
+
+.button_price.light {
+    background-color: var(--color-gold);
+    color: var(--color-black);
+}
+
+.button_price.light:hover {
+    color: var(--color-gold);
+    background-color: var(--color-black);
 }
 
 .button_active:hover {
@@ -257,7 +300,8 @@ body {
     height: 35px;
     background: none;
     border: none;
-    background: url('./assets/svg/theme/dark.svg') no-repeat center / contain;
+    background: no-repeat center / contain;
+    background-image: url('./assets/svg/theme/dark.svg');
     transition: .5s;
     cursor: pointer;
 }
@@ -266,7 +310,11 @@ body {
     background-image: url('./assets/svg/theme/light.svg');
 }
 
-.button__theme:hover, .button__theme.light__theme:hover {
+.button__theme.light__theme:hover {
+    filter: invert(74%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+}
+
+.button__theme:hover {
     filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
 }
 
@@ -975,9 +1023,4 @@ body {
         margin-top: 20px;
     }
 
-}
-
-.light {
-    background-color: var(--color-white);
-    color: var(--color-black);
 }
