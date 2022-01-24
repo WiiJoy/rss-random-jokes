@@ -191,6 +191,14 @@ body {
     padding: 160px 80px;
 }
 
+.light_bg {
+    background-image: url('./assets/img/bg_light.jpeg');
+}
+
+.light_contacts {
+    background-image: url('./assets/img/contacts_light.jpeg');
+}
+
 .hero__wrap {
     width: 500px;
 }
