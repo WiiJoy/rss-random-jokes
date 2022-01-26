@@ -137,6 +137,10 @@ body.light {
     color: var(--color-white);
 }
 
+.lang__hover_inactive.light.lang__hover {
+    color: var(--color-white);
+}
+
 .lang_en {
     margin-right: 11px;
 }
@@ -696,6 +700,10 @@ body.light {
         transition: .5s;
     }
 
+    .hamburger.light span {
+        background-color: var(--color-black);
+    }
+
     .hamburger_active span {
         margin-bottom: -2px;
     }
@@ -728,6 +736,10 @@ body.light {
         align-items: flex-start;
         background-color: var(--color-black);
         transition: 0.5s all;        
+    }
+
+    .header__nav.light {
+        background-color: var(--color-white);
     }
 
     .menu {
@@ -807,7 +819,7 @@ body.light {
         width: 131px;
         height: 50px;
         text-align: center;
-        background-color: var(--color-black);
+        /* background-color: var(--color-black); */
     }
 
     .section__body_skills {
@@ -1023,6 +1035,7 @@ body.light {
 
     .section_hero {
         padding-left: 40px;
+        padding-top: 40px;
     }
 
     .button_inactive, .button_active {
