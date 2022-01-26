@@ -53,7 +53,18 @@ window.addEventListener('DOMContentLoaded', () => {
                 btnTheme.classList.contains('light__theme') ? item.classList.add('light') : item.classList.remove('light')
             })
         })
-    })
+    });
+
+    (function() {
+        const seasons = ['winter', 'spring', 'summer', 'autumn'];
+
+        seasons.forEach(season => {
+            for (let i = 1; i <= 6; i++) {
+                const img = new Image();
+                img.src = `./assets/img/${season}/${i}.jpg`
+            }
+        })
+    } ());
 
     console.log('Общий балл: 75/75\n',
         '\n',
