@@ -12,6 +12,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const toLightElements = ['body', '.container_header', '.section_hero', '.section_contacts', '.header__logo', '.button', '.button_inactive', '.button_active', '.button_price', '.menu__link', '.footer__link', '.footer__social', '.lang__hover_inactive', '.divider', '.title_h2', '.contacts__input', '.hamburger', '.header__nav'];
 
+    getLocalStorage();
+
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('hamburger_active');
         navMenu.classList.toggle('header__nav_active');
@@ -36,23 +38,30 @@ window.addEventListener('DOMContentLoaded', () => {
 
     langs.addEventListener('click', (ev) => {
         if (ev.target.classList.contains('lang__hover_inactive')) {
-            Array.from(langs.children).forEach(child => child.classList.remove('lang__hover'));
-            ev.target.classList.add('lang__hover');
 
             let lang = ev.target.dataset.i18n;
 
-            textContents.forEach(text => {
-
-                if (text.hasAttribute('placeholder')) {
-                    text.placeholder = i18Obj[lang][text.dataset.i18n]
-                } else {
-                    text.textContent = i18Obj[lang][text.dataset.i18n]
-                }
-            })
+            changeLang(lang)
 
             setLocalStorage('lang', lang)
         }
     });
+    
+
+    function changeLang(lang) {
+        Array.from(langs.children).forEach(child => {
+            child.dataset.i18n === lang ? child.classList.add('lang__hover') : child.classList.remove('lang__hover')
+            
+        });
+
+        textContents.forEach(text => {
+            if (text.hasAttribute('placeholder')) {
+                text.placeholder = i18Obj[lang][text.dataset.i18n]
+            } else {
+                text.textContent = i18Obj[lang][text.dataset.i18n]
+            }
+        })
+    }
 
     btnTheme.addEventListener('click', () => {
         btnTheme.classList.toggle('light__theme')
@@ -84,6 +93,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
     function setLocalStorage(type, lang) {
         localStorage.setItem(type, lang)
+    }
+
+    function getLocalStorage() {
+        if (localStorage.getItem('lang')) {
+            changeLang(localStorage.getItem('lang'))
+        }
     }
 
     console.log('Общий балл: 75/75\n',
