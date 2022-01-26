@@ -470,11 +470,21 @@ body.light {
     color: var(--color-gold);
 }
 
+.contacts__input.light {
+    border: 2px solid var(--color-black);
+    background-color: rgba(255, 255, 255, 0.5);
+    color: var(--color-black);
+}
+
 .contacts__input::placeholder {
     font-size: var(--font-default);
     line-height: var(--lh-font-default);
     color: var(--color-gold);
     transition: .5s;
+}
+
+.contacts__input.light::placeholder {
+    color: var(--color-black);
 }
 
 .contacts__text {
@@ -494,6 +504,10 @@ body.light {
     color: var(--color-white);
     outline: none;
     border-color: var(--color-white);
+}
+
+.contacts__input.light:focus-visible {
+    color: var(--color-black);
 }
 
 .contacts__input:focus-visible::placeholder {

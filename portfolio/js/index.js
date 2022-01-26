@@ -10,7 +10,7 @@ window.addEventListener('DOMContentLoaded', () => {
           textContents = document.querySelectorAll('[data-i18n]'),
           btnTheme = document.querySelector('.button__theme');
 
-    const toLightElements = ['body', '.container_header', '.section_hero', '.section_contacts', '.header__logo', '.button', '.button_inactive', '.button_active', '.button_price', '.menu__link', '.footer__link', '.footer__social', '.lang__hover', '.divider', '.title_h2'];
+    const toLightElements = ['body', '.container_header', '.section_hero', '.section_contacts', '.header__logo', '.button', '.button_inactive', '.button_active', '.button_price', '.menu__link', '.footer__link', '.footer__social', '.lang__hover', '.divider', '.title_h2', '.contacts__input'];
 
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('hamburger_active');
