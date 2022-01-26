@@ -133,6 +133,10 @@ body.light {
     cursor: default;
 }
 
+.lang__hover.light {
+    color: var(--color-white);
+}
+
 .lang_en {
     margin-right: 11px;
 }
@@ -161,6 +165,10 @@ body.light {
     font-size: var(--h2-title);
     line-height: 80px;
     color: var(--color-gold);
+}
+
+.title_h2.light {
+    color: var(--color-black);
 }
 
 .title_price {
@@ -306,22 +314,34 @@ body.light {
     cursor: pointer;
 }
 
-.button__theme.light__theme {
-    background-image: url('./assets/svg/theme/light.svg');
-}
-
-.button__theme.light__theme:hover {
-    filter: invert(74%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
-}
-
 .button__theme:hover {
     filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
 }
+
+.button__theme.light__theme {
+    /* filter: invert(100%); */
+    background-image: url('./assets/svg/theme/light.svg');
+}
+
+
+.button__theme:hover.light__theme {
+    filter: none;
+}
+
+.button__theme.light__theme:hover {
+    filter: invert(74%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%) !important;
+}
+
+
 
 .divider {
     height: 2px;
     width: 274px;
     background-color: var(--color-gold);
+}
+
+.divider.light {
+    background-color: var(--color-black);
 }
 
 .divider_portfolio {

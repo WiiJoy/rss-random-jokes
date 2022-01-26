@@ -10,7 +10,7 @@ window.addEventListener('DOMContentLoaded', () => {
           textContents = document.querySelectorAll('[data-i18n]'),
           btnTheme = document.querySelector('.button__theme');
 
-    const toLightElements = ['body', '.container_header', '.section_hero', '.section_contacts', '.header__logo', '.button', '.button_inactive', '.button_active', '.button_price', '.menu__link', '.footer__link', '.footer__social'];
+    const toLightElements = ['body', '.container_header', '.section_hero', '.section_contacts', '.header__logo', '.button', '.button_inactive', '.button_active', '.button_price', '.menu__link', '.footer__link', '.footer__social', '.lang__hover', '.divider', '.title_h2'];
 
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('hamburger_active');
@@ -50,7 +50,7 @@ window.addEventListener('DOMContentLoaded', () => {
         toLightElements.forEach((el) => {
             let currItems = document.querySelectorAll(el);
             currItems.forEach(item => {
-                item.classList.toggle('light')
+                btnTheme.classList.contains('light__theme') ? item.classList.add('light') : item.classList.remove('light')
             })
         })
     })
