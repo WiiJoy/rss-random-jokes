@@ -13,6 +13,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const toLightElements = ['body', '.container_header', '.section_hero', '.section_contacts', '.header__logo', '.button', '.button_inactive', '.button_active', '.button_price', '.menu__link', '.footer__link', '.footer__social', '.lang__hover_inactive', '.divider', '.title_h2', '.contacts__input', '.hamburger', '.header__nav'];
 
     getLocalStorage();
+    preloadImages();
 
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('hamburger_active');
@@ -83,7 +84,7 @@ window.addEventListener('DOMContentLoaded', () => {
         })
     }
 
-    (function() {
+    function preloadImages() {
         const seasons = ['winter', 'spring', 'summer', 'autumn'];
 
         seasons.forEach(season => {
@@ -92,7 +93,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 img.src = `./assets/img/${season}/${i}.jpg`
             }
         })
-    } ());
+    }
 
     function setLocalStorage(type, lang) {
         localStorage.setItem(type, lang)
