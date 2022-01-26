@@ -64,8 +64,11 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     btnTheme.addEventListener('click', () => {
+        changeTheme();
+    });
+
+    function changeTheme() {
         btnTheme.classList.toggle('light__theme')
-        // btnTheme.classList.contains('light__theme') ? setLocalStorage('theme', 'light') : localStorage.removeItem('theme')
         toLightElements.forEach((el) => {
             let currItems = document.querySelectorAll(el);
             currItems.forEach(item => {
@@ -78,7 +81,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 } 
             })
         })
-    });
+    }
 
     (function() {
         const seasons = ['winter', 'spring', 'summer', 'autumn'];
@@ -98,6 +101,9 @@ window.addEventListener('DOMContentLoaded', () => {
     function getLocalStorage() {
         if (localStorage.getItem('lang')) {
             changeLang(localStorage.getItem('lang'))
+        }
+        if (localStorage.getItem('theme')) {
+            changeTheme();
         }
     }
 
