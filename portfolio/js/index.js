@@ -41,7 +41,14 @@ window.addEventListener('DOMContentLoaded', () => {
 
             let lang = ev.target.dataset.i18n;
 
-            textContents.forEach(text => text.textContent = i18Obj[lang][text.dataset.i18n])
+            textContents.forEach(text => {
+
+                if (text.hasAttribute('placeholder')) {
+                    text.placeholder = i18Obj[lang][text.dataset.i18n]
+                } else {
+                    text.textContent = i18Obj[lang][text.dataset.i18n]
+                }
+            })
         }
     });
 
