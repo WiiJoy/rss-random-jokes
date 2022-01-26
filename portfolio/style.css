@@ -245,6 +245,13 @@ body.light {
 
 .button:hover {
     color: var(--color-white);
+    transition: .5s;
+    box-shadow: 0 0 0 20px rgba(255, 255, 255, 0);
+    animation: pulse 1s
+}
+
+@keyframes pulse {
+    0%{box-shadow: 0 0 0 0 var(--color-gold);}
 }
 
 .button.light {
@@ -255,6 +262,11 @@ body.light {
 .button.light:hover {
     color: var(--color-gold);
     background-color: var(--color-black);
+    animation: pulse-light 1s
+}
+
+@keyframes pulse-light {
+    0%{box-shadow: 0 0 0 0 var(--color-black);}
 }
 
 .button_inactive {
