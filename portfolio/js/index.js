@@ -49,15 +49,24 @@ window.addEventListener('DOMContentLoaded', () => {
                     text.textContent = i18Obj[lang][text.dataset.i18n]
                 }
             })
+
+            setLocalStorage('lang', lang)
         }
     });
 
     btnTheme.addEventListener('click', () => {
         btnTheme.classList.toggle('light__theme')
+        // btnTheme.classList.contains('light__theme') ? setLocalStorage('theme', 'light') : localStorage.removeItem('theme')
         toLightElements.forEach((el) => {
             let currItems = document.querySelectorAll(el);
             currItems.forEach(item => {
-                btnTheme.classList.contains('light__theme') ? item.classList.add('light') : item.classList.remove('light')
+                if (btnTheme.classList.contains('light__theme')) {
+                    item.classList.add('light')
+                    setLocalStorage('theme', 'light')
+                } else {
+                    item.classList.remove('light')
+                    localStorage.removeItem('theme')
+                } 
             })
         })
     });
@@ -72,6 +81,10 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         })
     } ());
+
+    function setLocalStorage(type, lang) {
+        localStorage.setItem(type, lang)
+    }
 
     console.log('Общий балл: 75/75\n',
         '\n',
