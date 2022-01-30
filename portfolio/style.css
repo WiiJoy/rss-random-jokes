@@ -714,6 +714,12 @@ body.light {
         background-color: var(--color-black);
     }
 
+    .hamburger_active {
+        position: fixed;
+        top: 30px;
+        right: 60px;
+    }
+
     .hamburger_active span {
         margin-bottom: -2px;
     }
@@ -1040,6 +1046,10 @@ body.light {
     .menu__link {
         font-size: 26px;
         line-height: 48px;
+    }
+
+    .hamburger_active {
+        right: 40px;
     }
 
     .section_hero {
