@@ -2,14 +2,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const quoteText = document.querySelector('.quote__text'),
           quoteAuthor = document.querySelector('.quote__author'),
           btn = document.querySelector('.button'),
-        //   main = document.querySelector('.main'),
-        //   img = document.querySelector('.quote__image'),
           body = document.querySelector('body'),
-          container = document.querySelector('.container');
+          blur = document.querySelector('.blur');
     
     let color = randomColor();
 
-    getQuote(quoteText, quoteAuthor, container);
+    getQuote(quoteText, quoteAuthor, blur);
     body.style.background = color;
 
     btn.addEventListener('click', function() {

@@ -18,18 +18,31 @@ body {
 
 .container {
     box-sizing: border-box;
-    position: fixed;
     height: 100vh;
     width: 100vw;
-    background: no-repeat center / cover;
     display: flex;
     flex-direction: column;
     transition: 1s;
+    position: relative;
+}
+
+.blur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    filter: blur(4px);
+    z-index: 1;
+    background: no-repeat center / cover;
 }
 
 .header {
     background: rgba(0, 0, 0, .5);
     padding: 20px;
+    z-index: 5;
 }
 
 .title {
@@ -45,6 +58,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    z-index: 5;
 }
 
 .quote {
@@ -101,6 +115,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 5;
 }
 
 .link {
