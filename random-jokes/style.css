@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Satisfy&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    color: #fff;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    transition: 1s;
+}
+
+.container {
+    box-sizing: border-box;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background: no-repeat center / cover;
+    display: flex;
+    flex-direction: column;
+    transition: 1s;
+}
+
+.header {
+    background: rgba(0, 0, 0, .5);
+    padding: 20px;
+}
+
+.title {
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.main {
+    background: rgba(0, 0, 0, .5);
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.quote {
+    box-sizing: border-box;
+    padding: 0 20px;
+    flex: 1;
+    margin: 0 auto;
+}
+
+.quote__wrap {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Satisfy', cursive;
+}
+
+.quote__text, .quote__author {
+    font-family: 'Satisfy', cursive;
+    font-size: 64px;
+    text-align: center;
+}
+
+.quote__author {
+    font-size: 48px;
+}
+
+.button {
+    box-sizing: border-box;
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    color: #000;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 20px 40px;
+    text-transform: uppercase;
+    font-weight: 700;
+    box-shadow: 0 0 40px 40px #fff inset, 0 0 0 0 #fff;
+    transition: all 150ms ease-in-out;
+}
+
+.button:hover {
+    color: #fff;
+    outline: 0;
+    box-shadow: 0 0 10px 0 #fff inset, 0 0 10px 4px #fff;
+}
+
+.footer {
+    background: rgba(0, 0, 0, .5);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.link {
+    text-decoration: none;
+    transition: .5s;
+}
+
+.link:hover {
+    color: #bebebe;
+    text-shadow: #000;
+}
