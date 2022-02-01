@@ -108,7 +108,7 @@ body {
         rgb(200, 200, 200) 100%
       );
     color: rgb(200, 200, 200);
-    width: calc(20% - 40px);
+    width: calc(15% - 40px);
     height: 10px;
     outline: none;
     cursor: ew-resize;
@@ -117,7 +117,7 @@ body {
 }
 
 .video__timeline {
-    width: calc(80% - 160px);
+    width: calc(75% - 160px);
 }
 
 .video__volume__level::-webkit-slider-thumb,
@@ -156,6 +156,12 @@ body {
 .volume__off {
     background-image: url('../svg/mute.svg');
     transition: .5s all;
+}
+
+.time__wrap {
+    color: #fff;
+    width: 100px;
+    font-size: 14px;
 }
 
 .video__play {
