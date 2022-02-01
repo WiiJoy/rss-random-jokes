@@ -4,11 +4,21 @@ let video = document.querySelector('.video__video'),
     btnPlay = document.querySelector('.button__play'),
     btnPlayBig = document.querySelector('.video__play'),
     btnVolume = document.querySelector('.button__volume'),
-    poster = document.querySelector('.video__poster');
+    poster = document.querySelector('.video__poster'),
+    currTimeHud = document.querySelector('.time__current'),
+    durationTimeHud = document.querySelector('.time__duration');
 
 videoVolume ();
 
+function durationHud(time) {
+    let minutes = Math.floor(time / 60) < 10 ? '0' + Math.floor(time / 60) : '' + Math.floor(time / 60);
+    let seconds = Math.floor(time - parseInt(minutes) * 60) < 10 ? '0' + Math.floor(time - parseInt(minutes) * 60) : '' + Math.floor(time - parseInt(minutes) * 60);
+
+    return `${minutes}:${seconds}`
+}
+
 const playVideo = function() {
+    durationTimeHud.innerHTML = durationHud(video.duration)
 
     if (btnPlay.classList.contains('button__pause')) {
         video.pause();
@@ -34,11 +44,15 @@ btnPlayBig.addEventListener('click', playVideo)
 video.addEventListener('click', playVideo)
 poster.addEventListener('click', playVideo)
 
+
+
 function timeline () {
     let currTime = (Math.floor(video.currentTime) / (Math.floor(video.duration) / 100));
     fullTimeline.value = currTime;
 
     fullTimeline.style.background = `linear-gradient(to right, rgb(189, 174, 130) 0%, rgb(189, 174, 130) ${fullTimeline.value}%, rgb(200, 200, 200) ${fullTimeline.value}%, rgb(200, 200, 200) 100%)`;
+
+    currTimeHud.innerHTML = durationHud(video.currentTime)
 
     if (video.currentTime === video.duration) {
         video.currentTime = 0;
@@ -51,6 +65,7 @@ function timeline () {
 function setVideoTime () {
     let currTime = fullTimeline.value * (Math.floor(video.duration) / 100);
     video.currentTime = currTime;
+    currTimeHud.innerHTML = durationHud(Math.floor(video.currentTime))
 }
 
 video.addEventListener('timeupdate', timeline);
