@@ -160,6 +160,8 @@ body {
 
 .time__wrap {
     color: #fff;
+    width: 100px;
+    font-size: 14px;
 }
 
 .video__play {
