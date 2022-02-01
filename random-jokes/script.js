@@ -18,10 +18,10 @@ async function getQuote(text, author, img) {
     text.innerHTML = data.quote.body;
     author.innerHTML = data.quote.author;
 
-    getImage(author.innerHTML, img);
+    getImage(img);
 }
 
-async function getImage(author, img) {
+async function getImage(img) {
     const key = 'DSAe9oxwGIf74LcAJdtRp7K_rURwb-189PCdIE_9r4M';
     const urlReq = `https://api.unsplash.com/photos/random?orientation=landscape&query=nature&client_id=${key}`;
     const res = await fetch(urlReq);
