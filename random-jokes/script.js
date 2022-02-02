@@ -30,24 +30,43 @@ async function getQuote(text, author, img, lang) {
     let res = null
     let data = null
 
+    text.style.opacity = 0
+    author.style.opacity = 0
     if (lang === 'en') {
         console.log('en lang')
         res = await fetch('https://favqs.com/api/qotd');
         data = await res.json();
-        text.innerHTML = data.quote.body;
-        author.innerHTML = data.quote.author;
+        
+        // text.innerHTML = data.quote.body;
+        // author.innerHTML = data.quote.author;
+        setTimeout(() => {
+            text.innerHTML = data.quote.body;
+            author.innerHTML = data.quote.author;
+            text.style.opacity = 1
+            author.style.opacity = 1
+        }, 300)
     } else {
         console.log('ru lang')
         res = await fetch('./assets/json/quotes.json');
         let dataObj = await res.json()
         data = dataObj[Math.floor(Math.random() * dataObj.length)];
-        text.innerHTML = data.text;
-        author.innerHTML = data.author;
+        setTimeout(() => {
+            text.innerHTML = data.text;
+            author.innerHTML = data.author;
+            text.style.opacity = 1
+            author.style.opacity = 1
+        }, 300)
     }
 
     
     console.log(data)
+    img.style.opacity = 0
     img.style.backgroundImage = `url('./assets/img/${Math.round(Math.random() * 19 + 1)}.jpeg')`;
+    img.style.opacity = 1
+    
+    // setTimeout(() => {
+        
+    // }, 500)
 
     // getImage(img);
 }
