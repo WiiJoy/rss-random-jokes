@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
     let langQuotes = 'en'
 
+    preloadImages()
+
     getQuote(quoteText, quoteAuthor, blur, langQuotes);
 
     btn.addEventListener('click', function() {
@@ -58,3 +60,10 @@ async function getQuote(text, author, img, lang) {
     img.style.backgroundImage = `url('./assets/img/${Math.round(Math.random() * 19 + 1)}.jpeg')`;
     img.style.opacity = 1
 }
+
+function preloadImages() {
+    for (let i = 1; i <= 20; i++) {
+      const img = new Image();
+      img.src = `./assets/img/${i}.jpeg`;
+    }
+  }
