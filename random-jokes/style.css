@@ -103,6 +103,32 @@ body {
     transition: all 150ms ease-in-out;
 }
 
+.langs {
+    margin: 0 auto;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.lang {
+    cursor: pointer;
+    transition: .5s;
+}
+
+.lang:hover {
+    color: #bebebe;
+    text-shadow: #000;
+}
+
+.lang_active {
+    font-weight: 700;
+    cursor: default;
+}
+
+.lang_active:hover {
+    color: #fff;
+    text-shadow: none;
+}
+
 .button:hover {
     color: #fff;
     outline: 0;
