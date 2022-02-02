@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Marck+Script&display=swap');
 
 * {
     margin: 0;
@@ -37,6 +37,7 @@ body {
     filter: blur(4px);
     z-index: 1;
     background: no-repeat center / cover;
+    transition: .5s;
 }
 
 .header {
@@ -74,13 +75,15 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-family: 'Satisfy', cursive;
+    font-family: 'Marck Script', cursive;
+    transition: .5s;
 }
 
 .quote__text, .quote__author {
-    font-family: 'Satisfy', cursive;
+    font-family: 'Marck Script', cursive;
     font-size: 64px;
     text-align: center;
+    transition: .5s;
 }
 
 .quote__author {
@@ -101,6 +104,32 @@ body {
     font-weight: 700;
     box-shadow: 0 0 40px 40px #fff inset, 0 0 0 0 #fff;
     transition: all 150ms ease-in-out;
+}
+
+.langs {
+    margin: 0 auto;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.lang {
+    cursor: pointer;
+    transition: .5s;
+}
+
+.lang:hover {
+    color: #bebebe;
+    text-shadow: #000;
+}
+
+.lang_active {
+    font-weight: 700;
+    cursor: default;
+}
+
+.lang_active:hover {
+    color: #fff;
+    text-shadow: none;
 }
 
 .button:hover {
