@@ -37,6 +37,7 @@ body {
     filter: blur(4px);
     z-index: 1;
     background: no-repeat center / cover;
+    transition: .5s;
 }
 
 .header {
@@ -75,12 +76,14 @@ body {
     justify-content: center;
     align-items: center;
     font-family: 'Marck Script', cursive;
+    transition: .5s;
 }
 
 .quote__text, .quote__author {
     font-family: 'Marck Script', cursive;
     font-size: 64px;
     text-align: center;
+    transition: .5s;
 }
 
 .quote__author {

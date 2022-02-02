@@ -47,9 +47,9 @@ async function getQuote(text, author, img, lang) {
 
     
     console.log(data)
-    
+    img.style.backgroundImage = `url('./assets/img/${Math.round(Math.random() * 19 + 1)}.jpeg')`;
 
-    getImage(img);
+    // getImage(img);
 }
 
 async function getImage(img) {
