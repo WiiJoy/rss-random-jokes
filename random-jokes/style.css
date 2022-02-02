@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Marck+Script&display=swap');
 
 * {
     margin: 0;
@@ -74,11 +74,11 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-family: 'Satisfy', cursive;
+    font-family: 'Marck Script', cursive;
 }
 
 .quote__text, .quote__author {
-    font-family: 'Satisfy', cursive;
+    font-family: 'Marck Script', cursive;
     font-size: 64px;
     text-align: center;
 }
