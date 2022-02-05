@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const cards = document.querySelector('.cards'),
           stepSpan = document.querySelector('.steps'),
-          scoreSpan = document.querySelector('.score');
+          scoreSpan = document.querySelector('.score'),
+          cardItems = document.querySelectorAll('.card');
 
     let firstCard = '',
         secondCard = '',
@@ -10,6 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
         score = 0,
         lock = false;
 
+    shuffleCards()
+    
     cards.addEventListener('click', (ev) => {
         if (ev.target.classList.contains('card__item') && !ev.target.parentNode.classList.contains('card_upend')) cardUpend(ev.target.parentNode);
     })
@@ -58,14 +61,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 lock = false
             }, 400)
             console.log('removes: ', firstCard, secondCard)
-            
         }
+        
+        if (handledCards === cardItems.length) console.log('Win!')
     }
 
     function removeCard(card) {
         card.classList.remove('card_upend');
         card.querySelector('.card__back').style.opacity = 1
         card.querySelector('.card__front').style.opacity = 0
+    }
+
+    function shuffleCards() {
+        cardItems.forEach(item => {
+            item.style.order = Math.round(Math.random() * 12)
+        }) 
     }
     
 })
