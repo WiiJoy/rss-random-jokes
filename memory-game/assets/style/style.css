@@ -122,6 +122,26 @@
 
 .tools {
     width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+.history {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+.history__last {
+    flex: 1;
+}
+
+.history__best {
+    flex: 1;
 }
 
 .footer {
