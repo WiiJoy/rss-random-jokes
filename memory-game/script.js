@@ -1,11 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
     const cards = document.querySelector('.cards'),
-          cardItems = document.querySelectorAll('.card');
+          stepSpan = document.querySelector('.steps'),
+          scoreSpan = document.querySelector('.score');
 
     let firstCard = '',
         secondCard = '',
         steps = 0,
         handledCards = 0,
+        score = 0,
         lock = false;
 
     cards.addEventListener('click', (ev) => {
@@ -32,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (firstCard && secondCard) {
             steps++
+            stepSpan.innerHTML = steps
             checkCards()
         }
     }
@@ -39,6 +42,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function checkCards() {
         if (firstCard.dataset.animal === secondCard.dataset.animal) {
             handledCards += 2
+            score += 2
+            scoreSpan.innerHTML = score
             firstCard = ''
             secondCard = ''
             lock = false
@@ -46,6 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 removeCard(firstCard)
                 removeCard(secondCard)
+                score = score - 1 <= 0 ? 0 : score -1
+                scoreSpan.innerHTML = score
                 firstCard = ''
                 secondCard = ''
                 lock = false
