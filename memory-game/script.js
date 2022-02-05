@@ -9,7 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
         steps = 0,
         handledCards = 0,
         score = 0,
-        lock = false;
+        lock = false,
+        player = '';
 
     shuffleCards()
     
