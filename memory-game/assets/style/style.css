@@ -7,3 +7,47 @@
     font-weight: 400;
     color: #fff;
 }
+
+.container {
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.main {
+    flex: 1;
+    display: flex;
+}
+
+.game {
+    flex: 1;
+}
+
+.tools {
+    width: 400px;
+}
+
+.footer {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.link {
+    text-decoration: none;
+    transition: .5s;
+}
+
+.link:hover {
+    color: #8b8b8b;
+    text-shadow: rgb(0, 0, 0);
+}
+
