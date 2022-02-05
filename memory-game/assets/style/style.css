@@ -52,6 +52,16 @@
 
 .game {
     flex: 1;
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: repeat(3, 120px);
+    gap: 10px;
+}
+
+.card {
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
 }
 
 .tools {
