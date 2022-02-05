@@ -16,18 +16,21 @@ document.addEventListener('DOMContentLoaded', () => {
         score = 0,
         lock = false,
         player = '',
-        // game = false,
         status = 'start';
 
-    shuffleCards()
+    
     changeStatus('start')
 
     btn.addEventListener('click', () => {
         if (btn.classList.contains('btn_disabled')) return
+        lock = true
+        resetCards()
+        shuffleCards()
 
         btn.classList.add('btn_disabled')
         console.log('player: ', player)
         changeStatus('game')
+        lock = false
     })
 
     nameInput.addEventListener('input', (ev) => {
@@ -118,6 +121,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 break
         }
     }
+
+    function resetCards() {
+        lock = true
+
+        cardItems.forEach(item => {
+            removeCard(item)
+        })
+
+        firstCard = '',
+        secondCard = '',
+        steps = 0,
+        handledCards = 0,
+        score = 0;
+        stepSpan.innerHTML = steps
+        scoreSpan.innerHTML = score
+        
+    }
+
+
     
 })
 
