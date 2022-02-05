@@ -1,4 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const STATUS = {
+        'start': 'Enter your name and press NEW GAME',
+        'game': `${player || 'Unknown'} is playing now`,
+        'over': 'Game over! Press NEW GAME to start again!'
+    }
+
     const cards = document.querySelector('.cards'),
           stepSpan = document.querySelector('.steps'),
           scoreSpan = document.querySelector('.score'),
@@ -10,7 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
         handledCards = 0,
         score = 0,
         lock = false,
-        player = '';
+        player = '',
+        game = false;
 
     shuffleCards()
     
@@ -80,6 +87,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
 })
+
+
 
 
 

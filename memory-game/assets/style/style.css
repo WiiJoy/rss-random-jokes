@@ -121,11 +121,27 @@
 }
 
 .tools {
+    box-sizing: border-box;
+    padding: 20px;
     width: 400px;
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: center;
+    gap: 15px;
+}
+
+.tools__input {
+    height: 25px;
+    width: 100%
+}
+
+.btn {
+    height: 35px;
+    width: 120px;
+    border: none;
+    background: hsl(54, 100%, 50%);
+    color: black;
 }
 
 .history {
