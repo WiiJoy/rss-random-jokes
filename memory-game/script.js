@@ -19,20 +19,20 @@ document.addEventListener('DOMContentLoaded', () => {
         // game = false,
         status = 'start';
 
-    const GAME_STATUS = {
-        'start': 'Enter your name and press NEW GAME',
-        'game': `${player || 'Unknown'} is playing now`,
-        'over': 'Game over! Press NEW GAME to start again!'
-    }
-
     shuffleCards()
     changeStatus('start')
 
     btn.addEventListener('click', () => {
         if (btn.classList.contains('btn_disabled')) return
-        
+
         btn.classList.add('btn_disabled')
+        console.log('player: ', player)
         changeStatus('game')
+    })
+
+    nameInput.addEventListener('input', (ev) => {
+        console.log(ev.target.value)
+        player = ev.target.value
     })
 
     
@@ -106,7 +106,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function changeStatus(newStatus) {
         status = newStatus;
-        statusTool.innerHTML = GAME_STATUS[newStatus]
+        switch (newStatus) {
+            case 'start':
+                statusTool.innerHTML = 'Enter your name and press NEW GAME'
+                break
+            case 'game':
+                statusTool.innerHTML = `${player || 'Unknown'} is playing now`
+                break
+            case 'over':
+                statusTool.innerHTML = 'Game over! Press NEW GAME to start again!'
+                break
+        }
     }
     
 })
