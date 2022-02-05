@@ -1,10 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     const cards = document.querySelector('.cards'),
-          cardItem = document.querySelectorAll('.card');
+          cardItems = document.querySelectorAll('.card');
 
     let firstCard = '',
         secondCard = '',
-        steps = 0;
+        steps = 0,
+        handledCards = 0;
 
     cards.addEventListener('click', (ev) => {
         if (ev.target.classList.contains('card__item') && !ev.target.parentNode.classList.contains('card_upend')) cardUpend(ev.target.parentNode);
@@ -22,9 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
         front.style.opacity = 1
 
         if (!firstCard) {
-            firstCard = card.dataset.animal
+            firstCard = card
         } else {
-            secondCard = card.dataset.animal
+            secondCard = card
         }
 
         if (firstCard && secondCard) {
@@ -34,11 +35,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function checkCards() {
-        if (firstCard === secondCard) {
-            console.log('win cards')
+        if (firstCard.dataset.animal === secondCard.dataset.animal) {
+            handledCards += 2
+            firstCard = ''
+            secondCard = ''
         } else {
-            console.log('loose cards')
+            setTimeout(() => {
+                removeCard(firstCard)
+                removeCard(secondCard)
+                firstCard = ''
+                secondCard = ''
+            }, 400)
+            console.log('removes: ', firstCard, secondCard)
+            
         }
+    }
+
+    function removeCard(card) {
+        card.classList.remove('card_upend');
+        card.querySelector('.card__back').style.opacity = 1
+        card.querySelector('.card__front').style.opacity = 0
     }
     
 })
