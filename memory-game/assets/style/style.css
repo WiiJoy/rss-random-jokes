@@ -60,6 +60,12 @@
     
 }
 
+.game__stats {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
 .cards {
     align-self: center;
     height: 100%;
