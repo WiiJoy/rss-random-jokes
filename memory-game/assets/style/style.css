@@ -8,12 +8,36 @@
     color: #fff;
 }
 
+
+
 .container {
     box-sizing: border-box;
     height: 100vh;
     width: 100vw;
     display: flex;
     flex-direction: column;
+    position: relative;
+}
+
+.wrapper {
+    top: -2vh;
+    left: -2vw;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    height: 105vh;
+    width: 105vw;
+    background: no-repeat center / cover url('../img/bg.jpeg');
+    filter: blur(3px);
+    z-index: 1;
+    overflow: hidden;
+}
+
+.header, .main, .footer {
+    z-index: 5;
+}
+.header {
+    padding: 20px;
 }
 
 .title {
