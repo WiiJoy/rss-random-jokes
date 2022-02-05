@@ -140,8 +140,16 @@
     height: 35px;
     width: 120px;
     border: none;
+    border-radius: 3px;
     background: hsl(54, 100%, 50%);
     color: black;
+    cursor: pointer;
+}
+
+.btn_disabled {
+    background-color: rgb(216, 214, 214);
+    color: rgb(133, 133, 133);
+    cursor: not-allowed;
 }
 
 .history {

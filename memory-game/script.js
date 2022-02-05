@@ -29,6 +29,9 @@ document.addEventListener('DOMContentLoaded', () => {
     changeStatus('start')
 
     btn.addEventListener('click', () => {
+        if (btn.classList.contains('btn_disabled')) return
+        
+        btn.classList.add('btn_disabled')
         changeStatus('game')
     })
 
@@ -85,6 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (handledCards === cardItems.length) {
             changeStatus('over')
+            btn.classList.remove('btn_disabled')
         }
     }
 
