@@ -61,6 +61,12 @@
 .card {
     box-sizing: border-box;
     position: relative;
+    transform: scale(1);
+    transition: transform .3s;
+}
+
+.card:active {
+    transform: scale(.95);
 }
 
 .card__item {
