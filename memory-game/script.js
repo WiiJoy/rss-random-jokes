@@ -1,14 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const STATUS = {
-        'start': 'Enter your name and press NEW GAME',
-        'game': `${player || 'Unknown'} is playing now`,
-        'over': 'Game over! Press NEW GAME to start again!'
-    }
+    
 
     const cards = document.querySelector('.cards'),
           stepSpan = document.querySelector('.steps'),
           scoreSpan = document.querySelector('.score'),
-          cardItems = document.querySelectorAll('.card');
+          cardItems = document.querySelectorAll('.card'),
+          btn = document.querySelector('.btn'),
+          nameInput = document.querySelector('.tools__input'),
+          statusTool = document.querySelector('.status');
 
     let firstCard = '',
         secondCard = '',
@@ -17,9 +16,18 @@ document.addEventListener('DOMContentLoaded', () => {
         score = 0,
         lock = false,
         player = '',
-        game = false;
+        // game = false,
+        status = 'start';
+
+    const GAME_STATUS = {
+        'start': 'Enter your name and press NEW GAME',
+        'game': `${player || 'Unknown'} is playing now`,
+        'over': 'Game over! Press NEW GAME to start again!'
+    }
 
     shuffleCards()
+    changeStatus('start')
+
     
     cards.addEventListener('click', (ev) => {
         if (ev.target.classList.contains('card__item') && !ev.target.parentNode.classList.contains('card_upend')) cardUpend(ev.target.parentNode);
@@ -27,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function cardUpend(card) {
 
-        if (lock) return
+        if (lock || status !== 'game') return
 
         const front = card.querySelector('.card__front'),
               back = card.querySelector('.card__back');
@@ -84,6 +92,11 @@ document.addEventListener('DOMContentLoaded', () => {
         cardItems.forEach(item => {
             item.style.order = Math.round(Math.random() * 12)
         }) 
+    }
+
+    function changeStatus(newStatus) {
+        status = newStatus;
+        statusTool.innerHTML = GAME_STATUS[newStatus]
     }
     
 })
