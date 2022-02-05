@@ -52,10 +52,24 @@
 
 .game {
     flex: 1;
-    display: grid;
-    grid-template-columns: repeat(4, 100px);
-    grid-template-rows: repeat(3, 120px);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cards {
+    align-self: center;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
     gap: 10px;
+    width: 500px;
+    height: 380px;
+    justify-content: center;
+    align-items: center;
+    
 }
 
 .card {
@@ -63,6 +77,8 @@
     position: relative;
     transform: scale(1);
     transition: transform .3s;
+    height: 120px;
+    width: 100px;
 }
 
 .card:active {
