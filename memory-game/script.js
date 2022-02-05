@@ -28,6 +28,10 @@ document.addEventListener('DOMContentLoaded', () => {
     shuffleCards()
     changeStatus('start')
 
+    btn.addEventListener('click', () => {
+        changeStatus('game')
+    })
+
     
     cards.addEventListener('click', (ev) => {
         if (ev.target.classList.contains('card__item') && !ev.target.parentNode.classList.contains('card_upend')) cardUpend(ev.target.parentNode);
@@ -79,7 +83,9 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('removes: ', firstCard, secondCard)
         }
         
-        if (handledCards === cardItems.length) console.log('Win!')
+        if (handledCards === cardItems.length) {
+            changeStatus('over')
+        }
     }
 
     function removeCard(card) {
