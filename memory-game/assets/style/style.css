@@ -57,6 +57,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 }
 
 .cards {
@@ -69,20 +70,27 @@
     height: 380px;
     justify-content: center;
     align-items: center;
-    
+    perspective: 1000px;
 }
 
 .card {
     box-sizing: border-box;
     position: relative;
-    transform: scale(1);
-    transition: transform .3s;
+    
+    
     height: 120px;
     width: 100px;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform .3s;
 }
 
 .card:active {
     transform: scale(.95);
+}
+
+.card.card_upend {
+    transform: rotateY(180deg);
 }
 
 .card__item {
