@@ -142,9 +142,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 break
             case 'game':
                 statusTool.innerHTML = `${player || 'Unknown'} is playing now`
+                nameInput.setAttribute('disabled', 'disabled')
                 break
             case 'over':
                 statusTool.innerHTML = 'Game over! Press NEW GAME to start again!'
+                nameInput.removeAttribute('disabled')
                 break
         }
     }
