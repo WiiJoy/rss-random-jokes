@@ -7,7 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
           cardItems = document.querySelectorAll('.card'),
           btn = document.querySelector('.btn'),
           nameInput = document.querySelector('.tools__input'),
-          statusTool = document.querySelector('.status');
+          statusTool = document.querySelector('.status'),
+          last = document.querySelector('.last__wrapper'),
+          best = document.querySelector('.best__wrapper');
 
     let firstCard = '',
         secondCard = '',
@@ -16,10 +18,13 @@ document.addEventListener('DOMContentLoaded', () => {
         score = 0,
         lock = false,
         player = '',
-        status = 'start';
+        status = 'start'
+        lastGames = [{name: 'last', score: 9, steps: 11}],
+        bestGames = [{name: 'last', score: 9, steps: 11}];
 
     
     changeStatus('start')
+    renderGames()
 
     btn.addEventListener('click', () => {
         if (btn.classList.contains('btn_disabled')) return
@@ -136,7 +141,41 @@ document.addEventListener('DOMContentLoaded', () => {
         score = 0;
         stepSpan.innerHTML = steps
         scoreSpan.innerHTML = score
-        
+    }
+
+    function renderGames() {
+        lastGames.forEach((item) => {
+            last.append(createItem(item))
+            // createItem(item)
+        })
+
+        bestGames.forEach((item) => {
+            best.append(createItem(item))
+            // createItem(item)
+        })
+    }
+
+    function createItem(obj) {
+        const divMain = document.createElement('div')
+        const divName = document.createElement('div')
+        const divScore = document.createElement('div')
+        const divSteps = document.createElement('div')
+
+        divName.innerHTML = obj.name
+        divScore.innerHTML = obj.score
+        divSteps.innerHTML = obj.steps
+
+        divMain.classList.add('history__item')
+        divName.classList.add('item_player')
+        divScore.classList.add('item_score')
+        divSteps.classList.add('item_steps')
+
+        divMain.append(divName)
+        divMain.append(divScore)
+        divMain.append(divSteps)
+
+        return divMain
+
     }
 
 

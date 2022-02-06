@@ -158,14 +158,30 @@
     flex-direction: column;
     justify-content: start;
     align-items: center;
+    width: 100%;
 }
 
-.history__last {
+.history__last, .history__best{
+    flex: 1;
+    width: 100%;
+}
+
+.title_h2 {
+    text-align: center;
+}
+
+.history__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item_player {
     flex: 1;
 }
 
-.history__best {
-    flex: 1;
+.item_score, .item_player {
+    width: 100px;
 }
 
 .footer {
