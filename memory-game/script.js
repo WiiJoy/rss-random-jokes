@@ -19,11 +19,12 @@ document.addEventListener('DOMContentLoaded', () => {
         lock = false,
         player = '',
         status = 'start'
-        lastGames = [{name: 'last', score: 9, steps: 11}],
-        bestGames = [{name: 'last', score: 9, steps: 11}];
+        lastGames = [],
+        bestGames = [];
 
     
     changeStatus('start')
+    getLocalStorage()
     renderGames()
 
     btn.addEventListener('click', () => {
@@ -104,6 +105,8 @@ document.addEventListener('DOMContentLoaded', () => {
             lastGames.unshift({name: player || 'Unknown', score: score, steps: steps})
     
             renderGames()
+
+            setLocalStorage('lastGames', lastGames)
         }
 
        
@@ -189,8 +192,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }
 
+    function setLocalStorage(key, value) {
+        localStorage.setItem(key, value)
+    }
 
-    
+    function getLocalStorage() {
+        if (localStorage.getItem('lastGames')) lastGames = localStorage.getItem('lastGames')
+        if (localStorage.getItem('bestGames')) bestGames = localStorage.getItem('bestGames')
+
+    }
+
+
 })
 
 
