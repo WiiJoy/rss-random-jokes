@@ -103,10 +103,16 @@ document.addEventListener('DOMContentLoaded', () => {
             }
     
             lastGames.unshift({name: player || 'Unknown', score: score, steps: steps})
+
+            if (bestGames.length !== 10) {
+                bestGames.push({name: player || 'Unknown', score: score, steps: steps})
+                bestGames = bestGames.sort((a, b) => a.score - b.score)
+            }
     
             renderGames()
 
             setLocalStorage('lastGames', lastGames)
+            setLocalStorage('bestGames', bestGames)
         }
 
        
@@ -198,7 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function getLocalStorage() {
         if (localStorage.getItem('lastGames')) lastGames = JSON.parse(localStorage.getItem('lastGames'))
-        if (localStorage.getItem('bestGames')) bestGames = JSON.parse(localStorage.getItem('bestGames'))
+        if (localStorage.getItem('bestGames')) bestGames = (JSON.parse(localStorage.getItem('bestGames'))).sort((a, b) => a.score - b.score)
 
     }
 
