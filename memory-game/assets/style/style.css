@@ -132,8 +132,20 @@
 }
 
 .tools__input {
-    height: 25px;
-    width: 100%
+    box-sizing: border-box;
+    height: 35px;
+    background-color: rgba(255, 255, 255, .5);
+    border: none;
+    border-radius: 3px;
+    padding: 5px 10px;
+    width: 100%;
+    color: black;
+    transition: .3s;
+}
+
+.tools__input:focus-visible {
+    outline: none;
+    background-color: #fff;
 }
 
 .btn {
