@@ -193,12 +193,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function setLocalStorage(key, value) {
-        localStorage.setItem(key, value)
+        localStorage.setItem(key, JSON.stringify(value))
     }
 
     function getLocalStorage() {
-        if (localStorage.getItem('lastGames')) lastGames = localStorage.getItem('lastGames')
-        if (localStorage.getItem('bestGames')) bestGames = localStorage.getItem('bestGames')
+        if (localStorage.getItem('lastGames')) lastGames = JSON.parse(localStorage.getItem('lastGames'))
+        if (localStorage.getItem('bestGames')) bestGames = JSON.parse(localStorage.getItem('bestGames'))
 
     }
 
