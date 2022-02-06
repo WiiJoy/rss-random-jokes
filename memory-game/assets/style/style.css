@@ -197,8 +197,9 @@
     flex: 1;
 }
 
-.item_score, .item_player {
+.item_score, .item_steps {
     width: 100px;
+    text-align: center;
 }
 
 .footer {
