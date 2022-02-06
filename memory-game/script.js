@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
         status = newStatus;
         switch (newStatus) {
             case 'start':
-                statusTool.innerHTML = 'Enter your name and press NEW GAME'
+                statusTool.innerHTML = 'Press NEW GAME to start'
                 break
             case 'game':
                 statusTool.innerHTML = `${player || 'Unknown'} is playing now`
