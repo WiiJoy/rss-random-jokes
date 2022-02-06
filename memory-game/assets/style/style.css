@@ -143,6 +143,11 @@
     transition: .3s;
 }
 
+.tools__input_disabled {
+    color: rgb(95, 95, 95);
+    cursor: not-allowed;
+}
+
 .tools__input:focus-visible {
     outline: none;
     background-color: #fff;
