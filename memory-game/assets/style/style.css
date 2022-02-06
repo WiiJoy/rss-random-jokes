@@ -170,7 +170,7 @@
     text-align: center;
 }
 
-.history__item {
+.history__item, .history__header {
     display: flex;
     justify-content: space-between;
     align-items: center;

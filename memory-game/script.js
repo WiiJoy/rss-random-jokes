@@ -97,7 +97,16 @@ document.addEventListener('DOMContentLoaded', () => {
         if (handledCards === cardItems.length) {
             changeStatus('over')
             btn.classList.remove('btn_disabled')
+            if (lastGames.length === 10) {
+                lastGames.pop()
+            }
+    
+            lastGames.unshift({name: player || 'Unknown', score: score, steps: steps})
+    
+            renderGames()
         }
+
+       
     }
 
     function removeCard(card) {
@@ -144,11 +153,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function renderGames() {
+        last.innerHTML = ''
         lastGames.forEach((item) => {
             last.append(createItem(item))
             // createItem(item)
         })
 
+        best.innerHTML = ''
         bestGames.forEach((item) => {
             best.append(createItem(item))
             // createItem(item)
