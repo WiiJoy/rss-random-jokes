@@ -9,7 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
           nameInput = document.querySelector('.tools__input'),
           statusTool = document.querySelector('.status'),
           last = document.querySelector('.last__wrapper'),
-          best = document.querySelector('.best__wrapper');
+          best = document.querySelector('.best__wrapper'),
+          nickname = document.querySelector('.player');
 
     let firstCard = '',
         secondCard = '',
@@ -30,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     changeStatus('start')
     getLocalStorage()
     renderGames()
+    renderName()
 
     btn.addEventListener('click', () => {
         if (btn.classList.contains('btn_disabled')) return
@@ -46,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     nameInput.addEventListener('input', (ev) => {
         console.log(ev.target.value)
         player = ev.target.value
+        renderName()
     })
 
     
@@ -176,15 +179,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function renderGames() {
         last.innerHTML = ''
-        lastGames.forEach((item) => {
-            last.append(createItem(item))
-            // createItem(item)
-        })
+        if (lastGames) {
+            last.innerHTML = 'No last games'
+        } else {
+            lastGames.forEach((item) => {
+                last.append(createItem(item))
+            })
+        }
 
         best.innerHTML = ''
         bestGames.forEach((item) => {
             best.append(createItem(item))
-            // createItem(item)
         })
     }
 
@@ -219,6 +224,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (localStorage.getItem('lastGames')) lastGames = JSON.parse(localStorage.getItem('lastGames'))
         if (localStorage.getItem('bestGames')) bestGames = (JSON.parse(localStorage.getItem('bestGames'))).sort((a, b) => b.score - a.score)
 
+    }
+
+    function renderName() {
+        nickname.innerHTML = player || 'Unknown'
     }
 
 
