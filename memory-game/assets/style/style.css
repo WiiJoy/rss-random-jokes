@@ -27,17 +27,23 @@
     position: fixed;
     height: 105vh;
     width: 105vw;
-    background: no-repeat center / cover url('../img/bg.jpeg');
+    background: no-repeat center / cover url('../img/game_bg.jpeg');
     filter: blur(3px);
     z-index: 1;
     overflow: hidden;
 }
 
 .header, .main, .footer {
+    box-sizing: border-box;
     z-index: 5;
+    width: 100vw;
+    max-width: 1440px;
+    margin: 0 auto;
 }
 .header {
     padding: 20px;
+    height: 80px;
+    z-index: 10;
 }
 
 .title {
@@ -48,6 +54,7 @@
 .main {
     flex: 1;
     display: flex;
+    position: relative;
 }
 
 .game {
@@ -91,6 +98,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .card:active {
@@ -99,6 +107,7 @@
 
 .card.card_upend {
     transform: rotateY(180deg);
+    cursor: default;
 }
 
 .card__item {
@@ -121,14 +130,46 @@
 }
 
 .tools {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    overflow: hidden;
+    z-index: 6;
+    opacity: 1;
+    transition: opacity .3s;
+}
+
+.tools__wrapper {
     box-sizing: border-box;
     padding: 20px;
-    width: 400px;
+    width: 800px;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: flex-start;
+    gap: 15px;
+    background: hsl(54, 100%, 50%);
+}
+
+.settings {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: start;
-    align-items: center;
     gap: 15px;
+}
+
+.settings__hello {
+    color: black;
+    text-align: center;
+}
+
+.player {
+    color: black;
+    font-weight: 700;
 }
 
 .tools__input {
@@ -153,20 +194,48 @@
     background-color: #fff;
 }
 
+.input__label {
+    color: black;
+    text-align: center;
+}
+
 .btn {
     height: 35px;
     width: 120px;
+    display: block;
+    margin: 0 auto;
     border: none;
     border-radius: 3px;
-    background: hsl(54, 100%, 50%);
-    color: black;
+    background: black;
+    color: hsl(54, 100%, 50%);
     cursor: pointer;
+    transform: scale(1);
+    transition: .3s;
+}
+
+.btn:hover {
+    color: #fff;
+}
+
+.btn:active {
+    transform: scale(.95);
 }
 
 .btn_disabled {
     background-color: rgb(216, 214, 214);
     color: rgb(133, 133, 133);
     cursor: not-allowed;
+}
+
+.status {
+    color: black;
+    text-align: center;
+}
+
+.rules {
+    color: black;
+    width: 300px;
+    margin: 0 auto;
 }
 
 .history {
@@ -183,8 +252,18 @@
     width: 100%;
 }
 
+.history__last {
+    margin-top: 10px;
+}
+
+.last__wrapper {
+    color: black;
+}
+
 .title_h2 {
     text-align: center;
+    color: black;
+    text-transform: uppercase;
 }
 
 .history__item, .history__header {
@@ -195,11 +274,13 @@
 
 .item_player {
     flex: 1;
+    color: black;
 }
 
 .item_score, .item_steps {
     width: 100px;
     text-align: center;
+    color: black;
 }
 
 .footer {
@@ -207,6 +288,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 60px;
+    z-index: 10;
 }
 
 .link {
@@ -218,4 +301,5 @@
     color: #8b8b8b;
     text-shadow: rgb(0, 0, 0);
 }
+
 

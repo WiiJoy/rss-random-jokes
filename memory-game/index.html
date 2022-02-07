@@ -5,17 +5,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>memory-game</title>
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="./assets/style/style.css">
 </head>
 <body>
     <div class="container">
         <div class="wrapper"></div>
+        <div class="tools">
+            <div class="tools__wrapper">
+                <div class="settings">
+                    <p class="settings__hello">Hi <span class="player"></span>!</p>
+                    <label for="nickname" class="input__label">Not you? Enter your name before start game</label>
+                    <input type="text" placeholder="nickname" class="tools__input" id="nickname">
+                    <button class="btn">New game</button>
+                    <p class="status"></p>
+                    <p class="rules">RULES: Find couples!<br>
+                        Get 2 points for a correct pair. Lose 1 point for a bad choice.<br>
+                        Good luck!</p>
+                </div>
+                <div class="history">
+                    <div class="history__best">
+                        <h2 class="title_h2">Records</h2>
+                        <div class="history__header">
+                            <div class="item_player">Name</div>
+                            <div class="item_score">Score</div>
+                            <div class="item_steps">Steps</div>
+                        </div>
+                        <div class="best__wrapper"></div>
+                    </div>
+                    <div class="history__last">
+                        <h2 class="title_h2">Last games</h2>
+                        <div class="history__header">
+                            <div class="item_player">Name</div>
+                            <div class="item_score">Score</div>
+                            <div class="item_steps">Steps</div>
+                        </div>
+                        <div class="last__wrapper"></div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
         <header class="header">
             <h1 class="title">memory-game</h1>
         </header>
 
         <main class="main">
-            <section class="game">
+            <div class="game">
                 <div class="game__stats">
                     <div class="game__stats__steps">
                         <span>Steps: </span><span class="steps">0</span>
@@ -74,35 +111,37 @@
                         <img src="./assets/svg/cards/back.svg" alt="back-side" class="card__item card__back">
                     </div>
                 </div>
-            </section>
+            </div>
 
-            <section class="tools">
-                <label for="nickname" class="input__label">Enter your nickname before start game</label>
-                <input type="text" placeholder="nickname" class="tools__input" id="nickname">
-                <button class="btn">New game</button>
-                <p class="status"></p>
-                <div class="history">
-                    <div class="history__last">
-                        <h2 class="title_h2">Last 10 games</h2>
-                        <div class="history__header">
-                            <div class="item_player">Nickname</div>
-                            <div class="item_score">Score</div>
-                            <div class="item_steps">Steps</div>
+            <!-- <div class="tools">
+                <div class="tools__wrapper">
+                    <label for="nickname" class="input__label">Enter your name before start game</label>
+                    <input type="text" placeholder="nickname" class="tools__input" id="nickname">
+                    <button class="btn">New game</button>
+                    <p class="status"></p>
+                    <div class="history">
+                        <div class="history__last">
+                            <h2 class="title_h2">Last 10 games</h2>
+                            <div class="history__header">
+                                <div class="item_player">Name</div>
+                                <div class="item_score">Score</div>
+                                <div class="item_steps">Steps</div>
+                            </div>
+                            <div class="last__wrapper"></div>
                         </div>
-                        <div class="last__wrapper"></div>
-                    </div>
-                    <div class="history__best">
-                        <h2 class="title_h2">Best 10 games</h2>
-                        <div class="history__header">
-                            <div class="item_player">Nickname</div>
-                            <div class="item_score">Score</div>
-                            <div class="item_steps">Steps</div>
+                        <div class="history__best">
+                            <h2 class="title_h2">Records</h2>
+                            <div class="history__header">
+                                <div class="item_player">Name</div>
+                                <div class="item_score">Score</div>
+                                <div class="item_steps">Steps</div>
+                            </div>
+                            <div class="best__wrapper"></div>
                         </div>
-                        <div class="best__wrapper"></div>
                     </div>
                 </div>
                 
-            </section>
+            </div> -->
         </main>
 
         <footer class="footer">

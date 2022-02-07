@@ -9,7 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
           nameInput = document.querySelector('.tools__input'),
           statusTool = document.querySelector('.status'),
           last = document.querySelector('.last__wrapper'),
-          best = document.querySelector('.best__wrapper');
+          best = document.querySelector('.best__wrapper'),
+          nickname = document.querySelector('.player'),
+          tools = document.querySelector('.tools');
 
     let firstCard = '',
         secondCard = '',
@@ -20,12 +22,17 @@ document.addEventListener('DOMContentLoaded', () => {
         player = '',
         status = 'start'
         lastGames = [],
-        bestGames = [];
+        bestGames = [
+            {name: '-', score: 0, steps: 0},
+            {name: '-', score: 0, steps: 0},
+            {name: '-', score: 0, steps: 0}
+        ];
 
     
     changeStatus('start')
     getLocalStorage()
     renderGames()
+    renderName()
 
     btn.addEventListener('click', () => {
         if (btn.classList.contains('btn_disabled')) return
@@ -34,14 +41,21 @@ document.addEventListener('DOMContentLoaded', () => {
         shuffleCards()
 
         btn.classList.add('btn_disabled')
+        tools.style.opacity = 0
+        
         console.log('player: ', player)
         changeStatus('game')
-        lock = false
+        setTimeout(() => {
+            tools.style.zIndex = -1
+            lock = false
+        }, 300)
+        
     })
 
     nameInput.addEventListener('input', (ev) => {
         console.log(ev.target.value)
         player = ev.target.value
+        renderName()
     })
 
     
@@ -81,6 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
             scoreSpan.innerHTML = score
             firstCard = ''
             secondCard = ''
+            
             lock = false
         } else {
             setTimeout(() => {
@@ -98,16 +113,20 @@ document.addEventListener('DOMContentLoaded', () => {
         if (handledCards === cardItems.length) {
             changeStatus('over')
             btn.classList.remove('btn_disabled')
+
+            tools.style.zIndex = 6
+
+            setTimeout(() => {
+                tools.style.opacity = 1
+            }, 300)
+
             if (lastGames.length === 10) {
                 lastGames.pop()
             }
     
             lastGames.unshift({name: player || 'Unknown', score: score, steps: steps})
 
-            if (bestGames.length !== 10) {
-                bestGames.push({name: player || 'Unknown', score: score, steps: steps})
-                bestGames = bestGames.sort((a, b) => b.score - a.score)
-            } else if (bestGames[9].score < score) {
+            if (bestGames[2].score < score) {
                 bestGames.pop()
                 bestGames.push({name: player || 'Unknown', score: score, steps: steps})
                 bestGames = bestGames.sort((a, b) => b.score - a.score)
@@ -146,7 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 nameInput.classList.toggle('tools__input_disabled')
                 break
             case 'over':
-                statusTool.innerHTML = 'Game over! Press NEW GAME to start again!'
+                statusTool.innerHTML = `Your SCORE: ${score}! <br> Press NEW GAME to start again!`
                 nameInput.removeAttribute('disabled')
                 nameInput.classList.toggle('tools__input_disabled')
                 break
@@ -171,15 +190,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function renderGames() {
         last.innerHTML = ''
-        lastGames.forEach((item) => {
-            last.append(createItem(item))
-            // createItem(item)
-        })
+        if (!lastGames.length) {
+            last.innerHTML = 'No last games'
+        } else {
+            lastGames.forEach((item) => {
+                last.append(createItem(item))
+            })
+        }
 
         best.innerHTML = ''
         bestGames.forEach((item) => {
             best.append(createItem(item))
-            // createItem(item)
         })
     }
 
@@ -214,6 +235,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (localStorage.getItem('lastGames')) lastGames = JSON.parse(localStorage.getItem('lastGames'))
         if (localStorage.getItem('bestGames')) bestGames = (JSON.parse(localStorage.getItem('bestGames'))).sort((a, b) => b.score - a.score)
 
+    }
+
+    function renderName() {
+        nickname.innerHTML = player || 'Unknown'
     }
 
 
