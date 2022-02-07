@@ -98,6 +98,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .card:active {
@@ -106,6 +107,7 @@
 
 .card.card_upend {
     transform: rotateY(180deg);
+    cursor: default;
 }
 
 .card__item {
@@ -137,6 +139,8 @@
     background-color: rgba(0, 0, 0, .5);
     overflow: hidden;
     z-index: 6;
+    opacity: 1;
+    transition: opacity .3s;
 }
 
 .tools__wrapper {

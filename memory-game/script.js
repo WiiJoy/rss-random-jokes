@@ -10,7 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
           statusTool = document.querySelector('.status'),
           last = document.querySelector('.last__wrapper'),
           best = document.querySelector('.best__wrapper'),
-          nickname = document.querySelector('.player');
+          nickname = document.querySelector('.player'),
+          tools = document.querySelector('.tools');
 
     let firstCard = '',
         secondCard = '',
@@ -40,9 +41,15 @@ document.addEventListener('DOMContentLoaded', () => {
         shuffleCards()
 
         btn.classList.add('btn_disabled')
+        tools.style.opacity = 0
+        
         console.log('player: ', player)
         changeStatus('game')
-        lock = false
+        setTimeout(() => {
+            tools.style.zIndex = -1
+            lock = false
+        }, 300)
+        
     })
 
     nameInput.addEventListener('input', (ev) => {
@@ -88,6 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
             scoreSpan.innerHTML = score
             firstCard = ''
             secondCard = ''
+            
             lock = false
         } else {
             setTimeout(() => {
@@ -105,16 +113,19 @@ document.addEventListener('DOMContentLoaded', () => {
         if (handledCards === cardItems.length) {
             changeStatus('over')
             btn.classList.remove('btn_disabled')
+
+            tools.style.zIndex = 6
+
+            setTimeout(() => {
+                tools.style.opacity = 1
+            }, 300)
+
             if (lastGames.length === 10) {
                 lastGames.pop()
             }
     
             lastGames.unshift({name: player || 'Unknown', score: score, steps: steps})
 
-            // if (bestGames.length !== 10) {
-            //     bestGames.push({name: player || 'Unknown', score: score, steps: steps})
-            //     bestGames = bestGames.sort((a, b) => b.score - a.score)
-            // } else if (bestGames[2].score < score) {
             if (bestGames[2].score < score) {
                 bestGames.pop()
                 bestGames.push({name: player || 'Unknown', score: score, steps: steps})
@@ -154,7 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 nameInput.classList.toggle('tools__input_disabled')
                 break
             case 'over':
-                statusTool.innerHTML = 'Game over! Press NEW GAME to start again!'
+                statusTool.innerHTML = `Your SCORE: ${score}! <br> Press NEW GAME to start again!`
                 nameInput.removeAttribute('disabled')
                 nameInput.classList.toggle('tools__input_disabled')
                 break
@@ -179,7 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function renderGames() {
         last.innerHTML = ''
-        if (lastGames) {
+        if (!lastGames.length) {
             last.innerHTML = 'No last games'
         } else {
             lastGames.forEach((item) => {
