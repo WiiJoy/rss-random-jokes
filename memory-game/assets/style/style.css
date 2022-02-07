@@ -27,7 +27,7 @@
     position: fixed;
     height: 105vh;
     width: 105vw;
-    background: no-repeat center / cover url('../img/bg.jpeg');
+    background: no-repeat center / cover url('../img/game_bg.jpeg');
     filter: blur(3px);
     z-index: 1;
     overflow: hidden;
