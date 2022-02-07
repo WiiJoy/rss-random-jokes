@@ -20,7 +20,11 @@ document.addEventListener('DOMContentLoaded', () => {
         player = '',
         status = 'start'
         lastGames = [],
-        bestGames = [];
+        bestGames = [
+            {name: '-', score: 0, steps: 0},
+            {name: '-', score: 0, steps: 0},
+            {name: '-', score: 0, steps: 0}
+        ];
 
     
     changeStatus('start')
@@ -104,10 +108,11 @@ document.addEventListener('DOMContentLoaded', () => {
     
             lastGames.unshift({name: player || 'Unknown', score: score, steps: steps})
 
-            if (bestGames.length !== 10) {
-                bestGames.push({name: player || 'Unknown', score: score, steps: steps})
-                bestGames = bestGames.sort((a, b) => b.score - a.score)
-            } else if (bestGames[9].score < score) {
+            // if (bestGames.length !== 10) {
+            //     bestGames.push({name: player || 'Unknown', score: score, steps: steps})
+            //     bestGames = bestGames.sort((a, b) => b.score - a.score)
+            // } else if (bestGames[2].score < score) {
+            if (bestGames[2].score < score) {
                 bestGames.pop()
                 bestGames.push({name: player || 'Unknown', score: score, steps: steps})
                 bestGames = bestGames.sort((a, b) => b.score - a.score)
