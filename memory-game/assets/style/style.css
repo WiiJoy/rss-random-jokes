@@ -200,6 +200,16 @@
     text-align: center;
 }
 
+.difficult__title {
+    text-align: center;
+    color: black;
+}
+
+.difficult__btns {
+    margin-top: 10px;
+    display: flex;
+}
+
 .btn {
     height: 35px;
     width: 120px;
@@ -212,6 +222,11 @@
     cursor: pointer;
     transform: scale(1);
     transition: .3s;
+}
+
+.btn_start {
+    height: 40px;
+    width: 170px;
 }
 
 .btn:hover {
