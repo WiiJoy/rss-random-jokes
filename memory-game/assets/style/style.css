@@ -124,6 +124,7 @@
 }
 
 .card__front {
+    display: none;
     transform: rotateY(180deg);
     opacity: 0;
     transition: all .3s;

@@ -72,7 +72,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         card.classList.add('card_upend');
         back.style.opacity = 0
+        front.style.display = 'block';
         front.style.opacity = 1
+        setTimeout(() => {
+            back.style.display = 'none'
+        }, 300)
 
         if (!firstCard) {
             firstCard = card
@@ -144,7 +148,11 @@ document.addEventListener('DOMContentLoaded', () => {
     function removeCard(card) {
         card.classList.remove('card_upend');
         card.querySelector('.card__back').style.opacity = 1
+        card.querySelector('.card__back').style.display = 'block'
         card.querySelector('.card__front').style.opacity = 0
+        setTimeout(() => {
+            card.querySelector('.card__front').style.display = 'none'
+        }, 300)
     }
 
     function shuffleCards() {
