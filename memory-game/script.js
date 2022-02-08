@@ -1,23 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    const animals = {
-        'easy': ['owl', 'dragon', 'panda', 'cat', 'hedgehog', 'fox'],
-        'hard': ['owl', 'dragon', 'panda', 'cat', 'hedgehog', 'fox', 'chicken', 'snake', 'bird', 'fish'],
-        'very hard': ['owl', 'dragon', 'panda', 'cat', 'hedgehog', 'fox', 'chicken', 'snake', 'bird', 'fish', 'chipmunk', 'rooster', 'monkey', 'lion', 'horse']
-    }
-
-
     const cards = document.querySelector('.cards'),
           stepSpan = document.querySelector('.steps'),
           scoreSpan = document.querySelector('.score'),
-        //   cardItems = document.querySelectorAll('.card'),
-          btn = document.querySelector('.btn'),
+          btn = document.querySelector('.btn_start'),
           nameInput = document.querySelector('.tools__input'),
           statusTool = document.querySelector('.status'),
           last = document.querySelector('.last__wrapper'),
           best = document.querySelector('.best__wrapper'),
           nickname = document.querySelector('.player'),
-          tools = document.querySelector('.tools');
+          tools = document.querySelector('.tools'),
+          btnLvl = document.querySelectorAll('.btn_level');
 
     let firstCard = '',
         secondCard = '',
@@ -32,14 +25,20 @@ document.addEventListener('DOMContentLoaded', () => {
             {name: '-', score: 0, steps: 0},
             {name: '-', score: 0, steps: 0},
             {name: '-', score: 0, steps: 0}
-        ];
+        ],
+        difLevel = 'easy';
 
+    const animals = {
+        'easy': ['owl', 'dragon', 'panda', 'cat', 'hedgehog', 'fox'],
+        'hard': ['owl', 'dragon', 'panda', 'cat', 'hedgehog', 'fox', 'chicken', 'snake', 'bird', 'fish'],
+        'very-hard': ['owl', 'dragon', 'panda', 'cat', 'hedgehog', 'fox', 'chicken', 'snake', 'bird', 'fish', 'chipmunk', 'rooster', 'monkey', 'lion', 'horse']
+    }
     
     changeStatus('start')
     getLocalStorage()
     renderGames()
     renderName()
-    animals['easy'].forEach(animal => {
+    animals[difLevel].forEach(animal => {
         createCards(animal)
         createCards(animal)
     })
@@ -124,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('removes: ', firstCard, secondCard)
         }
         
-        if (handledCards === animals['easy'].length * 2) {
+        if (handledCards === animals[difLevel].length * 2) {
             changeStatus('over')
             btn.classList.remove('btn_disabled')
 
@@ -167,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function shuffleCards() {
         Array.from(cards.children).forEach(item => {
-            item.style.order = Math.round(Math.random() * 12)
+            item.style.order = Math.round(Math.random() * animals[difLevel].length)
         }) 
     }
 
@@ -260,7 +259,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function createCards(animal) {
-        const animalCard = `<div class="card" data-animal="${animal}" style="order: ${Math.round(Math.random() * 12)};">
+        const animalCard = `<div class="card" data-animal="${animal}" style="order: ${Math.round(Math.random() * animals[difLevel].length)};">
         <img src="./assets/svg/cards/${animal}.svg" alt="${animal}" class="card__item card__front" style="display: none;">
         <img src="./assets/svg/cards/back.svg" alt="back-side" class="card__item card__back">
     </div>`

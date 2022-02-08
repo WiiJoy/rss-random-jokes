@@ -228,6 +228,12 @@
     cursor: not-allowed;
 }
 
+.btn_active {
+    background-color: hsl(54, 100%, 50%);
+    border: 1px solid black;
+    color: black;
+}
+
 .status {
     color: black;
     text-align: center;
