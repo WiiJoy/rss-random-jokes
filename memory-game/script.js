@@ -1,6 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    const animals = ['owl', 'dragon', 'panda', 'cat', 'hedgehog', 'fox']
+    const animals = {
+        'easy': ['owl', 'dragon', 'panda', 'cat', 'hedgehog', 'fox'],
+        'hard': ['owl', 'dragon', 'panda', 'cat', 'hedgehog', 'fox', 'chicken', 'snake', 'bird', 'fish'],
+        'very hard': ['owl', 'dragon', 'panda', 'cat', 'hedgehog', 'fox', 'chicken', 'snake', 'bird', 'fish', 'chipmunk', 'rooster', 'monkey', 'lion', 'horse']
+    }
+
 
     const cards = document.querySelector('.cards'),
           stepSpan = document.querySelector('.steps'),
@@ -34,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     getLocalStorage()
     renderGames()
     renderName()
-    animals.forEach(animal => {
+    animals['easy'].forEach(animal => {
         createCards(animal)
         createCards(animal)
     })
@@ -119,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('removes: ', firstCard, secondCard)
         }
         
-        if (handledCards === animals.length * 2) {
+        if (handledCards === animals['easy'].length * 2) {
             changeStatus('over')
             btn.classList.remove('btn_disabled')
 
