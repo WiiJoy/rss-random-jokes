@@ -234,6 +234,18 @@
     color: black;
 }
 
+.btn_active:hover {
+    background-color: hsl(54, 100%, 50%);
+    border: 1px solid black;
+    color: black;
+    cursor: default;
+}
+
+.btn_active:active {
+    transform: scale(1);
+    cursor: default;
+}
+
 .status {
     color: black;
     text-align: center;

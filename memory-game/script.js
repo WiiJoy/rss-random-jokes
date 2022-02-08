@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
           best = document.querySelector('.best__wrapper'),
           nickname = document.querySelector('.player'),
           tools = document.querySelector('.tools'),
-          btnLvl = document.querySelectorAll('.btn_level');
+          btnLvl = document.querySelector('.difficult__btns');
 
     let firstCard = '',
         secondCard = '',
@@ -38,9 +38,13 @@ document.addEventListener('DOMContentLoaded', () => {
     getLocalStorage()
     renderGames()
     renderName()
-    animals[difLevel].forEach(animal => {
-        createCards(animal)
-        createCards(animal)
+    renderCards()
+    
+
+    btnLvl.addEventListener('click', (ev) => {
+        if (ev.target.classList.contains('btn_level')) {
+            setActiveButton(ev.target)
+        }
     })
 
     btn.addEventListener('click', () => {
@@ -264,6 +268,36 @@ document.addEventListener('DOMContentLoaded', () => {
         <img src="./assets/svg/cards/back.svg" alt="back-side" class="card__item card__back">
     </div>`
         cards.insertAdjacentHTML('beforeend', animalCard)
+    }
+
+    function setActiveButton(button) {
+        Array.from(btnLvl.children).forEach(child => child.classList.remove('btn_active'));
+        button.classList.add('btn_active')
+        difLevel = button.dataset.level
+        renderCards()
+    }
+
+    function renderCards() {
+        cards.innerHTML = ''
+        animals[difLevel].forEach(animal => {
+            createCards(animal)
+            createCards(animal)
+        })
+
+        switch (difLevel) {
+            case 'easy':
+                cards.style.height = '380px'
+                cards.style.width = '500px'
+                break
+            case 'hard':
+                cards.style.height = '520px'
+                cards.style.width = '700px'
+                break
+            case 'very-hard':
+                cards.style.height = '520px'
+                cards.style.width = '900px'
+                break
+        }
     }
 
 
