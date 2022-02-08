@@ -256,7 +256,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function createCards(animal) {
         const animalCard = `<div class="card" data-animal="${animal}" style="order: ${Math.round(Math.random() * 12)};">
-        <img src="./assets/svg/cards/${animal}.svg" alt="${animal}" class="card__item card__front">
+        <img src="./assets/svg/cards/${animal}.svg" alt="${animal}" class="card__item card__front" style="display: none;">
         <img src="./assets/svg/cards/back.svg" alt="back-side" class="card__item card__back">
     </div>`
         cards.insertAdjacentHTML('beforeend', animalCard)
