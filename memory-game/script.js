@@ -1,10 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     
+    const animals = ['owl', 'dragon', 'panda', 'cat', 'hedgehog', 'fox']
 
     const cards = document.querySelector('.cards'),
           stepSpan = document.querySelector('.steps'),
           scoreSpan = document.querySelector('.score'),
-          cardItems = document.querySelectorAll('.card'),
+        //   cardItems = document.querySelectorAll('.card'),
           btn = document.querySelector('.btn'),
           nameInput = document.querySelector('.tools__input'),
           statusTool = document.querySelector('.status'),
@@ -33,6 +34,10 @@ document.addEventListener('DOMContentLoaded', () => {
     getLocalStorage()
     renderGames()
     renderName()
+    animals.forEach(animal => {
+        createCards(animal)
+        createCards(animal)
+    })
 
     btn.addEventListener('click', () => {
         if (btn.classList.contains('btn_disabled')) return
@@ -72,7 +77,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         card.classList.add('card_upend');
         back.style.opacity = 0
+        front.style.display = 'block';
         front.style.opacity = 1
+        setTimeout(() => {
+            back.style.display = 'none'
+        }, 300)
 
         if (!firstCard) {
             firstCard = card
@@ -110,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('removes: ', firstCard, secondCard)
         }
         
-        if (handledCards === cardItems.length) {
+        if (handledCards === animals.length * 2) {
             changeStatus('over')
             btn.classList.remove('btn_disabled')
 
@@ -144,11 +153,15 @@ document.addEventListener('DOMContentLoaded', () => {
     function removeCard(card) {
         card.classList.remove('card_upend');
         card.querySelector('.card__back').style.opacity = 1
+        card.querySelector('.card__back').style.display = 'block'
         card.querySelector('.card__front').style.opacity = 0
+        setTimeout(() => {
+            card.querySelector('.card__front').style.display = 'none'
+        }, 300)
     }
 
     function shuffleCards() {
-        cardItems.forEach(item => {
+        Array.from(cards.children).forEach(item => {
             item.style.order = Math.round(Math.random() * 12)
         }) 
     }
@@ -175,7 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function resetCards() {
         lock = true
 
-        cardItems.forEach(item => {
+        Array.from(cards.children).forEach(item => {
             removeCard(item)
         })
 
@@ -239,6 +252,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function renderName() {
         nickname.innerHTML = player || 'Unknown'
+    }
+
+    function createCards(animal) {
+        const animalCard = `<div class="card" data-animal="${animal}" style="order: ${Math.round(Math.random() * 12)};">
+        <img src="./assets/svg/cards/${animal}.svg" alt="${animal}" class="card__item card__front" style="display: none;">
+        <img src="./assets/svg/cards/back.svg" alt="back-side" class="card__item card__back">
+    </div>`
+        cards.insertAdjacentHTML('beforeend', animalCard)
     }
 
 
