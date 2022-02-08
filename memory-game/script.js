@@ -51,7 +51,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (btn.classList.contains('btn_disabled')) return
         lock = true
         resetCards()
-        shuffleCards()
+        setTimeout(() => {
+            shuffleCards()
+        }, 150)
 
         btn.classList.add('btn_disabled')
         tools.style.opacity = 0
@@ -61,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             tools.style.zIndex = -1
             lock = false
-        }, 300)
+        }, 450)
         
     })
 
