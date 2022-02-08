@@ -1,10 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     
+    const animals = ['owl', 'dragon', 'panda', 'cat', 'hedgehog', 'fox']
 
     const cards = document.querySelector('.cards'),
           stepSpan = document.querySelector('.steps'),
           scoreSpan = document.querySelector('.score'),
-          cardItems = document.querySelectorAll('.card'),
+        //   cardItems = document.querySelectorAll('.card'),
           btn = document.querySelector('.btn'),
           nameInput = document.querySelector('.tools__input'),
           statusTool = document.querySelector('.status'),
@@ -33,6 +34,10 @@ document.addEventListener('DOMContentLoaded', () => {
     getLocalStorage()
     renderGames()
     renderName()
+    animals.forEach(animal => {
+        createCards(animal)
+        createCards(animal)
+    })
 
     btn.addEventListener('click', () => {
         if (btn.classList.contains('btn_disabled')) return
@@ -114,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('removes: ', firstCard, secondCard)
         }
         
-        if (handledCards === cardItems.length) {
+        if (handledCards === animals.length * 2) {
             changeStatus('over')
             btn.classList.remove('btn_disabled')
 
@@ -156,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function shuffleCards() {
-        cardItems.forEach(item => {
+        Array.from(cards.children).forEach(item => {
             item.style.order = Math.round(Math.random() * 12)
         }) 
     }
@@ -183,7 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function resetCards() {
         lock = true
 
-        cardItems.forEach(item => {
+        Array.from(cards.children).forEach(item => {
             removeCard(item)
         })
 
@@ -247,6 +252,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function renderName() {
         nickname.innerHTML = player || 'Unknown'
+    }
+
+    function createCards(animal) {
+        const animalCard = `<div class="card" data-animal="${animal}" style="order: ${Math.round(Math.random() * 12)};">
+        <img src="./assets/svg/cards/${animal}.svg" alt="${animal}" class="card__item card__front">
+        <img src="./assets/svg/cards/back.svg" alt="back-side" class="card__item card__back">
+    </div>`
+        cards.insertAdjacentHTML('beforeend', animalCard)
     }
 
 
