@@ -17,7 +17,15 @@
                     <p class="settings__hello">Hi <span class="player"></span>!</p>
                     <label for="nickname" class="input__label">Not you? Enter your name before start game</label>
                     <input type="text" placeholder="nickname" class="tools__input" id="nickname">
-                    <button class="btn">New game</button>
+                    <div class="difficult">
+                        <div class="difficult__title">Difficult level:</div>
+                        <div class="difficult__btns">
+                            <button class="btn btn_level btn_active" data-level="easy">Easy</button>
+                            <button class="btn btn_level" data-level="hard">Hard</button>
+                            <button class="btn btn_level" data-level="very-hard">Very Hard</button>
+                        </div>
+                    </div>
+                    <button class="btn btn_start">New game</button>
                     <p class="status"></p>
                     <p class="rules">RULES: Find couples!<br>
                         Get 2 points for a correct pair. Lose 1 point for a bad choice.<br>
@@ -62,86 +70,9 @@
                     </div>
                 </div>
                 <div class="cards">
-                    <!-- <div class="card" data-animal="owl">
-                        <img src="./assets/svg/cards/owl.svg" alt="Owl" class="card__item card__front">
-                        <img src="./assets/svg/cards/back.svg" alt="back-side" class="card__item card__back">
-                    </div>
-                    <div class="card" data-animal="owl">
-                        <img src="./assets/svg/cards/owl.svg" alt="Owl" class="card__item card__front">
-                        <img src="./assets/svg/cards/back.svg" alt="back-side" class="card__item card__back">
-                    </div>
-                    <div class="card" data-animal="panda">
-                        <img src="./assets/svg/cards/panda.svg" alt="Panda" class="card__item card__front">
-                        <img src="./assets/svg/cards/back.svg" alt="back-side" class="card__item card__back">
-                    </div>
-                    <div class="card" data-animal="panda">
-                        <img src="./assets/svg/cards/panda.svg" alt="Panda" class="card__item card__front">
-                        <img src="./assets/svg/cards/back.svg" alt="back-side" class="card__item card__back">
-                    </div>
-                    <div class="card" data-animal="fox">
-                        <img src="./assets/svg/cards/fox.svg" alt="Fox" class="card__item card__front">
-                        <img src="./assets/svg/cards/back.svg" alt="back-side" class="card__item card__back">
-                    </div>
-                    <div class="card" data-animal="fox">
-                        <img src="./assets/svg/cards/fox.svg" alt="Fox" class="card__item card__front">
-                        <img src="./assets/svg/cards/back.svg" alt="back-side" class="card__item card__back">
-                    </div>
-                    <div class="card" data-animal="hedgehog">
-                        <img src="./assets/svg/cards/hedgehog.svg" alt="Hedgehog" class="card__item card__front">
-                        <img src="./assets/svg/cards/back.svg" alt="back-side" class="card__item card__back">
-                    </div>
-                    <div class="card" data-animal="hedgehog">
-                        <img src="./assets/svg/cards/hedgehog.svg" alt="Hedgehog" class="card__item card__front">
-                        <img src="./assets/svg/cards/back.svg" alt="back-side" class="card__item card__back">
-                    </div>
-                    <div class="card" data-animal="cat">
-                        <img src="./assets/svg/cards/cat.svg" alt="Cat" class="card__item card__front">
-                        <img src="./assets/svg/cards/back.svg" alt="back-side" class="card__item card__back">
-                    </div>
-                    <div class="card" data-animal="cat">
-                        <img src="./assets/svg/cards/cat.svg" alt="Cat" class="card__item card__front">
-                        <img src="./assets/svg/cards/back.svg" alt="back-side" class="card__item card__back">
-                    </div>
-                    <div class="card" data-animal="dragon">
-                        <img src="./assets/svg/cards/dragon.svg" alt="Dragon" class="card__item card__front">
-                        <img src="./assets/svg/cards/back.svg" alt="back-side" class="card__item card__back">
-                    </div>
-                    <div class="card" data-animal="dragon">
-                        <img src="./assets/svg/cards/dragon.svg" alt="Dragon" class="card__item card__front">
-                        <img src="./assets/svg/cards/back.svg" alt="back-side" class="card__item card__back">
-                    </div> -->
                 </div>
             </div>
 
-            <!-- <div class="tools">
-                <div class="tools__wrapper">
-                    <label for="nickname" class="input__label">Enter your name before start game</label>
-                    <input type="text" placeholder="nickname" class="tools__input" id="nickname">
-                    <button class="btn">New game</button>
-                    <p class="status"></p>
-                    <div class="history">
-                        <div class="history__last">
-                            <h2 class="title_h2">Last 10 games</h2>
-                            <div class="history__header">
-                                <div class="item_player">Name</div>
-                                <div class="item_score">Score</div>
-                                <div class="item_steps">Steps</div>
-                            </div>
-                            <div class="last__wrapper"></div>
-                        </div>
-                        <div class="history__best">
-                            <h2 class="title_h2">Records</h2>
-                            <div class="history__header">
-                                <div class="item_player">Name</div>
-                                <div class="item_score">Score</div>
-                                <div class="item_steps">Steps</div>
-                            </div>
-                            <div class="best__wrapper"></div>
-                        </div>
-                    </div>
-                </div>
-                
-            </div> -->
         </main>
 
         <footer class="footer">

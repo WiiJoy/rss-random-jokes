@@ -1,18 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    const animals = ['owl', 'dragon', 'panda', 'cat', 'hedgehog', 'fox']
-
     const cards = document.querySelector('.cards'),
           stepSpan = document.querySelector('.steps'),
           scoreSpan = document.querySelector('.score'),
-        //   cardItems = document.querySelectorAll('.card'),
-          btn = document.querySelector('.btn'),
+          btn = document.querySelector('.btn_start'),
           nameInput = document.querySelector('.tools__input'),
           statusTool = document.querySelector('.status'),
           last = document.querySelector('.last__wrapper'),
           best = document.querySelector('.best__wrapper'),
           nickname = document.querySelector('.player'),
-          tools = document.querySelector('.tools');
+          tools = document.querySelector('.tools'),
+          btnLvl = document.querySelector('.difficult__btns');
 
     let firstCard = '',
         secondCard = '',
@@ -27,23 +25,35 @@ document.addEventListener('DOMContentLoaded', () => {
             {name: '-', score: 0, steps: 0},
             {name: '-', score: 0, steps: 0},
             {name: '-', score: 0, steps: 0}
-        ];
+        ],
+        difLevel = 'easy';
 
+    const animals = {
+        'easy': ['owl', 'dragon', 'panda', 'cat', 'hedgehog', 'fox'],
+        'hard': ['owl', 'dragon', 'panda', 'cat', 'hedgehog', 'fox', 'chicken', 'snake', 'bird', 'fish'],
+        'very-hard': ['owl', 'dragon', 'panda', 'cat', 'hedgehog', 'fox', 'chicken', 'snake', 'bird', 'fish', 'chipmunk', 'rooster', 'monkey', 'lion', 'horse']
+    }
     
     changeStatus('start')
     getLocalStorage()
     renderGames()
     renderName()
-    animals.forEach(animal => {
-        createCards(animal)
-        createCards(animal)
+    renderCards()
+    
+
+    btnLvl.addEventListener('click', (ev) => {
+        if (ev.target.classList.contains('btn_level')) {
+            setActiveButton(ev.target)
+        }
     })
 
     btn.addEventListener('click', () => {
         if (btn.classList.contains('btn_disabled')) return
         lock = true
         resetCards()
-        shuffleCards()
+        setTimeout(() => {
+            shuffleCards()
+        }, 150)
 
         btn.classList.add('btn_disabled')
         tools.style.opacity = 0
@@ -53,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             tools.style.zIndex = -1
             lock = false
-        }, 300)
+        }, 450)
         
     })
 
@@ -119,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('removes: ', firstCard, secondCard)
         }
         
-        if (handledCards === animals.length * 2) {
+        if (handledCards === animals[difLevel].length * 2) {
             changeStatus('over')
             btn.classList.remove('btn_disabled')
 
@@ -162,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function shuffleCards() {
         Array.from(cards.children).forEach(item => {
-            item.style.order = Math.round(Math.random() * 12)
+            item.style.order = Math.round(Math.random() * animals[difLevel].length)
         }) 
     }
 
@@ -255,11 +265,41 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function createCards(animal) {
-        const animalCard = `<div class="card" data-animal="${animal}" style="order: ${Math.round(Math.random() * 12)};">
+        const animalCard = `<div class="card" data-animal="${animal}" style="order: ${Math.round(Math.random() * animals[difLevel].length)};">
         <img src="./assets/svg/cards/${animal}.svg" alt="${animal}" class="card__item card__front" style="display: none;">
         <img src="./assets/svg/cards/back.svg" alt="back-side" class="card__item card__back">
     </div>`
         cards.insertAdjacentHTML('beforeend', animalCard)
+    }
+
+    function setActiveButton(button) {
+        Array.from(btnLvl.children).forEach(child => child.classList.remove('btn_active'));
+        button.classList.add('btn_active')
+        difLevel = button.dataset.level
+        renderCards()
+    }
+
+    function renderCards() {
+        cards.innerHTML = ''
+        animals[difLevel].forEach(animal => {
+            createCards(animal)
+            createCards(animal)
+        })
+
+        switch (difLevel) {
+            case 'easy':
+                cards.style.height = '380px'
+                cards.style.width = '500px'
+                break
+            case 'hard':
+                cards.style.height = '520px'
+                cards.style.width = '700px'
+                break
+            case 'very-hard':
+                cards.style.height = '520px'
+                cards.style.width = '900px'
+                break
+        }
     }
 
 

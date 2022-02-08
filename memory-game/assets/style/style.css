@@ -200,6 +200,16 @@
     text-align: center;
 }
 
+.difficult__title {
+    text-align: center;
+    color: black;
+}
+
+.difficult__btns {
+    margin-top: 10px;
+    display: flex;
+}
+
 .btn {
     height: 35px;
     width: 120px;
@@ -214,6 +224,11 @@
     transition: .3s;
 }
 
+.btn_start {
+    height: 40px;
+    width: 170px;
+}
+
 .btn:hover {
     color: #fff;
 }
@@ -226,6 +241,24 @@
     background-color: rgb(216, 214, 214);
     color: rgb(133, 133, 133);
     cursor: not-allowed;
+}
+
+.btn_active {
+    background-color: hsl(54, 100%, 50%);
+    border: 1px solid black;
+    color: black;
+}
+
+.btn_active:hover {
+    background-color: hsl(54, 100%, 50%);
+    border: 1px solid black;
+    color: black;
+    cursor: default;
+}
+
+.btn_active:active {
+    transform: scale(1);
+    cursor: default;
 }
 
 .status {
