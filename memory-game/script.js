@@ -86,12 +86,15 @@ document.addEventListener('DOMContentLoaded', () => {
               back = card.querySelector('.card__back');
 
         card.classList.add('card_upend');
+        playSound('upend')
         back.style.opacity = 0
         front.style.display = 'block';
         front.style.opacity = 1
         setTimeout(() => {
             back.style.display = 'none'
         }, 300)
+
+        
 
         if (!firstCard) {
             firstCard = card
@@ -109,6 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function checkCards() {
         if (firstCard.dataset.animal === secondCard.dataset.animal) {
+            playSound('success')
             handledCards += 2
             score += 2
             scoreSpan.innerHTML = score
@@ -117,6 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             lock = false
         } else {
+            playSound('unsuccess')
             setTimeout(() => {
                 removeCard(firstCard)
                 removeCard(secondCard)
@@ -132,6 +137,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (handledCards === animals[difLevel].length * 2) {
             changeStatus('over')
             btn.classList.remove('btn_disabled')
+
+            playSound('victory')
 
             tools.style.zIndex = 6
 
@@ -304,7 +311,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function playSound(event) {
         const sound = new Audio()
-        sound.src = `./assets/sounds/${event}`
+        sound.src = `./assets/sounds/${event}.wav`
         sound.autoplay = true
     }
 
