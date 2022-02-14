@@ -44,10 +44,17 @@ document.addEventListener('DOMContentLoaded', () => {
     renderCards()
 
     soundBtn.addEventListener('click', () => {
+        soundBtn.style.opacity = 0
         if (!isMuted) {
-            soundImg.src = './assets/svg/icons/soundoff.svg'
+            setTimeout(() => {
+                soundImg.src = './assets/svg/icons/soundoff.svg'
+                soundBtn.style.opacity = 1
+            }, 300)
         } else {
-            soundImg.src = './assets/svg/icons/soundon.svg'
+            setTimeout(() => {
+                soundImg.src = './assets/svg/icons/soundon.svg'
+                soundBtn.style.opacity = 1
+            }, 300)
         }
 
         isMuted = !isMuted
@@ -325,7 +332,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function playSound(event) {
 
-        if (!isMuted) return
+        if (isMuted) return
 
         const sound = new Audio()
         sound.src = `./assets/sounds/${event}.wav`
