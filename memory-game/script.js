@@ -302,6 +302,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    function playSound(event) {
+        const sound = new Audio()
+        sound.src = `./assets/sounds/${event}`
+        sound.autoplay = true
+    }
+
 
 })
 
