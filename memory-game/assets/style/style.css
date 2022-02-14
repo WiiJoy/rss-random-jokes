@@ -8,8 +8,6 @@
     color: #fff;
 }
 
-
-
 .container {
     box-sizing: border-box;
     height: 100vh;
@@ -152,7 +150,6 @@
     padding: 20px;
     width: 800px;
     display: flex;
-    /* flex-direction: column; */
     justify-content: center;
     align-items: flex-start;
     gap: 15px;
@@ -204,7 +201,6 @@
 .tools__input:focus-visible {
     outline: none;
     background-color: #000;
-
 }
 
 .input__label {
