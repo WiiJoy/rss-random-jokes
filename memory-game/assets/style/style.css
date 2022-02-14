@@ -44,6 +44,9 @@
     padding: 20px;
     height: 80px;
     z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .title {
@@ -343,6 +346,11 @@
 .link:hover {
     color: #8b8b8b;
     text-shadow: rgb(0, 0, 0);
+}
+
+.sound {
+    height: 50px;
+    width: 50px;
 }
 
 
