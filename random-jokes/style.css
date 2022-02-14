@@ -8,6 +8,17 @@
     color: #fff;
 }
 
+*::-webkit-scrollbar {
+    width: 5px;
+    background-color: none;
+}
+
+*::-webkit-scrollbar-thumb {
+    width: 5px;
+    background-color: rgba(255, 255, 255, .1);
+    border-radius: 3px;
+}
+
 body {
     height: 100vh;
     width: 100%;
@@ -86,7 +97,17 @@ body {
     transition: .5s;
 }
 
+.quote__text {
+    box-sizing: border-box;
+    max-height: 40vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 0 10px;
+    position: relative;
+}
+
 .quote__author {
+    margin-top: 20px;
     font-size: 48px;
 }
 
