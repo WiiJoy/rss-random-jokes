@@ -44,6 +44,9 @@
     padding: 20px;
     height: 80px;
     z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .title {
@@ -176,13 +179,21 @@
 .tools__input {
     box-sizing: border-box;
     height: 35px;
-    background-color: rgba(255, 255, 255, .5);
+    background-color: rgba(0, 0, 0, .5);
     border: none;
     border-radius: 3px;
     padding: 5px 10px;
     width: 100%;
-    color: black;
+    color: white;
     transition: .3s;
+}
+
+.tools__input::placeholder {
+    color: hsla(54, 100%, 50%, .5);
+}
+
+.tools__input:hover {
+    background-color: rgba(0, 0, 0, .75);
 }
 
 .tools__input_disabled {
@@ -192,7 +203,8 @@
 
 .tools__input:focus-visible {
     outline: none;
-    background-color: #fff;
+    background-color: #000;
+
 }
 
 .input__label {
@@ -334,6 +346,23 @@
 .link:hover {
     color: #8b8b8b;
     text-shadow: rgb(0, 0, 0);
+}
+
+.sound {
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    opacity: 1;
+    transition: .3s;
+}
+
+.sound__img {
+    filter: invert(1);
+    transition: .3s;
+}
+
+.sound:hover .sound__img {
+    filter: invert(0.5);
 }
 
 

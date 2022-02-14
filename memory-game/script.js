@@ -10,7 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
           best = document.querySelector('.best__wrapper'),
           nickname = document.querySelector('.player'),
           tools = document.querySelector('.tools'),
-          btnLvl = document.querySelector('.difficult__btns');
+          btnLvl = document.querySelector('.difficult__btns'),
+          soundBtn = document.querySelector('.sound'),
+          soundImg = document.querySelector('.sound__img');
 
     let firstCard = '',
         secondCard = '',
@@ -26,7 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
             {name: '-', score: 0, steps: 0},
             {name: '-', score: 0, steps: 0}
         ],
-        difLevel = 'easy';
+        difLevel = 'easy',
+        isMuted = false;
 
     const animals = {
         'easy': ['owl', 'dragon', 'panda', 'cat', 'hedgehog', 'fox'],
@@ -39,6 +42,23 @@ document.addEventListener('DOMContentLoaded', () => {
     renderGames()
     renderName()
     renderCards()
+
+    soundBtn.addEventListener('click', () => {
+        soundBtn.style.opacity = 0
+        if (!isMuted) {
+            setTimeout(() => {
+                soundImg.src = './assets/svg/icons/soundoff.svg'
+                soundBtn.style.opacity = 1
+            }, 300)
+        } else {
+            setTimeout(() => {
+                soundImg.src = './assets/svg/icons/soundon.svg'
+                soundBtn.style.opacity = 1
+            }, 300)
+        }
+
+        isMuted = !isMuted
+    })
     
 
     btnLvl.addEventListener('click', (ev) => {
@@ -93,8 +113,11 @@ document.addEventListener('DOMContentLoaded', () => {
             back.style.display = 'none'
         }, 300)
 
+        
+
         if (!firstCard) {
             firstCard = card
+            playSound('upend')
         } else {
             secondCard = card
             lock = true
@@ -109,14 +132,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function checkCards() {
         if (firstCard.dataset.animal === secondCard.dataset.animal) {
+            playSound('success')
             handledCards += 2
             score += 2
             scoreSpan.innerHTML = score
             firstCard = ''
             secondCard = ''
             
-            lock = false
+            setTimeout(() => lock = false, 1000)
         } else {
+            playSound('unsuccess')
             setTimeout(() => {
                 removeCard(firstCard)
                 removeCard(secondCard)
@@ -125,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 firstCard = ''
                 secondCard = ''
                 lock = false
-            }, 400)
+            }, 1000)
             console.log('removes: ', firstCard, secondCard)
         }
         
@@ -133,11 +158,14 @@ document.addEventListener('DOMContentLoaded', () => {
             changeStatus('over')
             btn.classList.remove('btn_disabled')
 
+            
+
             tools.style.zIndex = 6
 
             setTimeout(() => {
+                playSound('victory')
                 tools.style.opacity = 1
-            }, 300)
+            }, 1500)
 
             if (lastGames.length === 10) {
                 lastGames.pop()
@@ -300,6 +328,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 cards.style.width = '900px'
                 break
         }
+    }
+
+    function playSound(event) {
+
+        if (isMuted) return
+
+        const sound = new Audio()
+        sound.src = `./assets/sounds/${event}.wav`
+        sound.autoplay = true
     }
 
 
