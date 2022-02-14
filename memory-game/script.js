@@ -113,8 +113,6 @@ document.addEventListener('DOMContentLoaded', () => {
             back.style.display = 'none'
         }, 300)
 
-        
-
         if (!firstCard) {
             firstCard = card
             playSound('upend')
@@ -158,8 +156,6 @@ document.addEventListener('DOMContentLoaded', () => {
             changeStatus('over')
             btn.classList.remove('btn_disabled')
 
-            
-
             tools.style.zIndex = 6
 
             setTimeout(() => {
@@ -184,8 +180,6 @@ document.addEventListener('DOMContentLoaded', () => {
             setLocalStorage('lastGames', lastGames)
             setLocalStorage('bestGames', bestGames)
         }
-
-       
     }
 
     function removeCard(card) {
@@ -275,7 +269,6 @@ document.addEventListener('DOMContentLoaded', () => {
         divMain.append(divSteps)
 
         return divMain
-
     }
 
     function setLocalStorage(key, value) {
@@ -285,7 +278,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function getLocalStorage() {
         if (localStorage.getItem('lastGames')) lastGames = JSON.parse(localStorage.getItem('lastGames'))
         if (localStorage.getItem('bestGames')) bestGames = (JSON.parse(localStorage.getItem('bestGames'))).sort((a, b) => b.score - a.score)
-
     }
 
     function renderName() {
@@ -338,8 +330,6 @@ document.addEventListener('DOMContentLoaded', () => {
         sound.src = `./assets/sounds/${event}.wav`
         sound.autoplay = true
     }
-
-
 })
 
 
