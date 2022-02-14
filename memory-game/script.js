@@ -86,7 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
               back = card.querySelector('.card__back');
 
         card.classList.add('card_upend');
-        playSound('upend')
         back.style.opacity = 0
         front.style.display = 'block';
         front.style.opacity = 1
@@ -98,6 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (!firstCard) {
             firstCard = card
+            playSound('upend')
         } else {
             secondCard = card
             lock = true
@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
             firstCard = ''
             secondCard = ''
             
-            lock = false
+            setTimeout(() => lock = false, 1000)
         } else {
             playSound('unsuccess')
             setTimeout(() => {
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 firstCard = ''
                 secondCard = ''
                 lock = false
-            }, 400)
+            }, 1000)
             console.log('removes: ', firstCard, secondCard)
         }
         
@@ -138,13 +138,14 @@ document.addEventListener('DOMContentLoaded', () => {
             changeStatus('over')
             btn.classList.remove('btn_disabled')
 
-            playSound('victory')
+            
 
             tools.style.zIndex = 6
 
             setTimeout(() => {
+                playSound('victory')
                 tools.style.opacity = 1
-            }, 300)
+            }, 1500)
 
             if (lastGames.length === 10) {
                 lastGames.pop()
