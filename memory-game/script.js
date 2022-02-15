@@ -313,7 +313,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 break
             case 'hard':
                 cards.style.height = '520px'
-                cards.style.width = '700px'
+                cards.style.width = '600px'
                 break
             case 'very-hard':
                 cards.style.height = '520px'
