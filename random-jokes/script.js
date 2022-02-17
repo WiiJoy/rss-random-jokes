@@ -37,22 +37,27 @@ async function getQuote(text, author, img, lang) {
     if (lang === 'en') {
         res = await fetch('https://favqs.com/api/qotd');
         data = await res.json();
-        
         setTimeout(() => {
-            text.innerHTML = data.quote.body;
-            author.innerHTML = data.quote.author;
-            text.style.opacity = 1
-            author.style.opacity = 1
+            text.style.fontSize = changeFont(data.quote.body.length)
+            setTimeout(() => {
+                text.innerHTML = data.quote.body;
+                author.innerHTML = data.quote.author;
+                text.style.opacity = 1
+                author.style.opacity = 1
+            }, 300)
         }, 300)
     } else {
         res = await fetch('./assets/json/quotes.json');
         let dataObj = await res.json()
         data = dataObj[Math.floor(Math.random() * dataObj.length)];
         setTimeout(() => {
-            text.innerHTML = data.text;
-            author.innerHTML = data.author;
-            text.style.opacity = 1
-            author.style.opacity = 1
+            text.style.fontSize = changeFont(data.text.length)
+            setTimeout(() => {
+                text.innerHTML = data.text;
+                author.innerHTML = data.author;
+                text.style.opacity = 1
+                author.style.opacity = 1
+            }, 300)
         }, 300)
     }
     
@@ -65,6 +70,16 @@ function preloadImages() {
     for (let i = 1; i <= 20; i++) {
       const img = new Image();
       img.src = `./assets/img/${i}.jpeg`;
+    }
+}
+
+function changeFont(length) {
+    if (length < 115) {
+        return '64px'
+    } else if (length < 200) {
+        return '54px'
+    } else {
+        return '40px'
     }
 }
 
