@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     langTools.addEventListener('click', (ev) => {
-        if (ev.target.dataset.lang) {
+        if (ev.target.dataset.lang && ev.target.dataset.lang !== langQuotes) {
             langItem.forEach(item => item.classList.remove('lang_active'))
             langQuotes = ev.target.dataset.lang
             ev.target.classList.add('lang_active')
