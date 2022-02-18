@@ -207,14 +207,22 @@
     text-align: center;
 }
 
+.difficult {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
 .difficult__title {
     text-align: center;
     color: black;
 }
 
 .difficult__btns {
-    margin-top: 10px;
     display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .btn {
@@ -253,7 +261,7 @@
 .btn_level {
     height: 40px;
     width: auto;
-    filter: grayscale(1);
+    filter: grayscale(1) brightness(.5);
     transition: .3s;
 }
 
@@ -266,9 +274,7 @@
 }
 
 .btn_active:hover {
-    /* background-color: hsl(54, 100%, 50%);
-    border: 1px solid black;
-    color: black; */
+    filter: grayscale(0);
     cursor: default;
 }
 
