@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const sounds = ['success', 'unsuccess', 'upend', 'victory']
     
     preloadAudio()
+    preloadImages()
     changeStatus('start')
     getLocalStorage()
     renderGames()
@@ -396,6 +397,14 @@ document.addEventListener('DOMContentLoaded', () => {
           const soundItem = new Audio();
           soundItem.src = `./assets/sounds/${item}.wav`;
           soundItem.autoplay = false
+        }
+    }
+
+    // Предзагрузка изображений карт
+    function preloadImages() {
+        for (let item of animals['ultra-hard']) {
+          const image = new Image();
+          image.src = `./assets/svg/cards/${item}.svg`;
         }
     }
 })
