@@ -40,6 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
         'very-hard': ['owl', 'dragon', 'panda', 'cat', 'hedgehog', 'fox', 'chicken', 'snake', 'bird', 'fish', 'chipmunk', 'rooster', 'monkey', 'lion', 'horse'],
         'ultra-hard': ['owl', 'dragon', 'panda', 'cat', 'hedgehog', 'fox', 'chicken', 'snake', 'bird', 'fish', 'chipmunk', 'rooster', 'monkey', 'lion', 'horse', 'rabbit', 'cow', 'pig', 'unicorn', 'dog', 'shrimp']
     }
+
+    const sounds = ['success', 'unsuccess', 'upend', 'victory']
     
     changeStatus('start')
     getLocalStorage()
@@ -385,6 +387,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const sound = new Audio()
         sound.src = `./assets/sounds/${event}.wav`
         sound.autoplay = true
+    }
+
+    // Предзагрузка звуков
+    function preloadAudio() {
+        for (let item of sounds) {
+          const soundItem = new Audio();
+          soundItem.src = `./assets/sounds/${item}.wav`;
+          soundItem.autoplay = false
+        }
     }
 })
 
