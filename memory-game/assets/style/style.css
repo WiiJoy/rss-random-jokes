@@ -250,16 +250,25 @@
     cursor: not-allowed;
 }
 
+.btn_level {
+    height: 40px;
+    width: auto;
+    filter: grayscale(1);
+    transition: .3s;
+}
+
+.btn_level:hover {
+    filter: grayscale(.5);
+}
+
 .btn_active {
-    background-color: hsl(54, 100%, 50%);
-    border: 1px solid black;
-    color: black;
+    filter: grayscale(0);
 }
 
 .btn_active:hover {
-    background-color: hsl(54, 100%, 50%);
+    /* background-color: hsl(54, 100%, 50%);
     border: 1px solid black;
-    color: black;
+    color: black; */
     cursor: default;
 }
 
