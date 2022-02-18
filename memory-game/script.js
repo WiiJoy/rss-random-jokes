@@ -34,7 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const animals = {
         'easy': ['owl', 'dragon', 'panda', 'cat', 'hedgehog', 'fox'],
         'hard': ['owl', 'dragon', 'panda', 'cat', 'hedgehog', 'fox', 'chicken', 'snake', 'bird', 'fish'],
-        'very-hard': ['owl', 'dragon', 'panda', 'cat', 'hedgehog', 'fox', 'chicken', 'snake', 'bird', 'fish', 'chipmunk', 'rooster', 'monkey', 'lion', 'horse']
+        'very-hard': ['owl', 'dragon', 'panda', 'cat', 'hedgehog', 'fox', 'chicken', 'snake', 'bird', 'fish', 'chipmunk', 'rooster', 'monkey', 'lion', 'horse'],
+        'ultra-hard': ['owl', 'dragon', 'panda', 'cat', 'hedgehog', 'fox', 'chicken', 'snake', 'bird', 'fish', 'chipmunk', 'rooster', 'monkey', 'lion', 'horse', 'rabbit', 'cow', 'pig', 'unicorn', 'dog', 'shrimp']
     }
     
     changeStatus('start')
@@ -316,10 +317,33 @@ document.addEventListener('DOMContentLoaded', () => {
                 cards.style.width = '600px'
                 break
             case 'very-hard':
-                cards.style.height = '520px'
-                cards.style.width = '900px'
+                cards.style.height = '400px'
+                cards.style.width = '630px'
+                break
+            case 'ultra-hard':
+                cards.style.height = '400px'
+                cards.style.width = '875px'
                 break
         }
+
+        if (difLevel === 'very-hard' || difLevel === 'ultra-hard') {
+
+            for (let card of cards.childNodes) {
+                card.style.width = '70px'
+                card.style.height = '90px'
+            }
+
+            let cardItems = document.querySelectorAll('.card__item')
+
+            for (let cardItem of cardItems) {
+                console.log(cardItem)
+                cardItem.style.padding = '10px'
+            }
+
+            
+        }
+
+
     }
 
     function playSound(event) {
