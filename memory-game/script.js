@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const sounds = ['success', 'unsuccess', 'upend', 'victory']
     
+    preloadAudio()
     changeStatus('start')
     getLocalStorage()
     renderGames()
@@ -168,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             setTimeout(() => lock = false, 1000)
         } else {
-            playSound('unsuccess')
+            setTimeout(() => playSound('unsuccess'), 200)
             setTimeout(() => {
                 removeCard(firstCard)
                 removeCard(secondCard)
