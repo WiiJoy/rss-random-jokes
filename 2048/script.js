@@ -4,8 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
         score = null,
         isGameEnd = false,
         isGameProcess = true,
-        currGameStatus = true;
+        currGameStatus = true,
+        isProcess = false;
     
+    startNewGame()
 
     
     function startNewGame() {
@@ -19,6 +21,23 @@ document.addEventListener('DOMContentLoaded', () => {
 				gameData[r][c] = 0;
 			}
 		}
+
+        getRandomCell()
+        getRandomCell()
+    }
+
+    function getRandomCell() {
+        isProcess = false;
+
+        while (!isProcess) {
+            let row = Math.floor(Math.random()*4)
+            let cell = Math.floor(Math.random()*4)
+
+            if (gameData[row][cell] === 0) {
+                let value = Math.random() > 0.5 ? 2 : 4
+                gameData[row][cell] = value
+            }
+        }
     }
 
 
