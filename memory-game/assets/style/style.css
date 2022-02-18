@@ -235,6 +235,7 @@
     background: black;
     color: hsl(54, 100%, 50%);
     cursor: pointer;
+    text-transform: uppercase;
     transform: scale(1);
     transition: .3s;
 }
@@ -263,6 +264,7 @@
     width: auto;
     filter: grayscale(1) brightness(.5);
     transition: .3s;
+    cursor: pointer;
 }
 
 .btn_level:hover {
@@ -281,6 +283,12 @@
 .btn_active:active {
     transform: scale(1);
     cursor: default;
+}
+
+.header__tools {
+    display: flex;
+    gap: 10px;
+    align-items: center;
 }
 
 .status {
@@ -371,8 +379,17 @@
     transition: .3s;
 }
 
-.sound:hover .sound__img {
+.btn_rules {
+    height: 50px;
+    width: auto;
+    filter: invert(1) brightness(1.5);
+    transition: .3s;
+    cursor: pointer;
+}
+
+.sound:hover .sound__img, .btn_rules:hover {
     filter: invert(0.5);
 }
+
 
 
