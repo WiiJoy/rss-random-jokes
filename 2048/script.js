@@ -11,22 +11,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     
     function startNewGame() {
+        console.log('start game')
         currGameStatus = isGameProcess
         score = 0
         gameData = []
 
         for (let i = 0; i < 4; i++) {
-			gameData[r] = [];
+			gameData[i] = [];
 			for (let j = 0; j < 4; j++) {
-				gameData[r][c] = 0;
+				gameData[i][j] = 0;
 			}
 		}
 
         getRandomCell()
         getRandomCell()
+
+        handleGameProcess()
     }
 
     function getRandomCell() {
+        console.log('start get random cell')
         isProcess = false;
 
         while (!isProcess) {
@@ -34,16 +38,19 @@ document.addEventListener('DOMContentLoaded', () => {
             let cell = Math.floor(Math.random()*4)
 
             if (gameData[row][cell] === 0) {
-                let value = Math.random() > 0.5 ? 2 : 4
+                let value = Math.random() > 0.6 ? 2 : 4
                 gameData[row][cell] = value
             }
+
+            isProcess = true
         }
     }
 
     function handleGameProcess() {
-        for (let i = 0; i < 4; i++){
-			for (let j = 0; j < 4; j++){
-				let currCell = document.querySelector(`#c${i}${j}`);
+        for (let i = 0; i < 4; i++) {
+			for (let j = 0; j < 4; j++) {
+				let currCell = document.querySelector(`#cell${i}${j}`);
+                console.log(currCell, i, j)
 				if (gameData[i][j] === 0) {
 					currCell.innerHTML = '';
 					currCell.className = 'game__cell';
@@ -55,6 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
     }
 
+    // Обработка хода влево
     function handleLeftMove() {
         let startCondition = '' + gameData
 
@@ -68,8 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
             getRandomCell()
             handleGameProcess()
         }
-
-
     }
 
     function handleLeftMoveRow(row) {
@@ -92,7 +98,52 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function getNextElementInRow(row, cell) {
         for (let i = cell + 1; i < 4; i++){
-			if (this.mydata[row][i] !== 0) {
+			if (gameData[row][i] !== 0) {
+				return i;
+			}
+		}
+		return -1;
+    }
+
+    // Обработка хода вправо
+    function handleRightMove() {
+        let startCondition = '' + gameData
+
+        for (let i = 0; i < 4; i++) {
+            handleRightMoveRow(i)
+        }
+
+        let finalCondition = '' + gameData
+
+        if (startCondition !== finalCondition) {
+            getRandomCell()
+            handleGameProcess()
+        }
+    }
+
+    function handleRightMoveRow(row) {
+        for (let cell = 3; cell > 0; cell--) {	
+			let nextCell = getNextRightElementInRow(row, cell);
+			if (nextCell !== -1) {
+				if (gameData[row][cell] === 0) {
+					gameData[row][cell] = gameData[row][nextCell] ;
+					gameData[row][nextCell] = 0;
+					c++;
+				}
+				else if (gameData[row][cell] === gameData[row][nextCell]) {
+					gameData[row][cell] *= 2;
+					gameData[row][nextCell] = 0;
+				}
+			}
+			else {
+				break;
+			}
+		}
+    }
+
+    function getNextRightElementInRow(row, cell) {
+        for (let i = cell - 1; i >= 0; i--){
+			if (gameData[row][i] !== 0) {
 				return i;
 			}
 		}
