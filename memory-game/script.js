@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
         front.style.opacity = 1
         setTimeout(() => {
             back.style.display = 'none'
-        }, 300)
+        }, 250)
 
         if (!firstCard) {
             firstCard = card
@@ -218,7 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
         card.querySelector('.card__front').style.opacity = 0
         setTimeout(() => {
             card.querySelector('.card__front').style.display = 'none'
-        }, 300)
+        }, 250)
     }
 
     function shuffleCards() {
