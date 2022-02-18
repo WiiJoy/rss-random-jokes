@@ -21,4 +21,21 @@
 
 .main {
     flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+
+.game__field {
+    display: grid;
+    grid-template-rows: repeat(4, 100px);
+    grid-template-columns: repeat(4, 100px);
+    gap: 10px;
+    background-color: burlywood;
+}
+
+.game__cell {
+    background-color: coral;
+}
+
