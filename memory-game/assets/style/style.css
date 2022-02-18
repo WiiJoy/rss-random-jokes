@@ -296,6 +296,14 @@
     text-align: center;
 }
 
+.status__result {
+    box-sizing: border-box;
+    border: 2px black solid;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 18px;
+}
+
 .rules {
     box-sizing: border-box;
     position: fixed;

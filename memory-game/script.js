@@ -240,6 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 break
             case 'over':
                 statusTool.innerHTML = `Your SCORE: ${score}! <br> Press NEW GAME to start again!`
+                statusTool.classList.add('status__result')
                 nameInput.removeAttribute('disabled')
                 nameInput.classList.toggle('tools__input_disabled')
                 break
