@@ -313,8 +313,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 cards.style.width = '500px'
                 break
             case 'hard':
-                cards.style.height = '520px'
-                cards.style.width = '600px'
+                cards.style.height = '390px'
+                cards.style.width = '400px'
                 break
             case 'very-hard':
                 cards.style.height = '400px'
@@ -326,7 +326,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 break
         }
 
-        if (difLevel === 'very-hard' || difLevel === 'ultra-hard') {
+        if (difLevel !== 'easy') {
 
             for (let card of cards.childNodes) {
                 card.style.width = '70px'
