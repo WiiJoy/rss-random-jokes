@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderName()
     renderCards()
 
+    // Обработка кликов по кнопке звука, включение-отключение
     soundBtn.addEventListener('click', () => {
         soundBtn.style.opacity = 0
         if (!isMuted) {
@@ -64,13 +65,14 @@ document.addEventListener('DOMContentLoaded', () => {
         isMuted = !isMuted
     })
     
-
+    // Обработка клика по кнопкам выбора сложности
     btnLvl.addEventListener('click', (ev) => {
         if (ev.target.classList.contains('btn_level')) {
             setActiveButton(ev.target)
         }
     })
 
+    // Обработка клика по кнопке запуска игры
     btn.addEventListener('click', () => {
         if (btn.classList.contains('btn_disabled')) return
         lock = true
@@ -82,7 +84,6 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.classList.add('btn_disabled')
         tools.style.opacity = 0
         
-        console.log('player: ', player)
         changeStatus('game')
         setTimeout(() => {
             tools.style.zIndex = -1
@@ -91,19 +92,19 @@ document.addEventListener('DOMContentLoaded', () => {
         
     })
 
+    // Обработка ввода в инпуте
     nameInput.addEventListener('input', (ev) => {
-        console.log(ev.target.value)
         player = ev.target.value
         renderName()
     })
 
-    
+    // Обработка клика по карте
     cards.addEventListener('click', (ev) => {
         if (ev.target.classList.contains('card__item') && !ev.target.parentNode.classList.contains('card_upend')) cardUpend(ev.target.parentNode);
     })
 
+    // Обработка клика по кнопке правил с открытием блока правил
     btnRules.addEventListener('click', () => {
-
         if (isOpen) return
 
         rules.style.display = 'block';
@@ -114,11 +115,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     })
 
+    // Обработка клика на любой части документа для закрытия правил
     document.body.addEventListener('click', () => {
-
         if (!isOpen) return
-
-        console.log('click!')
 
         rules.style.opacity = 0
         setTimeout(() => {
@@ -127,17 +126,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 300)
     })
 
+    // Переворачивание карты
     function cardUpend(card) {
-
         if (lock || status !== 'game') return
 
         const front = card.querySelector('.card__front'),
               back = card.querySelector('.card__back');
 
         card.classList.add('card_upend');
-        back.style.opacity = 0
         front.style.display = 'block';
-        front.style.opacity = 1
         setTimeout(() => {
             back.style.display = 'none'
         }, 250)
@@ -157,6 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Проверка двух карт
     function checkCards() {
         if (firstCard.dataset.animal === secondCard.dataset.animal) {
             playSound('success')
@@ -178,7 +176,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 secondCard = ''
                 lock = false
             }, 1000)
-            console.log('removes: ', firstCard, secondCard)
         }
         
         if (handledCards === animals[difLevel].length * 2) {
@@ -211,22 +208,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Переворачивание карты рубашкой вверх
     function removeCard(card) {
         card.classList.remove('card_upend');
-        card.querySelector('.card__back').style.opacity = 1
         card.querySelector('.card__back').style.display = 'block'
-        card.querySelector('.card__front').style.opacity = 0
         setTimeout(() => {
             card.querySelector('.card__front').style.display = 'none'
         }, 250)
     }
 
+    // Перемешивание карт
     function shuffleCards() {
         Array.from(cards.children).forEach(item => {
             item.style.order = Math.round(Math.random() * animals[difLevel].length)
         }) 
     }
 
+    // Изменение статуса, часть функционала в текущей реализации уже не используется
     function changeStatus(newStatus) {
         status = newStatus;
         switch (newStatus) {
@@ -247,6 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Сброс поля карт со всеми служебными данными
     function resetCards() {
         lock = true
 
@@ -263,6 +262,7 @@ document.addEventListener('DOMContentLoaded', () => {
         scoreSpan.innerHTML = score
     }
 
+    // Построение таблиц рекордов и последних игр
     function renderGames() {
         last.innerHTML = ''
         if (!lastGames.length) {
@@ -279,6 +279,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     }
 
+    // Построение записи таблицы рекордов
     function createItem(obj) {
         const divMain = document.createElement('div')
         const divName = document.createElement('div')
@@ -301,19 +302,23 @@ document.addEventListener('DOMContentLoaded', () => {
         return divMain
     }
 
+    // Запись результатов в localStorage
     function setLocalStorage(key, value) {
         localStorage.setItem(key, JSON.stringify(value))
     }
 
+    // Считывание результатов из localStorage
     function getLocalStorage() {
         if (localStorage.getItem('lastGames')) lastGames = JSON.parse(localStorage.getItem('lastGames'))
         if (localStorage.getItem('bestGames')) bestGames = (JSON.parse(localStorage.getItem('bestGames'))).sort((a, b) => b.score - a.score)
     }
 
+    // Отображение введенного пользователем значения из инпута
     function renderName() {
         nickname.innerHTML = player || 'Unknown'
     }
 
+    // Построение карты
     function createCards(animal) {
         const animalCard = `<div class="card" data-animal="${animal}" style="order: ${Math.round(Math.random() * animals[difLevel].length)};">
         <img src="./assets/svg/cards/${animal}.svg" alt="${animal}" class="card__item card__front" style="display: none;">
@@ -322,6 +327,7 @@ document.addEventListener('DOMContentLoaded', () => {
         cards.insertAdjacentHTML('beforeend', animalCard)
     }
 
+    // Установка активной кнопки уровня сложности
     function setActiveButton(button) {
         Array.from(btnLvl.children).forEach(child => child.classList.remove('btn_active'));
         button.classList.add('btn_active')
@@ -329,6 +335,7 @@ document.addEventListener('DOMContentLoaded', () => {
         renderCards()
     }
 
+    // Построение поля карт по заданным параметрам в зависимости от выбранной сложности
     function renderCards() {
         cards.innerHTML = ''
         animals[difLevel].forEach(animal => {
@@ -365,16 +372,12 @@ document.addEventListener('DOMContentLoaded', () => {
             let cardItems = document.querySelectorAll('.card__item')
 
             for (let cardItem of cardItems) {
-                console.log(cardItem)
                 cardItem.style.padding = '10px'
             }
-
-            
         }
-
-
     }
 
+    // Воспроизведение звуковых эффектов
     function playSound(event) {
 
         if (isMuted) return
@@ -384,8 +387,3 @@ document.addEventListener('DOMContentLoaded', () => {
         sound.autoplay = true
     }
 })
-
-
-
-
-
