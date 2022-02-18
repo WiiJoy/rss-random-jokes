@@ -12,7 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
           tools = document.querySelector('.tools'),
           btnLvl = document.querySelector('.difficult__btns'),
           soundBtn = document.querySelector('.sound'),
-          soundImg = document.querySelector('.sound__img');
+          soundImg = document.querySelector('.sound__img'),
+          btnRules = document.querySelector('.btn_rules'),
+          rules = document.querySelector('.rules');
 
     let firstCard = '',
         secondCard = '',
@@ -29,7 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
             {name: '-', score: 0, steps: 0}
         ],
         difLevel = 'easy',
-        isMuted = false;
+        isMuted = false,
+        isOpen = false;
 
     const animals = {
         'easy': ['owl', 'dragon', 'panda', 'cat', 'hedgehog', 'fox'],
@@ -97,6 +100,31 @@ document.addEventListener('DOMContentLoaded', () => {
     
     cards.addEventListener('click', (ev) => {
         if (ev.target.classList.contains('card__item') && !ev.target.parentNode.classList.contains('card_upend')) cardUpend(ev.target.parentNode);
+    })
+
+    btnRules.addEventListener('click', () => {
+
+        if (isOpen) return
+
+        rules.style.display = 'block';
+        setTimeout(() => {
+            rules.style.opacity = 1
+            isOpen = !isOpen
+        }, 300)
+
+    })
+
+    document.body.addEventListener('click', () => {
+
+        if (!isOpen) return
+
+        console.log('click!')
+
+        rules.style.opacity = 0
+        setTimeout(() => {
+            rules.style.display = 'none';
+            isOpen = !isOpen
+        }, 300)
     })
 
     function cardUpend(card) {
