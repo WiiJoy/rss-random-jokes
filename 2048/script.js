@@ -61,8 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 gameData[row][cell] = value
                 isProcess = true
             }
-
-            
         }
     }
 
@@ -261,6 +259,32 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderScore(value = 0) {
         score += value
         scoreItem.innerHTML = score
+    }
+
+    // Проверяем поле на возможность ходов
+    function checkIsGameEnd() {
+        for (let i = 0; i < 4; i++) {
+            for (let j = 0; j < 4; j++) {
+
+                // Проверка наличия пустых ячеек, если есть - игра не окончена
+                if (gameData[i][j] === 0) {
+                    return false
+                }
+                
+                // Проверка одинаковых значений в соседних ячейках строки
+                if (i < 3) {
+                    if (gameData[i][j] === gameData[i + 1][j]) return false
+                }
+
+                // Проверка одинаковых значений в соседних ячейках столбца
+                if (j < 3) {
+                    if (gameData[i][j] === gameData[i][j + 1]) return false
+                }
+            }
+        }
+
+        // Если ни одно условие из цикла не вернет false, возвращать true - игра окончена, ходов нет
+        return true
     }
     
 
