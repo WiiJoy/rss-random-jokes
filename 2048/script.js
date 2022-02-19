@@ -91,6 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (startCondition !== finalCondition) {
             getRandomCell()
+            checkStatus()
             handleGameProcess()
         }
     }
@@ -135,6 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (startCondition !== finalCondition) {
             getRandomCell()
+            checkStatus()
             handleGameProcess()
         }
     }
@@ -179,6 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		if (startCondition !== finalCondition) {
 			getRandomCell()
+            checkStatus()
             handleGameProcess()
 		}
     }
@@ -224,6 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		if (startCondition !== finalCondition) {
 			getRandomCell()
+            checkStatus()
             handleGameProcess()
 		}
     }
@@ -285,6 +289,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Если ни одно условие из цикла не вернет false, возвращать true - игра окончена, ходов нет
         return true
+    }
+
+    function checkStatus() {
+        if (checkIsGameEnd()) {
+            currGameStatus = isGameEnd
+            console.log('game end')
+        }
     }
     
 
