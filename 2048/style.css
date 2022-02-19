@@ -39,3 +39,55 @@
     background-color: coral;
 }
 
+.game__cell_2 {
+    background-image: url('./assets/svg/cards/2.svg');
+}
+
+.game__cell_4 {
+    background-image: url('./assets/svg/cards/4.svg');
+}
+
+.game__cell_8 {
+    background-image: url('./assets/svg/cards/8.svg');
+}
+
+.game__cell_16 {
+    background-image: url('./assets/svg/cards/16.svg');
+}
+
+.game__cell_32 {
+    background-image: url('./assets/svg/cards/32.svg');
+}
+
+.game__cell_64 {
+    background-image: url('./assets/svg/cards/64.svg');
+}
+
+.game__cell_128 {
+    background-image: url('./assets/svg/cards/128.svg');
+}
+
+.game__cell_256 {
+    background-image: url('./assets/svg/cards/256.svg');
+}
+
+.game__cell_512 {
+    background-image: url('./assets/svg/cards/512.svg');
+}
+
+.game__cell_1024 {
+    background-image: url('./assets/svg/cards/1024.svg');
+}
+
+.game__cell_2048 {
+    background-image: url('./assets/svg/cards/2048.svg');
+}
+
+.game__cell_4096 {
+    background-image: url('./assets/svg/cards/4096.svg');
+}
+
+.game__cell_8192 {
+    background-image: url('./assets/svg/cards/8192.svg');
+}
+
