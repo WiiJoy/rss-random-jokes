@@ -68,13 +68,18 @@ document.addEventListener('DOMContentLoaded', () => {
         for (let i = 0; i < 4; i++) {
 			for (let j = 0; j < 4; j++) {
 				let currCell = document.querySelector(`#cell${i}${j}`);
-				if (gameData[i][j] === 0) {
-					currCell.innerHTML = '';
-					currCell.className = 'game__cell';
-				} else {
-					currCell.innerHTML = gameData[i][j];
-					currCell.className = `game__cell game__cell_${+gameData[i][j]}`;
-				}
+                currCell.style.opacity = 0
+				
+                setTimeout(() => {
+
+                    if (gameData[i][j] === 0) {
+                        currCell.className = 'game__cell';
+                    } else {
+                        currCell.className = `game__cell game__cell_${+gameData[i][j]}`;
+                    }
+
+                    currCell.style.opacity = 1
+                }, 300)
 			}
 		}
     }

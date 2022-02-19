@@ -37,6 +37,8 @@
 
 .game__cell {
     background-color: coral;
+    opacity: 0;
+    transition: opacity .3s;
 }
 
 .game__cell_2 {
