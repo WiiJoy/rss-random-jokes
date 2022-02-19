@@ -1,13 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    const scoreItem = document.querySelector('.score')
+
     let gameData = [],
-        score = null,
+        score = 0,
         isGameEnd = false,
         isGameProcess = true,
         currGameStatus = true,
         isProcess = false;
     
     startNewGame()
+    renderScore()
 
     document.addEventListener('keydown', (ev) => {
 
@@ -96,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function handleLeftMoveRow(row) {
         for (let cell = 0; cell < 3; cell++){	
-			var nextCell = getNextElementInRow(row, cell);
+			let nextCell = getNextElementInRow(row, cell);
 			if (nextCell !== -1) {
 				if (gameData[row][cell] === 0) {
 					gameData[row][cell] = gameData[row][nextCell];
@@ -105,6 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				} else if (gameData[row][cell] === gameData[row][nextCell]) {
 					gameData[row][cell] *= 2;
 					gameData[row][nextCell] = 0;
+                    renderScore(gameData[row][cell])
 				}
 			} else {
 				break;
@@ -145,13 +149,12 @@ document.addEventListener('DOMContentLoaded', () => {
 					gameData[row][cell] = gameData[row][nextCell] ;
 					gameData[row][nextCell] = 0;
 					cell++;
-				}
-				else if (gameData[row][cell] === gameData[row][nextCell]) {
+				} else if (gameData[row][cell] === gameData[row][nextCell]) {
 					gameData[row][cell] *= 2;
 					gameData[row][nextCell] = 0;
+                    renderScore(gameData[row][cell])
 				}
-			}
-			else {
+			} else {
 				break;
 			}
 		}
@@ -193,6 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				} else if (gameData[cell][row] == gameData[nextCell][row]) {
 					gameData[cell][row] *= 2;
 					gameData[nextCell][row] = 0;
+                    renderScore(gameData[row][cell])
 				}
 			} else {
 				break;
@@ -237,6 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				} else if (gameData[cell][row] === gameData[nextCell][row]) {
 					gameData[cell][row] *= 2;
 					gameData[nextCell][row] = 0;
+                    renderScore(gameData[row][cell])
 				}
 			} else {
 				break;
@@ -251,6 +256,11 @@ document.addEventListener('DOMContentLoaded', () => {
 			}
 		}
 		return -1;
+    }
+
+    function renderScore(value = 0) {
+        score += value
+        scoreItem.innerHTML = score
     }
     
 
