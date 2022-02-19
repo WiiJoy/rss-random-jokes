@@ -10,24 +10,25 @@ document.addEventListener('DOMContentLoaded', () => {
     startNewGame()
 
     document.addEventListener('keydown', (ev) => {
+
+        if (!isProcess) return
     
-        if (ev.keyCode == 37) {
+        if (ev.keyCode === 37) {
             handleLeftMove();
         }
-        else if (ev.keyCode == 38) {
+        else if (ev.keyCode === 38) {
             handleTopMove();
         }
-        else if (ev.keyCode == 39) {
+        else if (ev.keyCode === 39) {
             handleRightMove();	
         }
-        else if (ev.keyCode == 40) {
+        else if (ev.keyCode === 40) {
             handleBottomMove();
         }
     })
 
     
     function startNewGame() {
-        console.log('start game')
         currGameStatus = isGameProcess
         score = 0
         gameData = []
@@ -46,7 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function getRandomCell() {
-        console.log('start get random cell')
         isProcess = false;
 
         while (!isProcess) {
@@ -56,9 +56,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (gameData[row][cell] === 0) {
                 let value = Math.random() > 0.6 ? 2 : 4
                 gameData[row][cell] = value
+                isProcess = true
             }
 
-            isProcess = true
+            
         }
     }
 
@@ -66,7 +67,6 @@ document.addEventListener('DOMContentLoaded', () => {
         for (let i = 0; i < 4; i++) {
 			for (let j = 0; j < 4; j++) {
 				let currCell = document.querySelector(`#cell${i}${j}`);
-                console.log(currCell, i, j)
 				if (gameData[i][j] === 0) {
 					currCell.innerHTML = '';
 					currCell.className = 'game__cell';
@@ -190,20 +190,18 @@ document.addEventListener('DOMContentLoaded', () => {
 					gameData[cell][row] = gameData[nextCell][row] ;
 					gameData[nextCell][row] = 0;
 					cell++;
-				}
-				else if (gameData[cell][row] == gameData[nextCell][row]) {
+				} else if (gameData[cell][row] == gameData[nextCell][row]) {
 					gameData[cell][row] *= 2;
 					gameData[nextCell][row] = 0;
 				}
-			}
-			else {
+			} else {
 				break;
 			}
 		}
     }
 
     function getNextTopElement(row, cell) {
-        for (let i = cell + 1; i < 4; i++){
+        for (let i = cell + 1; i < 4; i++) {
 			if (gameData[i][row] !== 0) {
 				return i;
 			}
@@ -213,7 +211,47 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // Обработка хода вниз
+    function handleBottomMove() {
+        let startCondition = '' + gameData;
 
+		for (let i = 0; i < 4; i++) {
+			handleBottomMoveRow(i);
+		}
+
+		let finalCondition = '' + gameData
+
+		if (startCondition !== finalCondition) {
+			getRandomCell()
+            handleGameProcess()
+		}
+    }
+
+    function handleBottomMoveRow(row) {
+        for (let cell = 3; cell > 0; cell--){	
+			let nextCell = getNextBottomElement(row, cell);
+			if (nextCell !== -1) {
+				if (gameData[cell][row] === 0) {
+					gameData[cell][row] = gameData[nextCell][row] ;
+					gameData[nextCell][row] = 0;
+					cell++;
+				} else if (gameData[cell][row] === gameData[nextCell][row]) {
+					gameData[cell][row] *= 2;
+					gameData[nextCell][row] = 0;
+				}
+			} else {
+				break;
+			}
+		}
+    }
+
+    function getNextBottomElement(row, cell) {
+        for (let i = cell - 1; i >= 0; i--) {
+			if (gameData[i][row] !== 0) {
+				return i;
+			}
+		}
+		return -1;
+    }
     
 
 
