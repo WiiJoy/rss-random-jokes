@@ -68,6 +68,12 @@ document.addEventListener('DOMContentLoaded', () => {
         for (let i = 0; i < 4; i++) {
 			for (let j = 0; j < 4; j++) {
 				let currCell = document.querySelector(`#cell${i}${j}`);
+
+                // console.log(currCell.className)
+
+                if (currCell.className === `game__cell game__cell_${+gameData[i][j]}`) continue
+                if (gameData[i][j] === 0 && currCell.className === 'game__cell') continue
+
                 currCell.style.opacity = 0
 				
                 setTimeout(() => {
