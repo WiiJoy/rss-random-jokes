@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
         isGameProcess = true,
         currGameStatus = true,
         isProcess = false;
+        notFirstStep = false;
     
     startNewGame()
     renderScore()
@@ -72,7 +73,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 // console.log(currCell.className)
 
                 if (currCell.className === `game__cell game__cell_${+gameData[i][j]}`) continue
-                if (gameData[i][j] === 0 && currCell.className === 'game__cell') continue
+                if (gameData[i][j] === 0 && currCell.className === 'game__cell' && notFirstStep) continue
+
+                
 
                 currCell.style.opacity = 0
 				
@@ -88,6 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }, 300)
 			}
 		}
+        notFirstStep = true
     }
 
     // Обработка хода влево
