@@ -9,6 +9,22 @@ document.addEventListener('DOMContentLoaded', () => {
     
     startNewGame()
 
+    document.addEventListener('keydown', (ev) => {
+    
+        if (ev.keyCode == 37) {
+            handleLeftMove();
+        }
+        else if (ev.keyCode == 38) {
+            handleTopMove();
+        }
+        else if (ev.keyCode == 39) {
+            handleRightMove();	
+        }
+        else if (ev.keyCode == 40) {
+            handleBottomMove();
+        }
+    })
+
     
     function startNewGame() {
         console.log('start game')
@@ -128,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				if (gameData[row][cell] === 0) {
 					gameData[row][cell] = gameData[row][nextCell] ;
 					gameData[row][nextCell] = 0;
-					c++;
+					cell++;
 				}
 				else if (gameData[row][cell] === gameData[row][nextCell]) {
 					gameData[row][cell] *= 2;
@@ -149,6 +165,54 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 		return -1;
     }
+
+    // Обработка хода вверх
+    function handleTopMove() {
+        let startCondition = '' + gameData;
+
+		for (let i = 0; i < 4; i++) {
+			handleTopMoveRow(i);
+		}
+
+		let finalCondition = '' + gameData
+
+		if (startCondition !== finalCondition) {
+			getRandomCell()
+            handleGameProcess()
+		}
+    }
+
+    function handleTopMoveRow(row) {
+        for (let cell = 0; cell < 3; cell++){	
+			let nextCell = getNextTopElement(row, cell);
+			if (nextCell !== -1) {
+				if (gameData[cell][row] === 0) {
+					gameData[cell][row] = gameData[nextCell][row] ;
+					gameData[nextCell][row] = 0;
+					cell++;
+				}
+				else if (gameData[cell][row] == gameData[nextCell][row]) {
+					gameData[cell][row] *= 2;
+					gameData[nextCell][row] = 0;
+				}
+			}
+			else {
+				break;
+			}
+		}
+    }
+
+    function getNextTopElement(row, cell) {
+        for (let i = cell + 1; i < 4; i++){
+			if (gameData[i][row] !== 0) {
+				return i;
+			}
+		}
+		return -1;
+    }
+
+
+    // Обработка хода вниз
 
     
 
