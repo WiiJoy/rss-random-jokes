@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         currGameStatus = true,
         isProcess = false;
         notFirstStep = false;
+        isStep = false;
     
     createNullElements()
     startNewGame()
@@ -17,9 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.addEventListener('keydown', (ev) => {
 
-        if (!isProcess) return
-
-        isProcess = false;
+        if (!isProcess || isStep) return
     
         if (ev.keyCode === 37) {
             handleLeftMove();
@@ -74,26 +73,6 @@ document.addEventListener('DOMContentLoaded', () => {
 			for (let j = 0; j < 4; j++) {
 				let currCell = document.querySelector(`#cell${i}${j}`);
 
-                // console.log(currCell.className)
-
-                // if (currCell.className === `game__cell game__cell_${+gameData[i][j]}`) continue
-                // if (gameData[i][j] === 0 && currCell.className === 'game__cell' && notFirstStep) continue
-
-                
-
-                // currCell.style.opacity = 0
-				
-                // setTimeout(() => {
-
-                //     if (gameData[i][j] === 0) {
-                //         currCell.className = 'game__cell';
-                //     } else {
-                //         currCell.className = `game__cell game__cell_${+gameData[i][j]}`;
-                //     }
-
-                //     currCell.style.opacity = 1
-                // }, 300)
-
                 if (currCell.firstChild && currCell.firstChild.className === `game__cell__item game__cell_${+gameData[i][j]}`) continue
                 if (gameData[i][j] === 0 && !currCell.firstChild && notFirstStep) continue
 
@@ -134,12 +113,14 @@ document.addEventListener('DOMContentLoaded', () => {
         let finalCondition = '' + gameData
 
         if (startCondition !== finalCondition) {
+            isStep = true
             handleGameProcess()
             
             setTimeout(() => {
                 getRandomCell()
                 checkStatus()
                 handleGameProcess()
+                isStep = false
             }, 300)
         }
     }
@@ -184,12 +165,14 @@ document.addEventListener('DOMContentLoaded', () => {
         let finalCondition = '' + gameData
 
         if (startCondition !== finalCondition) {
+            isStep = true
             handleGameProcess()
             
             setTimeout(() => {
                 getRandomCell()
                 checkStatus()
                 handleGameProcess()
+                isStep = false
             }, 300)
         }
     }
@@ -234,12 +217,14 @@ document.addEventListener('DOMContentLoaded', () => {
 		let finalCondition = '' + gameData
 
 		if (startCondition !== finalCondition) {
+            isStep = true
 			handleGameProcess()
             
             setTimeout(() => {
                 getRandomCell()
                 checkStatus()
                 handleGameProcess()
+                isStep = false
             }, 300)
 		}
     }
@@ -285,12 +270,14 @@ document.addEventListener('DOMContentLoaded', () => {
 		let finalCondition = '' + gameData
 
 		if (startCondition !== finalCondition) {
+            isStep = true
 			handleGameProcess()
             
             setTimeout(() => {
                 getRandomCell()
                 checkStatus()
                 handleGameProcess()
+                isStep = false
             }, 300)
 		}
     }

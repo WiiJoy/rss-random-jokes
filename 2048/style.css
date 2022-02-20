@@ -9,6 +9,10 @@
     color: rgb(255, 255, 255);
 }
 
+body {
+    background-color: #833535;
+}
+
 .container {
     margin: 0 auto;
     height: 100vh;
@@ -17,7 +21,11 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    background: right / contain no-repeat url('./assets/img/background.jpg') #833535;
+    background: right / contain no-repeat url('./assets/img/background.jpg') ;
+}
+
+.header, .main, .footer {
+    padding: 20px;
 }
 
 .main {
@@ -27,6 +35,24 @@
     align-items: center;
 }
 
+.game__tools__score {
+    font-size: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.score__title {
+    width: 200px;
+    text-align: right;
+}
+
+.score {
+    font-weight: 700;
+    width: 200px;
+    text-align: center;
+}
 
 .game__field {
     display: grid;
@@ -40,7 +66,7 @@
     box-sizing: border-box;
     opacity: 0;
     transition: opacity .3s;
-    background-color: black;
+    background-color: #1B1B1B;
     border-radius: 5px;
     border: 1px solid white;
 }
@@ -116,5 +142,20 @@
 .game__cell_8192 {
     background-color: white;
     background-image: url('./assets/svg/cards/8192.svg');
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.link {
+    text-decoration: none;
+    transition: .5s;
+}
+
+.link:hover {
+    color: black;
+    text-shadow: rgb(0, 0, 0);
 }
 
