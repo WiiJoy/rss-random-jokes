@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    color: rgb(255, 255, 255);
+}
+
+body {
+    background-color: #833535;
+}
+
+.container {
+    margin: 0 auto;
+    height: 100vh;
+    max-width: 1280px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background: right / contain no-repeat url('./assets/img/background.jpg') ;
+}
+
+.header, .main, .footer {
+    padding: 20px;
+}
+
+.main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game__tools__score {
+    font-size: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.score__title {
+    width: 200px;
+    text-align: right;
+}
+
+.score {
+    font-weight: 700;
+    width: 200px;
+    text-align: center;
+}
+
+.game__field {
+    display: grid;
+    grid-template-rows: repeat(4, 100px);
+    grid-template-columns: repeat(4, 100px);
+    gap: 10px;
+    
+}
+
+.game__cell {
+    box-sizing: border-box;
+    opacity: 0;
+    transition: opacity .3s;
+    background-color: #1B1B1B;
+    border-radius: 5px;
+    border: 1px solid white;
+}
+
+.game__cell__item {
+    /* background-color: black; */
+    /* border: 1px solid white; */
+    border-radius: 5px;
+    height: 100%;
+}
+
+.game__cell_2 {
+    background-color: white;
+    /* border: 1px solid black; */
+    background-image: url('./assets/svg/cards/2.svg');
+}
+
+.game__cell_4 {
+    background-color: white;
+    background-image: url('./assets/svg/cards/4.svg');
+}
+
+.game__cell_8 {
+    background-color: white;
+    background-image: url('./assets/svg/cards/8.svg');
+}
+
+.game__cell_16 {
+    background-color: white;
+    background-image: url('./assets/svg/cards/16.svg');
+}
+
+.game__cell_32 {
+    background-color: white;
+    background-image: url('./assets/svg/cards/32.svg');
+}
+
+.game__cell_64 {
+    background-color: white;
+    background-image: url('./assets/svg/cards/64.svg');
+}
+
+.game__cell_128 {
+    background-color: white;
+    background-image: url('./assets/svg/cards/128.svg');
+}
+
+.game__cell_256 {
+    background-color: white;
+    background-image: url('./assets/svg/cards/256.svg');
+}
+
+.game__cell_512 {
+    background-color: white;
+    background-image: url('./assets/svg/cards/512.svg');
+}
+
+.game__cell_1024 {
+    background-color: white;
+    background-image: url('./assets/svg/cards/1024.svg');
+}
+
+.game__cell_2048 {
+    background-color: white;
+    background-image: url('./assets/svg/cards/2048.svg');
+}
+
+.game__cell_4096 {
+    background-color: white;
+    background-image: url('./assets/svg/cards/4096.svg');
+}
+
+.game__cell_8192 {
+    background-color: white;
+    background-image: url('./assets/svg/cards/8192.svg');
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.link {
+    text-decoration: none;
+    transition: .5s;
+}
+
+.link:hover {
+    color: black;
+    text-shadow: rgb(0, 0, 0);
+}
+

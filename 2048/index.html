@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>2048</title>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">2048</h1>
+        </header>
+
+        <main class="main">
+            <div class="game">
+                <div class="game__tools">
+                    <div class="game__tools__score">
+                        <p class="score__title">Score:</p>
+                        <p class="score"></p>
+                    </div>
+                </div>
+
+                <div class="game__field">
+                    <!-- первая строка -->
+                    <div class="game__cell" id="cell00"></div>
+                    <div class="game__cell" id="cell01"></div>
+                    <div class="game__cell" id="cell02"></div>
+                    <div class="game__cell" id="cell03"></div>
+                    <!-- вторая строка -->
+                    <div class="game__cell" id="cell10"></div>
+                    <div class="game__cell" id="cell11"></div>
+                    <div class="game__cell" id="cell12"></div>
+                    <div class="game__cell" id="cell13"></div>
+                    <!-- третья строка -->
+                    <div class="game__cell" id="cell20"></div>
+                    <div class="game__cell" id="cell21"></div>
+                    <div class="game__cell" id="cell22"></div>
+                    <div class="game__cell" id="cell23"></div>
+                    <!-- четвертая строка -->
+                    <div class="game__cell" id="cell30"></div>
+                    <div class="game__cell" id="cell31"></div>
+                    <div class="game__cell" id="cell32"></div>
+                    <div class="game__cell" id="cell33"></div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="footer__github"><a href="https://github.com/WiiJoy" class="link">WiiJoy</a> &copy; 2022</div>
+            <div class="footer__rss"><a href="https://rs.school/js-stage0/" class="link">Rolling Scopes School</a></div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
