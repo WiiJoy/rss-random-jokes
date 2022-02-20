@@ -80,9 +80,9 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (Math.abs(diffX) > Math.abs(diffY) && diffX < 0) {
             handleLeftMove()
         } else if (Math.abs(diffX) < Math.abs(diffY) && diffY > 0) {
-            handleTopMove()
-        } else if (Math.abs(diffX) < Math.abs(diffY) && diffY < 0) {
             handleBottomMove()
+        } else if (Math.abs(diffX) < Math.abs(diffY) && diffY < 0) {
+            handleTopMove()
         } else {
             console.log('one dot touch')
         }
