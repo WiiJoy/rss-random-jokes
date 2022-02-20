@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('keydown', (ev) => {
 
         if (!isProcess) return
+
+        isProcess = false;
     
         if (ev.keyCode === 37) {
             handleLeftMove();
@@ -122,6 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Обработка хода влево
     function handleLeftMove() {
+        console.log('left move')
         let startCondition = '' + gameData
 
         for (let i = 0; i < 4; i++) {
@@ -131,9 +134,13 @@ document.addEventListener('DOMContentLoaded', () => {
         let finalCondition = '' + gameData
 
         if (startCondition !== finalCondition) {
-            getRandomCell()
-            checkStatus()
             handleGameProcess()
+            
+            setTimeout(() => {
+                getRandomCell()
+                checkStatus()
+                handleGameProcess()
+            }, 300)
         }
     }
 
@@ -167,6 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Обработка хода вправо
     function handleRightMove() {
+        console.log('right move')
         let startCondition = '' + gameData
 
         for (let i = 0; i < 4; i++) {
@@ -176,9 +184,13 @@ document.addEventListener('DOMContentLoaded', () => {
         let finalCondition = '' + gameData
 
         if (startCondition !== finalCondition) {
-            getRandomCell()
-            checkStatus()
             handleGameProcess()
+            
+            setTimeout(() => {
+                getRandomCell()
+                checkStatus()
+                handleGameProcess()
+            }, 300)
         }
     }
 
@@ -212,6 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Обработка хода вверх
     function handleTopMove() {
+        console.log('top move')
         let startCondition = '' + gameData;
 
 		for (let i = 0; i < 4; i++) {
@@ -221,9 +234,13 @@ document.addEventListener('DOMContentLoaded', () => {
 		let finalCondition = '' + gameData
 
 		if (startCondition !== finalCondition) {
-			getRandomCell()
-            checkStatus()
-            handleGameProcess()
+			handleGameProcess()
+            
+            setTimeout(() => {
+                getRandomCell()
+                checkStatus()
+                handleGameProcess()
+            }, 300)
 		}
     }
 
@@ -258,6 +275,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Обработка хода вниз
     function handleBottomMove() {
+        console.log('bottom move')
         let startCondition = '' + gameData;
 
 		for (let i = 0; i < 4; i++) {
@@ -267,9 +285,13 @@ document.addEventListener('DOMContentLoaded', () => {
 		let finalCondition = '' + gameData
 
 		if (startCondition !== finalCondition) {
-			getRandomCell()
-            checkStatus()
-            handleGameProcess()
+			handleGameProcess()
+            
+            setTimeout(() => {
+                getRandomCell()
+                checkStatus()
+                handleGameProcess()
+            }, 300)
 		}
     }
 
