@@ -6,7 +6,7 @@
     padding: 0;
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
 }
 
 .container {
@@ -17,6 +17,7 @@
     display: flex;
     flex-direction: column;
     position: relative;
+    background: right / contain no-repeat url('./assets/img/background.jpg') #833535;
 }
 
 .main {
@@ -32,68 +33,88 @@
     grid-template-rows: repeat(4, 100px);
     grid-template-columns: repeat(4, 100px);
     gap: 10px;
-    background-color: burlywood;
+    
 }
 
 .game__cell {
-    background-color: coral;
+    box-sizing: border-box;
     opacity: 0;
     transition: opacity .3s;
+    background-color: black;
+    border-radius: 5px;
+    border: 1px solid white;
 }
 
 .game__cell__item {
+    /* background-color: black; */
+    /* border: 1px solid white; */
+    border-radius: 5px;
     height: 100%;
 }
 
 .game__cell_2 {
+    background-color: white;
+    /* border: 1px solid black; */
     background-image: url('./assets/svg/cards/2.svg');
 }
 
 .game__cell_4 {
+    background-color: white;
     background-image: url('./assets/svg/cards/4.svg');
 }
 
 .game__cell_8 {
+    background-color: white;
     background-image: url('./assets/svg/cards/8.svg');
 }
 
 .game__cell_16 {
+    background-color: white;
     background-image: url('./assets/svg/cards/16.svg');
 }
 
 .game__cell_32 {
+    background-color: white;
     background-image: url('./assets/svg/cards/32.svg');
 }
 
 .game__cell_64 {
+    background-color: white;
     background-image: url('./assets/svg/cards/64.svg');
 }
 
 .game__cell_128 {
+    background-color: white;
     background-image: url('./assets/svg/cards/128.svg');
 }
 
 .game__cell_256 {
+    background-color: white;
     background-image: url('./assets/svg/cards/256.svg');
 }
 
 .game__cell_512 {
+    background-color: white;
     background-image: url('./assets/svg/cards/512.svg');
 }
 
 .game__cell_1024 {
+    background-color: white;
     background-image: url('./assets/svg/cards/1024.svg');
 }
 
 .game__cell_2048 {
+    background-color: white;
     background-image: url('./assets/svg/cards/2048.svg');
 }
 
 .game__cell_4096 {
+    background-color: white;
     background-image: url('./assets/svg/cards/4096.svg');
 }
 
 .game__cell_8192 {
+    background-color: white;
     background-image: url('./assets/svg/cards/8192.svg');
 }
 
