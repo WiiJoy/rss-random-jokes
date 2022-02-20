@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     const scoreItem = document.querySelector('.score')
+          cellItems = document.querySelectorAll('.game__cell')
 
     let gameData = [],
         score = 0,
@@ -10,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
         isProcess = false;
         notFirstStep = false;
     
+    createNullElements()
     startNewGame()
     renderScore()
 
@@ -58,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
             let cell = Math.floor(Math.random()*4)
 
             if (gameData[row][cell] === 0) {
-                let value = Math.random() > 0.6 ? 2 : 4
+                let value = Math.random() > 0.1 ? 2 : 4
                 gameData[row][cell] = value
                 isProcess = true
             }
@@ -72,26 +74,50 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // console.log(currCell.className)
 
-                if (currCell.className === `game__cell game__cell_${+gameData[i][j]}`) continue
-                if (gameData[i][j] === 0 && currCell.className === 'game__cell' && notFirstStep) continue
+                // if (currCell.className === `game__cell game__cell_${+gameData[i][j]}`) continue
+                // if (gameData[i][j] === 0 && currCell.className === 'game__cell' && notFirstStep) continue
 
                 
 
-                currCell.style.opacity = 0
+                // currCell.style.opacity = 0
+				
+                // setTimeout(() => {
+
+                //     if (gameData[i][j] === 0) {
+                //         currCell.className = 'game__cell';
+                //     } else {
+                //         currCell.className = `game__cell game__cell_${+gameData[i][j]}`;
+                //     }
+
+                //     currCell.style.opacity = 1
+                // }, 300)
+
+                if (currCell.firstChild && currCell.firstChild.className === `game__cell__item game__cell_${+gameData[i][j]}`) continue
+                if (gameData[i][j] === 0 && !currCell.firstChild && notFirstStep) continue
+
+                currCell.firstChild.style.opacity = 0
+
+                let div = document.createElement('div')
 				
                 setTimeout(() => {
 
                     if (gameData[i][j] === 0) {
-                        currCell.className = 'game__cell';
+                        currCell.innerHTML = ''
+                        div.className = `game__cell__item`
                     } else {
-                        currCell.className = `game__cell game__cell_${+gameData[i][j]}`;
+                        currCell.innerHTML = ''
+                        div.className = `game__cell__item game__cell_${+gameData[i][j]}`
                     }
+
+                    currCell.append(div)
 
                     currCell.style.opacity = 1
                 }, 300)
 			}
 		}
         notFirstStep = true
+
+        console.log('gameData: ', gameData)
     }
 
     // Обработка хода влево
@@ -208,8 +234,8 @@ document.addEventListener('DOMContentLoaded', () => {
 				if (gameData[cell][row] === 0) {
 					gameData[cell][row] = gameData[nextCell][row] ;
 					gameData[nextCell][row] = 0;
-					cell++;
-				} else if (gameData[cell][row] == gameData[nextCell][row]) {
+					cell--;
+				} else if (gameData[cell][row] === gameData[nextCell][row]) {
 					gameData[cell][row] *= 2;
 					gameData[nextCell][row] = 0;
                     renderScore(gameData[row][cell])
@@ -310,6 +336,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (checkIsGameEnd()) {
             currGameStatus = isGameEnd
             console.log('game end')
+        }
+    }
+
+    function createNullElements() {
+        for (let cell of cellItems) {
+            let div = document.createElement('div')
+            div.className = `game__cell__item`
+            cell.append(div)
         }
     }
     

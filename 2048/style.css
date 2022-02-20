@@ -41,6 +41,10 @@
     transition: opacity .3s;
 }
 
+.game__cell__item {
+    height: 100%;
+}
+
 .game__cell_2 {
     background-image: url('./assets/svg/cards/2.svg');
 }
