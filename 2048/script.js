@@ -60,14 +60,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Регистрация хода с тача
     // Регистрация начального положения тача
     document.addEventListener('touchstart', (ev) => {
+        console.log(ev.touches[0])
         touchXStart = ev.touches[0].pageX
         touchYStart = ev.touches[0].pageY
     })
     
     //Регистрация конечного положения тача
     document.addEventListener('touchend', (ev) => {
-        touchXEnd = ev.touches[0].pageX
-        touchYEnd = ev.touches[0].pageY
+        console.log(ev)
+        touchXEnd = ev.changedTouches[0].pageX
+        touchYEnd = ev.changedTouches[0].pageY
 
         // Вычисление разницы по осям
         let diffX = touchXEnd - touchXStart
