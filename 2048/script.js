@@ -10,7 +10,11 @@ document.addEventListener('DOMContentLoaded', () => {
         currGameStatus = true,
         isProcess = false;
         notFirstStep = false;
-        isStep = false;
+        isStep = false,
+        touchXStart = 0,
+        touchXEnd = 0,
+        touchYStart = 0,
+        touchYEnd = 0;
     
     createNullElements()
     startNewGame()
@@ -31,6 +35,54 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         else if (ev.keyCode === 40) {
             handleBottomMove();
+        }
+    })
+
+    // Регистрация хода с клавиатуры
+    document.addEventListener('keydown', (ev) => {
+
+        if (!isProcess || isStep) return
+    
+        if (ev.keyCode === 37) {
+            handleLeftMove();
+        }
+        else if (ev.keyCode === 38) {
+            handleTopMove();
+        }
+        else if (ev.keyCode === 39) {
+            handleRightMove();	
+        }
+        else if (ev.keyCode === 40) {
+            handleBottomMove();
+        }
+    })
+
+    // Регистрация хода с тача
+    // Регистрация начального положения тача
+    document.addEventListener('touchstart', (ev) => {
+        touchXStart = ev.touches[0].pageX
+        touchYStart = ev.touches[0].pageY
+    })
+    
+    //Регистрация конечного положения тача
+    document.addEventListener('touchend', (ev) => {
+        touchXEnd = ev.touches[0].pageX
+        touchYEnd = ev.touches[0].pageY
+
+        // Вычисление разницы по осям
+        let diffX = touchXEnd - touchXStart
+        let diffY = touchYEnd - touchYStart
+
+        if (Math.abs(diffX) > Math.abs(diffY) && diffX > 0) {
+            handleRightMove()
+        } else if (Math.abs(diffX) > Math.abs(diffY) && diffX < 0) {
+            handleLeftMove()
+        } else if (Math.abs(diffX) < Math.abs(diffY) && diffY > 0) {
+            handleTopMove()
+        } else if (Math.abs(diffX) < Math.abs(diffY) && diffY < 0) {
+            handleBottomMove()
+        } else {
+            console.log('one dot touch')
         }
     })
 
@@ -240,7 +292,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				} else if (gameData[cell][row] === gameData[nextCell][row]) {
 					gameData[cell][row] *= 2;
 					gameData[nextCell][row] = 0;
-                    renderScore(gameData[row][cell])
+                    renderScore(gameData[cell][row])
 				}
 			} else {
 				break;
@@ -293,7 +345,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				} else if (gameData[cell][row] === gameData[nextCell][row]) {
 					gameData[cell][row] *= 2;
 					gameData[nextCell][row] = 0;
-                    renderScore(gameData[row][cell])
+                    renderScore(gameData[cell][row])
 				}
 			} else {
 				break;
