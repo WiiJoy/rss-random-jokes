@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Merriweather:wght@700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    background-color: #000;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.container {
+    max-width: 1440px;
+    width: 100vw;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header {
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer {
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main {
+    flex: 1;
+}
+
+.title__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.title {
+    color: rgb(189, 174, 130);
+    padding: 20px;
+    font-family: 'Merriweather', serif;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.divider {
+    height: 2px;
+    width: 700px;
+    background-color: rgb(189, 174, 130);
+}
+
+.video {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1400px;
+    border: 1px solid rgb(189, 174, 130);
+}
+
+.video__video {
+    width: 100%;
+}
+
+.video__controls {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 60px;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.button {
+    background: none;
+    border: none;
+    height: 36px;
+    width: 40px;
+    background: center / contain no-repeat;
+    cursor: pointer;
+}
+
+.video__volume__level, .video__timeline {
+    background: linear-gradient(
+        to right,
+        rgb(189, 174, 130) 0%,
+        rgb(189, 174, 130) 50%,
+        rgb(200, 200, 200) 50%,
+        rgb(200, 200, 200) 100%
+      );
+    color: rgb(200, 200, 200);
+    width: calc(15% - 40px);
+    height: 10px;
+    outline: none;
+    cursor: ew-resize;
+    transition: background .4s ease-in;
+    -webkit-appearance: none;
+}
+
+.video__timeline {
+    width: calc(75% - 160px);
+}
+
+.video__volume__level::-webkit-slider-thumb,
+.video__timeline::-webkit-slider-thumb
+ {
+    -webkit-appearance: none;
+    appearance: none;
+    display: inherit;
+    width: 15px;
+    height: 15px;
+    background-color: #fff;
+    border-radius: 50%;
+    margin-top: -1px;
+    cursor: ew-resize;
+}
+
+.volume__line {
+    width: 0;
+}
+
+.button__play {
+    background-image: url('../svg/play.svg');
+    transition: .5s all;
+}
+
+.button__pause {
+    background-image: url('../svg/pause.svg');
+    transition: .5s all;
+}
+
+.volume__on {
+    background-image: url('../svg/volume.svg');
+    transition: .5s all;
+}
+
+.volume__off {
+    background-image: url('../svg/mute.svg');
+    transition: .5s all;
+}
+
+.time__wrap {
+    color: #fff;
+    width: 100px;
+    font-size: 14px;
+}
+
+.video__play {
+    display: block;
+    position: absolute;
+    height: 150px;
+    width: 150px;
+    z-index: 2;
+    background: center / contain no-repeat url('../svg/play-btn.svg');
+    cursor: pointer;
+    transition: .5s all;
+}
+
+.video__play:hover, .volume__on:hover, .volume__off:hover, .button__play:hover, .button__pause:hover {
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
+}
+
+.video__poster {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    background: center / cover no-repeat url('../img/video-bg.jpeg');
+    cursor: pointer;
+    transition: .5s;
+}
+
+.btn__hide {
+    display: none;
+    transition: .3s;
+}
+
+.footer__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    color: #fff;
+}
+
+.footer__left {
+    width: 170px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer__right {
+    width: 250px;
+    text-align: center;
+}
+
+.footer__link {
+    color: #fff;
+    text-decoration: none;
+    transition: .5s;
+}
+
+.footer__link:hover {
+    color: rgb(189, 174, 130);
+}

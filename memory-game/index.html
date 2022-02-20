@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>memory-game</title>
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./assets/style/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper"></div>
+        <div class="tools">
+            <div class="tools__wrapper">
+                <div class="settings">
+                    <p class="settings__hello">Hi <span class="player"></span>!</p>
+                    <label for="nickname" class="input__label">Not you? Enter your name before start game</label>
+                    <input type="text" placeholder="nickname" class="tools__input" id="nickname" autocomplete="off">
+                    <div class="difficult">
+                        <div class="difficult__title">Choose difficulty:</div>
+        
+                        <div class="difficult__btns">
+                            <img class="btn_level btn_active" data-level="easy" src="./assets/svg/difficult/easy.svg" alt="easy" title="easy"/>
+                            <img class="btn_level" data-level="hard" src="./assets/svg/difficult/hard.svg" alt="hard" title="hard"/>
+                            <img class="btn_level" data-level="very-hard" src="./assets/svg/difficult/very-hard.svg" alt="very-hard" title="Very hard"/>
+                            <img class="btn_level" data-level="ultra-hard" src="./assets/svg/difficult/ultra-hard.svg" alt="ultra-hard" title="OMG"/>
+                        </div>
+
+                    </div>
+                    <button class="btn btn_start">New game</button>
+                    <p class="status"></p>
+                   
+                </div>
+                <div class="history">
+                    <div class="history__best">
+                        <h2 class="title_h2">Records</h2>
+                        <div class="history__header">
+                            <div class="item_player">Name</div>
+                            <div class="item_score">Score</div>
+                            <div class="item_steps">Steps</div>
+                        </div>
+                        <div class="best__wrapper"></div>
+                    </div>
+                    <div class="history__last">
+                        <h2 class="title_h2">Last games</h2>
+                        <div class="history__header">
+                            <div class="item_player">Name</div>
+                            <div class="item_score">Score</div>
+                            <div class="item_steps">Steps</div>
+                        </div>
+                        <div class="last__wrapper"></div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <header class="header">
+            <h1 class="title">memory-game</h1>
+            <div class="header__tools">
+                <img src="./assets/svg/icons/rules.svg" alt="rules" class="btn_rules">
+                <div class="sound">
+                    <img class="sound__img" src="./assets/svg/icons/soundon.svg" alt="sound">
+                </div>
+            </div>
+            <div class="rules">RULES: Find couples!<br>
+                Get 2 points for a correct pair. Lose 1 point for a bad choice.<br>
+                Good luck!</div>
+        </header>
+
+        <main class="main">
+            <div class="game">
+                <div class="game__stats">
+                    <div class="game__stats__steps">
+                        <span>Steps: </span><span class="steps">0</span>
+                    </div>
+                    <div class="game__stats__score">
+                        <span>Score: </span><span class="score">0</span>
+                    </div>
+                </div>
+                <div class="cards">
+                </div>
+            </div>
+
+        </main>
+
+        <footer class="footer">
+            <div class="footer__github"><a href="https://github.com/WiiJoy" class="link">WiiJoy</a> &copy; 2022</div>
+            <div class="footer__rss"><a href="https://rs.school/js-stage0/" class="link">Rolling Scopes School</a></div>
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
