@@ -231,7 +231,29 @@ body {
     background-color: #fff;
 }
 
+.modal__button {
+    height: 35px;
+    width: 150px;
+    display: block;
+    margin: 0 auto;
+    border: none;
+    border-radius: 3px;
+    background: white;
+    color: #833535;
+    cursor: pointer;
+    text-transform: uppercase;
+    transform: scale(1);
+    transition: .3s;
+}
 
+.modal__button:hover {
+    color: #1B1B1B;
+    background-color: rgb(197, 194, 194);
+}
+
+.modal__button:active {
+    transform: scale(.95);
+}
 
 @media (max-width: 450px) {
 
