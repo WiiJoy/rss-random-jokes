@@ -310,7 +310,9 @@ body {
 }
 
 .records__wrapper {
+    box-sizing: border-box;
     position: relative;
+    padding: 5px;
 }
 
 .records__wrapper::before {
@@ -320,6 +322,10 @@ body {
     background-color: rgba(255, 255, 255, .5);
     width: 300px;
     height: 1px;
+}
+
+.records__wrapper:hover {
+    background-color: rgba(255, 255, 255, .1);
 }
 
 @media (max-width: 450px) {
