@@ -183,13 +183,16 @@ body {
     max-width: 450px;
     min-width: 300px;
     background-color: #833535;
-    box-shadow: 0px 10px 10px #833535, 0px -10px 10px #833535, 10px 0 10px #833535, -10px 0 10px #833535;
+    border: 2px solid #1B1B1B;
+    border-radius: 5px;
+    box-shadow: 0px 10px 10px #1B1B1B, 0px -10px 10px #1B1B1B, 10px 0 10px #1B1B1B, -10px 0 10px #1B1B1B;
     padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
+    transition: opacity .3s;
 }
 
 .modal__input {
@@ -198,6 +201,11 @@ body {
 
 .modal__status, .modal__input__label {
     text-align: center;
+}
+
+.modal__status {
+    font-size: 16px;
+    line-height: 32px;
 }
 
 .modal__input__label, .modal__input__input {

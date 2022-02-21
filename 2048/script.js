@@ -5,7 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
           input = document.querySelector('.modal__input__input'),
           gameStatus = document.querySelector('.modal__status'),
           recordsTable = document.querySelector('.modal__records__body'),
-          btn = document.querySelector('.modal__button');
+          btn = document.querySelector('.modal__button'),
+          modal = document.querySelector('.modal');
 
     let gameData = [],
         score = 0,
@@ -49,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Регистрация хода с клавиатуры
     document.addEventListener('keydown', (ev) => {
 
-        if (!isProcess || isStep) return
+        if ((!isProcess || isStep) && currGameStatus !== 'game') return
     
         if (ev.keyCode === 37) {
             handleLeftMove();
@@ -102,9 +103,19 @@ document.addEventListener('DOMContentLoaded', () => {
         renderStatus()
     })
 
+    btn.addEventListener('click', () => {
+        startNewGame()
+
+        modal.style.opacity = 0
+
+        setTimeout(() => {
+            modal.style.display = 'none'
+            currGameStatus = 'game'
+        }, 300)
+    })
+
     
     function startNewGame() {
-        currGameStatus = 'game'
         score = 0
         gameData = []
 
@@ -413,6 +424,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (checkIsGameEnd()) {
             currGameStatus = 'end'
             handleRecords()
+            renderStatus()
+
+            modal.style.display = 'flex'
+
+            setTimeout(() => {
+                modal.style.opacity = 1
+                // currGameStatus = 'game'
+            }, 300)
         }
     }
 
