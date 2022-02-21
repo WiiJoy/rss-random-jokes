@@ -6,7 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
           gameStatus = document.querySelector('.modal__status'),
           recordsTable = document.querySelector('.modal__records__body'),
           btn = document.querySelector('.modal__button'),
-          modal = document.querySelector('.modal');
+          modal = document.querySelector('.modal'),
+          btnRules = document.querySelector('.btn_rules'),
+          rules = document.querySelector('.rules'),
+          rulesIcons = document.querySelector('.rules__icons');
 
     let gameData = [],
         score = 0,
@@ -19,7 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
         touchYStart = 0,
         touchYEnd = 0,
         records = [],
-        playerName = '';
+        playerName = '',
+        isOpen = false;
 
     const images = ['2', '4', '8', '16', '32', '64', '128', '256', '512', '1024', '2048', '4096', '8192']
     
@@ -97,6 +101,29 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             modal.style.display = 'none'
             currGameStatus = 'game'
+        }, 300)
+    })
+
+    // Обработка клика по кнопке правил с открытием блока правил
+    btnRules.addEventListener('click', () => {
+        if (isOpen) return
+
+        rules.style.display = 'block';
+        setTimeout(() => {
+            rules.style.opacity = 1
+            isOpen = !isOpen
+        }, 300)
+
+    })
+
+    // Обработка клика на любой части документа для закрытия правил
+    document.body.addEventListener('click', () => {
+        if (!isOpen) return
+
+        rules.style.opacity = 0
+        setTimeout(() => {
+            rules.style.display = 'none';
+            isOpen = !isOpen
         }, 300)
     })
 
@@ -461,8 +488,14 @@ document.addEventListener('DOMContentLoaded', () => {
         for (let i = 0; i < images.length; i++) {
             const img = new Image();
             img.src = `./assets/svg/cards/${images[i]}.svg`;
+            img.classList.add('rules__item')
+            rulesIcons.append(img)
         }
     }
+
+    // function createRules() {
+    //     const
+    // }
 
     console.log('Вёрстка +10\n - реализован интерфейс игры +5 (есть!)\n - в футере приложения есть ссылка на гитхаб автора приложения, год создания приложения, логотип курса со ссылкой на курс +5 (есть!)\nЛогика игры. Ходы, перемещения фигур, другие действия игрока подчиняются определённым свойственным игре правилам +10\nРеализовано завершение игры при достижении игровой цели +10 (логика максимально приближена к реальности с поправкой на картинки вместо чисел)\nПо окончанию игры выводится её результат, например, количество ходов, время игры, набранные баллы, выигрыш или поражение и т.д +10 (есть!)\nРезультаты последних 10 игр сохраняются в local storage. Есть таблица рекордов, в которой сохраняются результаты предыдущих 10 игр +10 (есть!)\nАнимации или звуки, или настройки игры. Баллы начисляются за любой из перечисленных пунктов +10 (есть возможность установки имени игрока, есть простая анимация перемещения карт - плавное исчезание и плавное появление на новом месте)\nОчень высокое качество оформления приложения и/или дополнительный не предусмотренный в задании функционал, улучшающий качество приложения +10 (добавлена поддержка touch-событий, т.е. игра полноценно играется с телефона)')
     
