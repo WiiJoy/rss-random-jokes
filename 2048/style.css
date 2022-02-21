@@ -345,8 +345,12 @@ body {
 
 @media (max-width: 450px) {
 
+    .title {
+        font-size: 26px;
+    }
+
     .game__tools__score {
-        font-size: 36px;
+        font-size: 24px;
     }
 
     .score__title, .score {
@@ -358,6 +362,10 @@ body {
         grid-template-rows: repeat(4, 60px);
         grid-template-columns: repeat(4, 60px);
         /* gap: 10px; */
+    }
+
+    .footer {
+        font-size: 12px;
     }
 }
 

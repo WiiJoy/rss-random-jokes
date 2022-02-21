@@ -79,10 +79,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     })
 
-    document.addEventListener('touchmove', (ev) => {
-        console.log(ev)
-    })
-
     input.addEventListener('input', (ev) => {
         console.log(ev.target.value)
         playerName = ev.target.value
