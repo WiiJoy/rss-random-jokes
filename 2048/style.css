@@ -21,13 +21,14 @@
 }
 
 body {
+    height: 100vh;
     background-color: #833535;
     position: relative;
 }
 
 .container {
     margin: 0 auto;
-    height: 100vh;
+    height: 100%;
     max-width: 1280px;
     width: 100%;
     display: flex;
@@ -344,9 +345,9 @@ body {
 }
 
 @media (max-width: 450px) {
-    .container {
+    /* .container {
         height: 100%;
-    }
+    } */
 
     .title {
         font-size: 26px;
