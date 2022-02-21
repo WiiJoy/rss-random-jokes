@@ -10,8 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let gameData = [],
         score = 0,
-        // isGameEnd = false,
-        // isGameProcess = true,
         currGameStatus = 'ready',
         isProcess = false;
         notFirstStep = false;
@@ -27,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
     renderGames()
     renderStatus()
     createNullElements()
-    // startNewGame()
     renderScore()
 
     document.addEventListener('keydown', (ev) => {
@@ -72,7 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('touchstart', (ev) => {
         if ((!isProcess || isStep) && currGameStatus !== 'game') return
 
-        console.log(ev.touches[0])
         touchXStart = ev.touches[0].pageX
         touchYStart = ev.touches[0].pageY
     })
@@ -81,7 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('touchend', (ev) => {
         if ((!isProcess || isStep) && currGameStatus !== 'game') return
 
-        console.log(ev)
         touchXEnd = ev.changedTouches[0].pageX
         touchYEnd = ev.changedTouches[0].pageY
 
@@ -191,25 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Обработка хода влево
     function handleLeftMove() {
         console.log('left move')
-        let startCondition = '' + gameData
-
-        for (let i = 0; i < 4; i++) {
-            handleLeftMoveRow(i)
-        }
-
-        let finalCondition = '' + gameData
-
-        if (startCondition !== finalCondition) {
-            isStep = true
-            handleGameProcess()
-            
-            setTimeout(() => {
-                getRandomCell()
-                checkStatus()
-                handleGameProcess()
-                isStep = false
-            }, 300)
-        }
+        makeStep('left')
     }
 
     function handleLeftMoveRow(row) {
@@ -243,25 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Обработка хода вправо
     function handleRightMove() {
         console.log('right move')
-        let startCondition = '' + gameData
-
-        for (let i = 0; i < 4; i++) {
-            handleRightMoveRow(i)
-        }
-
-        let finalCondition = '' + gameData
-
-        if (startCondition !== finalCondition) {
-            isStep = true
-            handleGameProcess()
-            
-            setTimeout(() => {
-                getRandomCell()
-                checkStatus()
-                handleGameProcess()
-                isStep = false
-            }, 300)
-        }
+        makeStep('right')
     }
 
     function handleRightMoveRow(row) {
@@ -295,25 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Обработка хода вверх
     function handleTopMove() {
         console.log('top move')
-        let startCondition = '' + gameData;
-
-		for (let i = 0; i < 4; i++) {
-			handleTopMoveRow(i);
-		}
-
-		let finalCondition = '' + gameData
-
-		if (startCondition !== finalCondition) {
-            isStep = true
-			handleGameProcess()
-            
-            setTimeout(() => {
-                getRandomCell()
-                checkStatus()
-                handleGameProcess()
-                isStep = false
-            }, 300)
-		}
+        makeStep('top')
     }
 
     function handleTopMoveRow(row) {
@@ -348,25 +289,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Обработка хода вниз
     function handleBottomMove() {
         console.log('bottom move')
-        let startCondition = '' + gameData;
-
-		for (let i = 0; i < 4; i++) {
-			handleBottomMoveRow(i);
-		}
-
-		let finalCondition = '' + gameData
-
-		if (startCondition !== finalCondition) {
-            isStep = true
-			handleGameProcess()
-            
-            setTimeout(() => {
-                getRandomCell()
-                checkStatus()
-                handleGameProcess()
-                isStep = false
-            }, 300)
-		}
+        makeStep('bottom')
     }
 
     function handleBottomMoveRow(row) {
@@ -395,6 +318,43 @@ document.addEventListener('DOMContentLoaded', () => {
 			}
 		}
 		return -1;
+    }
+
+    function makeStep(side) {
+
+        let startCondition = '' + gameData;
+
+        for (let i = 0; i < 4; i++) {
+			switch (side) {
+                case 'left':
+                    handleLeftMoveRow(i)
+                    break
+                case 'right':
+                    handleRightMoveRow(i)
+                    break
+                case 'top':
+                    handleTopMoveRow(i);
+                    break
+                case 'bottom':
+                    handleBottomMoveRow(i);
+                    break
+            }
+		}
+
+		let finalCondition = '' + gameData
+
+		if (startCondition !== finalCondition) {
+            isStep = true
+			handleGameProcess()
+            
+            setTimeout(() => {
+                getRandomCell()
+                checkStatus()
+                handleGameProcess()
+                isStep = false
+            }, 300)
+		}
+
     }
 
     function renderScore(value = 0) {
@@ -438,7 +398,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             setTimeout(() => {
                 modal.style.opacity = 1
-                // currGameStatus = 'game'
             }, 300)
         }
     }
