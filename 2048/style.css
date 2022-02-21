@@ -40,6 +40,10 @@ body {
     padding: 20px;
 }
 
+.title {
+    font-size: 36px;
+}
+
 .main {
     flex: 1;
     display: flex;
