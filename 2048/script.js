@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         playerName = '';
     
     getLocalStorage()
+    renderGames()
     renderStatus()
     createNullElements()
     // startNewGame()
@@ -454,6 +455,8 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         records = records.sort((a, b) => b.score - a.score)
 
+        renderGames()
+
         setLocalStorage()
     }
 
@@ -468,6 +471,36 @@ document.addEventListener('DOMContentLoaded', () => {
                 gameStatus.innerHTML = `${playerName || 'Player'}, your result: ${score}! <br> Press NEW GAME to play again!`
                 break
         }
+    }
+
+    // Построение таблицы рекордов
+    function renderGames() {
+        recordsTable.innerHTML = ''
+        if (!records.length) {
+            recordsTable.innerHTML = 'No records'
+        } else {
+            records.forEach((item) => {
+                recordsTable.append(createItem(item))
+            })
+        }
+    }
+
+    function createItem(obj) {
+        const divWrapper = document.createElement('div')
+        const divName = document.createElement('div')
+        const divScore = document.createElement('div')
+
+        divName.innerHTML = obj.player
+        divScore.innerHTML = obj.score
+
+        divWrapper.classList.add('records__wrapper')
+        divName.classList.add('records__name')
+        divScore.classList.add('records__score')
+
+        divWrapper.append(divName)
+        divWrapper.append(divScore)
+
+        return divWrapper
     }
 
     // Запись результатов в localStorage
