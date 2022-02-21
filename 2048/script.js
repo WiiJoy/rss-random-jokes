@@ -70,6 +70,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Регистрация хода с тача
     // Регистрация начального положения тача
     document.addEventListener('touchstart', (ev) => {
+        if ((!isProcess || isStep) && currGameStatus !== 'game') return
+
         console.log(ev.touches[0])
         touchXStart = ev.touches[0].pageX
         touchYStart = ev.touches[0].pageY
@@ -77,6 +79,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
     //Регистрация конечного положения тача
     document.addEventListener('touchend', (ev) => {
+        if ((!isProcess || isStep) && currGameStatus !== 'game') return
+
         console.log(ev)
         touchXEnd = ev.changedTouches[0].pageX
         touchYEnd = ev.changedTouches[0].pageY
@@ -159,6 +163,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 currCell.firstChild.style.opacity = 0
 
                 let div = document.createElement('div')
+
+                div.style.opacity = 0
 				
                 setTimeout(() => {
 
@@ -173,6 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     currCell.append(div)
 
                     currCell.style.opacity = 1
+                    currCell.firstChild.style.opacity = 1
                 }, 300)
 			}
 		}
