@@ -85,7 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     input.addEventListener('input', (ev) => {
-        console.log(ev.target.value)
         playerName = ev.target.value
         renderStatus()
     })
@@ -166,13 +165,10 @@ document.addEventListener('DOMContentLoaded', () => {
 			}
 		}
         notFirstStep = true
-
-        console.log('gameData: ', gameData)
     }
 
     // Обработка хода влево
     function handleLeftMove() {
-        console.log('left move')
         makeStep('left')
     }
 
@@ -206,7 +202,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Обработка хода вправо
     function handleRightMove() {
-        console.log('right move')
         makeStep('right')
     }
 
@@ -240,7 +235,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Обработка хода вверх
     function handleTopMove() {
-        console.log('top move')
         makeStep('top')
     }
 
@@ -275,7 +269,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Обработка хода вниз
     function handleBottomMove() {
-        console.log('bottom move')
         makeStep('bottom')
     }
 
@@ -414,10 +407,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function renderStatus() {
-        console.log('start render status')
         switch (currGameStatus) {
             case 'ready':
-                console.log('change status: ', playerName)
                 gameStatus.innerHTML = `${playerName || 'Player'}, press NEW GAME to start!`
                 break
             case 'end':
@@ -468,7 +459,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function preloadImages() {
         for (let i = 0; i < images.length; i++) {
-            console.log(i)
             const img = new Image();
             img.src = `./assets/svg/cards/${images[i]}.svg`;
         }
