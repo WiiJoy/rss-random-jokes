@@ -1,13 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    const scoreItem = document.querySelector('.score')
-          cellItems = document.querySelectorAll('.game__cell')
+    const scoreItem = document.querySelector('.score'),
+          cellItems = document.querySelectorAll('.game__cell'),
+          input = document.querySelector('.modal__input__input'),
+          gameStatus = document.querySelector('.modal__status'),
+          recordsTable = document.querySelector('.modal__records__body'),
+          btn = document.querySelector('.modal__button');
 
     let gameData = [],
         score = 0,
-        isGameEnd = false,
-        isGameProcess = true,
-        currGameStatus = true,
+        // isGameEnd = false,
+        // isGameProcess = true,
+        currGameStatus = 'ready',
         isProcess = false;
         notFirstStep = false;
         isStep = false,
@@ -19,8 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
         playerName = '';
     
     getLocalStorage()
+    renderStatus()
     createNullElements()
-    startNewGame()
+    // startNewGame()
     renderScore()
 
     document.addEventListener('keydown', (ev) => {
@@ -91,9 +96,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     })
 
+    input.addEventListener('input', (ev) => {
+        console.log(ev.target.value)
+        playerName = ev.target.value
+        renderStatus()
+    })
+
     
     function startNewGame() {
-        currGameStatus = isGameProcess
+        currGameStatus = 'game'
         score = 0
         gameData = []
 
@@ -400,7 +411,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function checkStatus() {
         if (checkIsGameEnd()) {
-            currGameStatus = isGameEnd
+            currGameStatus = 'end'
             handleRecords()
         }
     }
@@ -425,6 +436,19 @@ document.addEventListener('DOMContentLoaded', () => {
         records = records.sort((a, b) => b.score - a.score)
 
         setLocalStorage()
+    }
+
+    function renderStatus() {
+        console.log('start render status')
+        switch (currGameStatus) {
+            case 'ready':
+                console.log('change status: ', playerName)
+                gameStatus.innerHTML = `${playerName || 'Player'}, press NEW GAME to start!`
+                break
+            case 'end':
+                gameStatus.innerHTML = `${playerName || 'Player'}, your result: ${score}! <br> Press NEW GAME to play again!`
+                break
+        }
     }
 
     // Запись результатов в localStorage

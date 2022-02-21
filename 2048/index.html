@@ -55,7 +55,19 @@
     </div>
 
     <div class="modal">
-        Its modal
+        <div class="modal__status"></div>
+        <div class="modal__input">
+            <label for="playername" class="modal__input__label">Enter your name before start game</label>
+            <input type="text" placeholder="name" class="modal__input__input" id="playername" autocomplete="off">
+        </div>
+        <button class="modal__button">New Game</button>
+        <div class="modal__records">
+            <div class="modal__records__header">
+                <div class="records__name">Name</div>
+                <div class="records__score">Score</div>
+            </div>
+            <div class="modal__records__body"></div>
+        </div>
     </div>
 
     <script src="script.js"></script>
