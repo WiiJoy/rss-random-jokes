@@ -27,24 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
     createNullElements()
     renderScore()
 
-    document.addEventListener('keydown', (ev) => {
-
-        if (!isProcess || isStep) return
-    
-        if (ev.keyCode === 37) {
-            handleLeftMove();
-        }
-        else if (ev.keyCode === 38) {
-            handleTopMove();
-        }
-        else if (ev.keyCode === 39) {
-            handleRightMove();	
-        }
-        else if (ev.keyCode === 40) {
-            handleBottomMove();
-        }
-    })
-
     // Регистрация хода с клавиатуры
     document.addEventListener('keydown', (ev) => {
 
