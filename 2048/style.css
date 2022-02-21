@@ -9,6 +9,17 @@
     color: rgb(255, 255, 255);
 }
 
+*::-webkit-scrollbar {
+    width: 5px;
+    background-color: none;
+}
+
+*::-webkit-scrollbar-thumb {
+    width: 5px;
+    background-color: rgba(255, 255, 255, .1);
+    border-radius: 3px;
+}
+
 body {
     background-color: #833535;
     position: relative;
@@ -308,6 +319,9 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    max-height: 110px;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .records__wrapper {
@@ -321,7 +335,7 @@ body {
     position: absolute;
     top: -5px;
     background-color: rgba(255, 255, 255, .5);
-    width: 300px;
+    width: 280px;
     height: 1px;
 }
 
