@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         records = [],
         playerName = '';
     
+    getLocalStorage()
     createNullElements()
     startNewGame()
     renderScore()
@@ -422,8 +423,18 @@ document.addEventListener('DOMContentLoaded', () => {
             score: score
         })
         records = records.sort((a, b) => b.score - a.score)
+
+        setLocalStorage()
+    }
+
+    // Запись результатов в localStorage
+    function setLocalStorage() {
+        localStorage.setItem('records', JSON.stringify(records))
+    }
+
+    // Считывание результатов из localStorage
+    function getLocalStorage() {
+        if (localStorage.getItem('records')) records = (JSON.parse(localStorage.getItem('records'))).sort((a, b) => b.score - a.score)
     }
     
-
-
 })
