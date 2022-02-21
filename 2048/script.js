@@ -20,9 +20,11 @@ document.addEventListener('DOMContentLoaded', () => {
         touchYEnd = 0,
         records = [],
         playerName = '';
+
+    const images = ['2', '4', '8', '16', '32', '64', '128', '256', '512', '1024', '2048', '4096', '8192']
     
     getLocalStorage()
-    // preloadImages()
+    preloadImages()
     renderGames()
     renderStatus()
     createNullElements()
@@ -465,9 +467,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function preloadImages() {
-        for (let i = 2; i <= 8192; i*2) {
-          const img = new Image();
-          img.src = `./assets/svg/cards/${i}.svg`;
+        for (let i = 0; i < images.length; i++) {
+            console.log(i)
+            const img = new Image();
+            img.src = `./assets/svg/cards/${images[i]}.svg`;
         }
     }
 
