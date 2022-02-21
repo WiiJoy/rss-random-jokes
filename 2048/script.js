@@ -54,6 +54,10 @@ document.addEventListener('DOMContentLoaded', () => {
         touchXStart = ev.touches[0].pageX
         touchYStart = ev.touches[0].pageY
     })
+
+    document.addEventListener('touchmove', (ev) => {
+        ev.preventDefault()
+    })
     
     //Регистрация конечного положения тача
     document.addEventListener('touchend', (ev) => {
