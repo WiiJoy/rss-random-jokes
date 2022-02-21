@@ -14,7 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
         touchXStart = 0,
         touchXEnd = 0,
         touchYStart = 0,
-        touchYEnd = 0;
+        touchYEnd = 0,
+        records = [],
+        playerName = '';
     
     createNullElements()
     startNewGame()
@@ -398,7 +400,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function checkStatus() {
         if (checkIsGameEnd()) {
             currGameStatus = isGameEnd
-            console.log('game end')
+            handleRecords()
         }
     }
 
@@ -408,6 +410,18 @@ document.addEventListener('DOMContentLoaded', () => {
             div.className = `game__cell__item`
             cell.append(div)
         }
+    }
+
+    function handleRecords() {
+        if (records[9] && records[9] >= score) return
+
+        if (records.length === 10) records.pop()
+
+        records.push({
+            player: playerName || 'Player',
+            score: score
+        })
+        records = records.sort((a, b) => b.score - a.score)
     }
     
 
