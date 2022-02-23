@@ -138,8 +138,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Клик по кнопкам модального окна с выбором продолжить последнюю игру или начать новую
     continueBtns.addEventListener('click', (ev) => {
-        if (ev.target.dataset.button = 'continue') {
+        if (ev.target.dataset.button === 'continue') {
             handleGameProcess()
+            input.value = playerName
 
             modal.style.opacity = 0
             continueModal.style.opacity = 0
@@ -149,13 +150,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 continueModal.style.display = 'none'
                 currGameStatus = 'game'
             }, 300)
+        } 
+        
+        if (ev.target.dataset.button === 'new') {
+            clearGameData()
+            renderStatus()
+            continueModal.style.opacity = 0
+
+            setTimeout(() => {
+                continueModal.style.display = 'none'
+            }, 300)
         }
     })
 
     
     function startNewGame() {
-        
-
         for (let i = 0; i < 4; i++) {
 			gameData[i] = [];
 			for (let j = 0; j < 4; j++) {
@@ -384,7 +393,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 handleGameProcess()
                 setLocalStorage('gameData', {
                     'player': playerName,
-                    'data': gameData
+                    'data': gameData,
+                    'score': score
                 })
                 isStep = false
             }, 150)
@@ -522,6 +532,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             playerName = res.player
             gameData = res.data
+            score = res.score
 
             continueModal.style.display = 'flex'
             setTimeout(() => {
