@@ -72,6 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     document.addEventListener('touchmove', (ev) => {
+        if (currGameStatus !== 'game') return
         ev.preventDefault()
     }, { passive: false })
     
