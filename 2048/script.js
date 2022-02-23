@@ -27,8 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const images = ['2', '4', '8', '16', '32', '64', '128', '256', '512', '1024', '2048', '4096', '8192']
     
-    getLocalStorage()
     preloadImages()
+    getLocalStorage()
     renderGames()
     renderStatus()
 
@@ -364,8 +364,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 getRandomCell()
                 checkStatus()
                 handleGameProcess()
+                setLocalStorage('gameData', {
+                    'player': playerName,
+                    'data': gameData
+                })
                 isStep = false
-            }, 300)
+            }, 150)
 		}
 
     }
@@ -442,7 +446,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         renderGames()
 
-        setLocalStorage()
+        setLocalStorage('records', records)
     }
 
     function renderStatus() {
@@ -487,8 +491,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Запись результатов в localStorage
-    function setLocalStorage() {
-        localStorage.setItem('records', JSON.stringify(records))
+    function setLocalStorage(key, value) {
+        localStorage.setItem(key, JSON.stringify(value))
     }
 
     // Считывание результатов из localStorage
