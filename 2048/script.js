@@ -522,6 +522,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
             playerName = res.player
             gameData = res.data
+
+            continueModal.style.display = 'flex'
+            setTimeout(() => {
+                continueModal.style.opacity = 1
+            }, 300)
         }
     }
 
