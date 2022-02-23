@@ -140,7 +140,6 @@ document.addEventListener('DOMContentLoaded', () => {
     continueBtns.addEventListener('click', (ev) => {
         if (ev.target.dataset.button === 'continue') {
             handleGameProcess()
-            input.value = playerName
 
             modal.style.opacity = 0
             continueModal.style.opacity = 0
@@ -153,6 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } 
         
         if (ev.target.dataset.button === 'new') {
+            handleRecords()
             clearGameData()
             renderStatus()
             continueModal.style.opacity = 0
@@ -533,6 +533,7 @@ document.addEventListener('DOMContentLoaded', () => {
             playerName = res.player
             gameData = res.data
             score = res.score
+            input.value = res.player
 
             continueModal.style.display = 'flex'
             setTimeout(() => {
