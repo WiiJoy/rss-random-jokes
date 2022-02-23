@@ -404,7 +404,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 })
 
                 checkStatus()
-                
+
                 isStep = false
             }, 150)
 		}
@@ -439,13 +439,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Если ни одно условие из цикла не вернет false, возвращать true - игра окончена, ходов нет
-        localStorage.removeItem('gameData')
         return true
     }
 
     function checkStatus() {
         if (checkIsGameEnd()) {
             currGameStatus = 'end'
+            localStorage.removeItem('gameData')
             handleRecords()
             renderStatus()
 
