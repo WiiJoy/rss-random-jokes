@@ -9,7 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
           btnRules = document.querySelector('.btn_rules'),
           rules = document.querySelector('.rules'),
           rulesIcons = document.querySelector('.rules__icons'),
-          field = document.querySelector('.game__field');
+          field = document.querySelector('.game__field'),
+          continueModal = document.querySelector('.continue'),
+          continueBtns = document.querySelector('.continue__btns');
 
     let gameData = [],
         score = 0,
@@ -132,6 +134,22 @@ document.addEventListener('DOMContentLoaded', () => {
             rules.style.display = 'none';
             isOpen = !isOpen
         }, 300)
+    })
+
+    // Клик по кнопкам модального окна с выбором продолжить последнюю игру или начать новую
+    continueBtns.addEventListener('click', (ev) => {
+        if (ev.target.dataset.button = 'continue') {
+            handleGameProcess()
+
+            modal.style.opacity = 0
+            continueModal.style.opacity = 0
+
+            setTimeout(() => {
+                modal.style.display = 'none'
+                continueModal.style.display = 'none'
+                currGameStatus = 'game'
+            }, 300)
+        }
     })
 
     
@@ -498,6 +516,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Считывание результатов из localStorage
     function getLocalStorage() {
         if (localStorage.getItem('records')) records = (JSON.parse(localStorage.getItem('records'))).sort((a, b) => b.score - a.score)
+
+        if (localStorage.getItem('gameData')) {
+            let res = JSON.parse(localStorage.getItem('gameData'))
+
+            playerName = res.player
+            gameData = res.data
+        }
     }
 
     function preloadImages() {

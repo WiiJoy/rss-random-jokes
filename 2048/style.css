@@ -411,7 +411,7 @@ body {
     width: 50%;
     max-width: 450px;
     min-width: 300px;
-    background-color: #833535;
+    background-color: #cf5555;
     border: 2px solid #1B1B1B;
     border-radius: 5px;
     box-shadow: 0px 10px 10px #1B1B1B, 0px -10px 10px #1B1B1B, 10px 0 10px #1B1B1B, -10px 0 10px #1B1B1B;
@@ -422,6 +422,15 @@ body {
     align-items: center;
     gap: 20px;
     transition: opacity .3s;
+}
+
+.continue::before {
+    content: '';
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: -5;
 }
 
 .continue__btns {
