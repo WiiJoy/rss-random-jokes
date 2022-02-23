@@ -25,7 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
         touchYEnd = 0,
         records = [],
         playerName = '',
-        isOpen = false;
+        isOpen = false,
+        checkpoint = false;
 
     const images = ['2', '4', '8', '16', '32', '64', '128', '256', '512', '1024', '2048', '4096', '8192']
     
@@ -152,9 +153,12 @@ document.addEventListener('DOMContentLoaded', () => {
         } 
         
         if (ev.target.dataset.button === 'new') {
+            currGameStatus = 'end'
+
             handleRecords()
             clearGameData()
             renderStatus()
+
             continueModal.style.opacity = 0
 
             setTimeout(() => {
@@ -445,6 +449,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 modal.style.opacity = 1
             }, 300)
         }
+
+        check2048()
     }
 
     // Создание ячейки игрового поля
@@ -533,6 +539,7 @@ document.addEventListener('DOMContentLoaded', () => {
             playerName = res.player
             gameData = res.data
             score = res.score
+            checkpoint = res.checkpoint
             input.value = res.player
 
             continueModal.style.display = 'flex'
@@ -554,7 +561,27 @@ document.addEventListener('DOMContentLoaded', () => {
     function clearGameData() {
         score = 0
         gameData = []
+        checkpoint = false
         localStorage.removeItem('gameData')
+    }
+
+    function check2048() {
+        if (!checkpoint) return
+
+        for (let row in gameData) {
+            if (!row.includes(2048)) return
+        }
+
+        checkpoint = true
+
+        currGameStatus = 'wait'
+
+        continueModal.firstChild.innerHTML = "You have reached the Deathly Hallows!<br>What's next?"
+
+        continueModal.style.display = 'flex'
+        setTimeout(() => {
+            continueModal.style.opacity = 1
+        }, 300)
     }
 
     console.log('Вёрстка +10\n - реализован интерфейс игры +5 (есть!)\n - в футере приложения есть ссылка на гитхаб автора приложения, год создания приложения, логотип курса со ссылкой на курс +5 (есть!)\nЛогика игры. Ходы, перемещения фигур, другие действия игрока подчиняются определённым свойственным игре правилам +10\nРеализовано завершение игры при достижении игровой цели +10 (логика максимально приближена к реальности с поправкой на картинки вместо чисел)\nПо окончанию игры выводится её результат, например, количество ходов, время игры, набранные баллы, выигрыш или поражение и т.д +10 (есть!)\nРезультаты последних 10 игр сохраняются в local storage. Есть таблица рекордов, в которой сохраняются результаты предыдущих 10 игр +10 (есть!)\nАнимации или звуки, или настройки игры. Баллы начисляются за любой из перечисленных пунктов +10 (есть возможность установки имени игрока, есть простая анимация перемещения карт - плавное исчезание и плавное появление на новом месте)\nОчень высокое качество оформления приложения и/или дополнительный не предусмотренный в задании функционал, улучшающий качество приложения +10 (добавлена поддержка touch-событий, т.е. игра полноценно играется с телефона)')
