@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         records = [],
         playerName = '',
         isOpen = false,
-        checkpoint = false;
+        checkWas2048 = false;
 
     const images = ['2', '4', '8', '16', '32', '64', '128', '256', '512', '1024', '2048', '4096', '8192']
     
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Регистрация хода с клавиатуры
     document.addEventListener('keydown', (ev) => {
 
-        if ((!isProcess || isStep) && currGameStatus !== 'game') return
+        if (currGameStatus !== 'game' && isProcess === false && isStep === true) return
     
         if (ev.keyCode === 37) {
             handleLeftMove();
@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } 
         
         if (ev.target.dataset.button === 'new') {
-            currGameStatus = 'end'
+            currGameStatus = !checkWas2048 ? 'end' : 'win'
 
             handleRecords()
             renderStatus()
@@ -236,6 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Обработка хода влево
     function handleLeftMove() {
+        if (currGameStatus !== 'game') return
         makeStep('left')
     }
 
@@ -269,6 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Обработка хода вправо
     function handleRightMove() {
+        if (currGameStatus !== 'game') return
         makeStep('right')
     }
 
@@ -302,6 +304,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Обработка хода вверх
     function handleTopMove() {
+        if (currGameStatus !== 'game') return
         makeStep('top')
     }
 
@@ -336,6 +339,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Обработка хода вниз
     function handleBottomMove() {
+        if (currGameStatus !== 'game') return
         makeStep('bottom')
     }
 
@@ -401,7 +405,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 setLocalStorage('gameData', {
                     'player': playerName,
                     'data': gameData,
-                    'score': score
+                    'score': score,
+                    'checkWas2048': checkWas2048
                 })
 
                 checkStatus()
@@ -563,7 +568,7 @@ document.addEventListener('DOMContentLoaded', () => {
             playerName = res.player
             gameData = res.data
             score = res.score
-            checkpoint = res.checkpoint
+            checkWas2048 = res.checkWas2048
             input.value = res.player
 
             continueModal.style.display = 'flex'
@@ -585,22 +590,29 @@ document.addEventListener('DOMContentLoaded', () => {
     function clearGameData() {
         score = 0
         gameData = []
-        checkpoint = false
+        checkWas2048 = false
         localStorage.removeItem('gameData')
     }
 
     function check2048() {
-        if (!checkpoint) return
+        if (checkWas2048) return
 
         let is2048 = false
 
-        for (let row in gameData) {
+        for (let row of gameData) {
             if (row.includes(2048)) is2048 = true
         }
 
         if (!is2048) return
 
-        checkpoint = true
+        checkWas2048 = true
+
+        setLocalStorage('gameData', {
+            'player': playerName,
+            'data': gameData,
+            'score': score,
+            'checkWas2048': checkWas2048
+        })
 
         currGameStatus = 'wait'
 
@@ -615,7 +627,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function checkWin() {
         let isWin = false
 
-        for (let row in gameData) {
+        for (let row of gameData) {
             if (row.includes(16384)) isWin = true
         }
 
