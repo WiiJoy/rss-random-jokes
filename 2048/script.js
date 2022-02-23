@@ -156,8 +156,9 @@ document.addEventListener('DOMContentLoaded', () => {
             currGameStatus = 'end'
 
             handleRecords()
-            clearGameData()
             renderStatus()
+            clearGameData()
+            renderScore()
 
             continueModal.style.opacity = 0
 
@@ -169,6 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     
     function startNewGame() {
+
         for (let i = 0; i < 4; i++) {
 			gameData[i] = [];
 			for (let j = 0; j < 4; j++) {
@@ -393,13 +395,16 @@ document.addEventListener('DOMContentLoaded', () => {
             
             setTimeout(() => {
                 getRandomCell()
-                checkStatus()
+                
                 handleGameProcess()
                 setLocalStorage('gameData', {
                     'player': playerName,
                     'data': gameData,
                     'score': score
                 })
+
+                checkStatus()
+                
                 isStep = false
             }, 150)
 		}
@@ -434,6 +439,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Если ни одно условие из цикла не вернет false, возвращать true - игра окончена, ходов нет
+        localStorage.removeItem('gameData')
         return true
     }
 
@@ -489,8 +495,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 gameStatus.innerHTML = `${playerName || 'Player'}, press NEW GAME to start!`
                 break
             case 'end':
-                gameStatus.innerHTML = `${playerName || 'Player'}, your result: ${score}! <br> Press NEW GAME to play again!`
+                gameStatus.innerHTML = `${playerName || 'Player'}, you lose with result: ${score}! <br> Press NEW GAME to play again!`
                 break
+            case 'win': {
+                gameStatus.innerHTML = `${playerName || 'Player'}, you win with result: ${score}! <br> Press NEW GAME to play again!`
+                break
+            }
         }
     }
 
