@@ -1,6 +1,9 @@
-# wiijoy-JSFEPRESCHOOL
-Private repository for @wiijoy
+# RANDOM-JOKES
 
-1. [portfolio](https://rolling-scopes-school.github.io/wiijoy-JSFEPRESCHOOL/portfolio/)
-2. [custom-video](https://rolling-scopes-school.github.io/wiijoy-JSFEPRESCHOOL/custom-video/)
-3. [random-jokes](https://rolling-scopes-school.github.io/wiijoy-JSFEPRESCHOOL/random-jokes/)
+## Link
+
+https://wiijoy.github.io/rss-random-jokes/
+
+## Description
+
+Second task js30 random-jokes, JS/FE Pre-School. Practice with handle API requests
